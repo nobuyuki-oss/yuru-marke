@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>クイズアプリ</title>
+    <title>ゆるマーケ道場 - プレミアムクイズアプリ</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body { 
@@ -117,6 +128,57 @@
         .shape:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
         .shape:nth-child(4) { bottom: 10%; right: 20%; animation-delay: 1s; }
         
+        /* 新しいアニメーション効果 */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        .slide-up {
+            animation: slideUp 0.5s ease-out;
+        }
+        .bounce-in {
+            animation: bounceIn 0.8s ease-out;
+        }
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff6b9d;
+            animation: confettiFall 3s linear infinite;
+            z-index: 1000;
+        }
+        .confetti:nth-child(odd) { background: #00c4cc; }
+        .confetti:nth-child(3n) { background: #7b68ee; }
+        .confetti:nth-child(4n) { background: #00d4aa; }
+        
+        /* パーティクル効果 */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFloat 2s ease-out forwards;
+        }
+        
+        /* 広告スタイル */
+        .ad-container {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            margin: 16px 0;
+        }
+        .ad-label {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+        
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(180deg); }
@@ -134,6 +196,32 @@
             0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
             75% { transform: translateX(5px); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 196, 204, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(0, 196, 204, 0.6); }
+        }
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        @keyframes particleFloat {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100px) scale(0); opacity: 0; }
         }
     </style>
 </head>
@@ -164,12 +252,21 @@
     
     <div class="container mx-auto px-4 py-8 max-w-4xl relative z-10">
         <!-- ログイン画面 -->
-        <div id="loginContainer" class="canva-card rounded-3xl p-8 mb-8 text-center">
+        <div id="loginContainer" class="canva-card rounded-3xl p-8 mb-8 text-center fade-in">
             <div class="mb-6">
                 <h1 class="text-5xl font-bold bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent mb-3">
                     ✨ ゆるマーケ道場
                 </h1>
                 <p class="text-gray-700 text-lg font-medium">様々な形式の問題に挑戦しよう！</p>
+            </div>
+            
+            <!-- 広告スペース1 -->
+            <div class="ad-container mb-6">
+                <div class="ad-label">スポンサー</div>
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">📚 学習効率UP！</h3>
+                    <p class="text-sm">プレミアムプランで詳細解説と進捗分析を体験</p>
+                </div>
             </div>
             
             <div class="max-w-md mx-auto">
@@ -197,13 +294,14 @@
                     <div class="text-sm text-blue-700 space-y-1">
                         <p><strong>無料プラン:</strong> demo@free.com / password123</p>
                         <p><strong>プレミアムプラン:</strong> demo@premium.com / password123</p>
+                        <p><strong>管理者:</strong> admin@demo.com / admin123</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- 新規登録画面 -->
-        <div id="registerContainer" class="hidden canva-card rounded-3xl p-8 mb-8 text-center">
+        <div id="registerContainer" class="hidden canva-card rounded-3xl p-8 mb-8 text-center fade-in">
             <h2 class="text-3xl font-bold text-gray-800 mb-6">📝 新規登録</h2>
             
             <div class="max-w-md mx-auto">
@@ -229,42 +327,274 @@
 
         <!-- ヘッダー（ログイン後） -->
         <div id="mainHeader" class="hidden">
-            <div class="flex justify-between items-center mb-8">
-                <div class="canva-card rounded-3xl px-8 py-6">
-                    <h1 class="text-4xl font-bold bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent mb-2">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 space-y-4 sm:space-y-0">
+                <div class="canva-card rounded-2xl px-4 sm:px-8 py-4 sm:py-6 fade-in w-full sm:w-auto">
+                    <h1 class="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent mb-1 sm:mb-2">
                         ✨ ゆるマーケ道場
                     </h1>
-                    <p class="text-gray-700 text-lg font-medium">様々な形式の問題に挑戦しよう！</p>
+                    <p class="text-gray-700 text-sm sm:text-lg font-medium">様々な形式の問題に挑戦しよう！</p>
                 </div>
                 
-                <div class="canva-card rounded-3xl px-6 py-4">
-                    <div class="flex items-center space-x-4">
-                        <div class="text-right">
-                            <div class="font-semibold text-gray-800" id="userNameDisplay">ユーザー名</div>
-                            <div class="flex items-center">
-                                <span id="userPlanDisplay" class="text-sm px-3 py-1 rounded-full bg-blue-100 text-blue-600">無料プラン</span>
-                                <button id="upgradeButton" onclick="showUpgradeModal()" class="hidden ml-2 text-xs bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full hover:shadow-lg transition-all">
+                <div class="canva-card rounded-2xl px-3 sm:px-6 py-3 sm:py-4 fade-in w-full sm:w-auto">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                        <div class="flex-1 sm:text-right">
+                            <div class="font-semibold text-gray-800 text-sm sm:text-base" id="userNameDisplay">ユーザー名</div>
+                            <div class="flex items-center justify-start sm:justify-end mt-1">
+                                <span id="userPlanDisplay" class="text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-blue-100 text-blue-600">無料プラン</span>
+                                <button id="upgradeButton" onclick="showUpgradeModal()" class="hidden ml-2 text-xs bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 sm:px-3 py-1 rounded-full hover:shadow-lg transition-all">
                                     ⭐ アップグレード
                                 </button>
                             </div>
                         </div>
-                        <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium transition-all">
-                            ログアウト
+                        <div class="flex space-x-2 w-full sm:w-auto">
+                            <button id="adminButton" onclick="showAdminPanel()" class="hidden flex-1 sm:flex-none bg-purple-500 hover:bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition-all text-xs sm:text-sm">
+                                ⚙️ 管理
+                            </button>
+                            <button onclick="showAnalytics()" class="flex-1 sm:flex-none bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition-all text-xs sm:text-sm">
+                                📊 分析
+                            </button>
+                            <button onclick="logout()" class="flex-1 sm:flex-none bg-red-500 hover:bg-red-600 text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition-all text-xs sm:text-sm">
+                                ログアウト
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ホーム画面 -->
+        <div id="homeContainer" class="hidden">
+            <!-- ウェルカムセクション -->
+            <div class="canva-card rounded-3xl p-6 sm:p-8 mb-6 text-center fade-in">
+                <div class="mb-6">
+                    <div class="text-4xl sm:text-6xl mb-4">🏠</div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">ホーム</h2>
+                    <p class="text-gray-600 text-sm sm:text-base">学習したいカテゴリを選択してください</p>
+                </div>
+                
+                <!-- 学習統計サマリー -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-3 sm:p-4 rounded-xl text-center">
+                        <div class="text-lg sm:text-2xl font-bold" id="homeTotalQuizzes">0</div>
+                        <div class="text-xs sm:text-sm opacity-90">総クイズ数</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-3 sm:p-4 rounded-xl text-center">
+                        <div class="text-lg sm:text-2xl font-bold" id="homeAverageScore">0%</div>
+                        <div class="text-xs sm:text-sm opacity-90">平均正答率</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-3 sm:p-4 rounded-xl text-center">
+                        <div class="text-lg sm:text-2xl font-bold" id="homeStreak">0日</div>
+                        <div class="text-xs sm:text-sm opacity-90">連続学習</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-3 sm:p-4 rounded-xl text-center">
+                        <div class="text-lg sm:text-2xl font-bold" id="homeLevel">初級</div>
+                        <div class="text-xs sm:text-sm opacity-90">現在レベル</div>
+                    </div>
+                </div>
+                
+                <!-- 広告スペース（ホーム画面上部） -->
+                <div id="homeAdSpace1" class="ad-container mb-6">
+                    <div class="ad-label">おすすめ</div>
+                    <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-4 rounded-lg">
+                        <h3 class="font-bold mb-2 text-sm sm:text-base">🎯 学習効率を最大化！</h3>
+                        <p class="text-xs sm:text-sm">プレミアムプランで詳細解説と高度分析機能を体験</p>
+                        <button onclick="showUpgradeModal()" class="mt-2 bg-white text-indigo-600 px-3 py-1 rounded-full text-xs font-medium hover:shadow-lg transition-all">
+                            今すぐアップグレード
                         </button>
                     </div>
+                </div>
+            </div>
+            
+            <!-- カテゴリ選択 -->
+            <div class="canva-card rounded-3xl p-6 sm:p-8 mb-6 fade-in">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6 text-center">📚 カテゴリを選択</h3>
+                <div id="categoryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                    <!-- カテゴリカードがここに動的に生成されます -->
+                </div>
+            </div>
+            
+            <!-- 最近の学習履歴 -->
+            <div class="canva-card rounded-3xl p-6 sm:p-8 mb-6 fade-in">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6">📈 最近の学習履歴</h3>
+                <div id="recentHistory" class="space-y-3">
+                    <!-- 学習履歴がここに表示されます -->
+                </div>
+            </div>
+            
+            <!-- 広告スペース（ホーム画面下部） -->
+            <div id="homeAdSpace2" class="ad-container mb-6">
+                <div class="ad-label">スポンサー</div>
+                <div class="bg-gradient-to-r from-pink-500 to-rose-600 text-white p-4 rounded-lg">
+                    <h3 class="font-bold mb-2 text-sm sm:text-base">🏆 さらなる高みへ</h3>
+                    <p class="text-xs sm:text-sm">上級問題で真のエキスパートを目指そう</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- データ分析ダッシュボード -->
+        <div id="analyticsContainer" class="hidden canva-card rounded-3xl p-8 mb-8 fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800">📊 学習分析ダッシュボード</h2>
+                <button onclick="hideAnalytics()" class="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-lg transition-all">
+                    ← 戻る
+                </button>
+            </div>
+            
+            <!-- 統計サマリー -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-2xl text-center">
+                    <div class="text-3xl font-bold" id="totalQuizzes">0</div>
+                    <div class="text-sm opacity-90">総クイズ数</div>
+                </div>
+                <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-2xl text-center">
+                    <div class="text-3xl font-bold" id="averageScore">0%</div>
+                    <div class="text-sm opacity-90">平均正答率</div>
+                </div>
+                <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 rounded-2xl text-center">
+                    <div class="text-3xl font-bold" id="totalTime">0分</div>
+                    <div class="text-sm opacity-90">総学習時間</div>
+                </div>
+                <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 rounded-2xl text-center">
+                    <div class="text-3xl font-bold" id="streak">0日</div>
+                    <div class="text-sm opacity-90">連続学習日数</div>
+                </div>
+            </div>
+            
+            <!-- チャート -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">📈 正答率の推移</h3>
+                    <canvas id="scoreChart" width="400" height="200"></canvas>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">📊 カテゴリ別成績</h3>
+                    <canvas id="categoryChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+            
+            <!-- 詳細分析 -->
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">🎯 弱点分析</h3>
+                <div id="weaknessAnalysis" class="space-y-4">
+                    <!-- 弱点分析がここに表示されます -->
+                </div>
+            </div>
+            
+            <!-- 広告スペース2 -->
+            <div class="ad-container mt-8">
+                <div class="ad-label">おすすめ</div>
+                <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">🚀 学習効率を最大化</h3>
+                    <p class="text-sm">AI分析による個別学習プランで成績向上を実現</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 管理者画面 -->
+        <div id="adminContainer" class="hidden canva-card rounded-3xl p-6 sm:p-8 mb-8 fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800">⚙️ 管理者画面</h2>
+                <button onclick="hideAdminPanel()" class="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-lg transition-all">
+                    ← 戻る
+                </button>
+            </div>
+            
+            <!-- スプレッドシート読み込み -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">📊 スプレッドシートから問題を読み込み</h3>
+                <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-semibold text-blue-800 mb-2">📋 データ形式</h4>
+                    <p class="text-blue-700 text-sm mb-3">スプレッドシートは以下の列構成で作成してください：</p>
+                    <div class="bg-white p-3 rounded border text-xs font-mono">
+                        A列: 問題文 | B列: タイプ(single/multiple/truefalse) | C列: 選択肢(カンマ区切り) | D列: 正解(カンマ区切り) | E列: カテゴリ | F列: 難易度 | G列: 解説
+                    </div>
+                    <p class="text-blue-600 text-sm mt-2">
+                        ⚠️ スプレッドシートを「リンクを知っている全員が閲覧可能」に設定してください
+                    </p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">📎 スプレッドシートURL</label>
+                        <input type="url" id="spreadsheetUrl" placeholder="https://docs.google.com/spreadsheets/d/..." 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    </div>
+                    
+                    <div class="flex space-x-3">
+                        <button onclick="loadFromSpreadsheet()" class="canva-button text-white px-6 py-3 rounded-lg font-semibold shadow-lg">
+                            📥 データを読み込む
+                        </button>
+                        <button onclick="loadSampleData()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-all">
+                            🎯 サンプルデータを読み込む
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 読み込み状況 -->
+                <div id="loadingMessage" class="hidden mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-yellow-600 mr-3"></div>
+                        <span class="text-yellow-700">データを読み込み中...</span>
+                    </div>
+                </div>
+                
+                <!-- 検証結果 -->
+                <div id="validationResults" class="hidden mt-4"></div>
+            </div>
+            
+            <!-- 現在のデータ状況 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">📈 現在のデータ状況</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-blue-50 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-blue-600" id="adminTotalQuestions">0</div>
+                        <div class="text-sm text-blue-600">総問題数</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-green-600" id="adminTotalCategories">0</div>
+                        <div class="text-sm text-green-600">カテゴリ数</div>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-purple-600" id="adminLastUpdate">未更新</div>
+                        <div class="text-sm text-purple-600">最終更新</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- カテゴリ別問題数 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">📚 カテゴリ別問題数</h3>
+                <div id="adminCategoryBreakdown" class="space-y-2">
+                    <!-- カテゴリ別データがここに表示されます -->
+                </div>
+            </div>
+            
+            <!-- データ管理 -->
+            <div>
+                <h3 class="text-xl font-bold text-gray-800 mb-4">🗂️ データ管理</h3>
+                <div class="flex flex-wrap gap-3">
+                    <button onclick="exportData()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-all">
+                        📤 データをエクスポート
+                    </button>
+                    <button onclick="clearAllData()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium transition-all">
+                        🗑️ 全データを削除
+                    </button>
+                    <button onclick="resetToSample()" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-all">
+                        🔄 サンプルデータにリセット
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- プレミアムアップグレードモーダル -->
         <div id="upgradeModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div class="canva-card rounded-3xl p-8 max-w-md mx-4">
+            <div class="canva-card rounded-3xl p-8 max-w-md mx-4 bounce-in">
                 <div class="text-center">
                     <div class="text-6xl mb-4">⭐</div>
                     <h2 class="text-3xl font-bold text-gray-800 mb-4">プレミアムプランにアップグレード</h2>
                     <p class="text-gray-600 mb-6">中級・上級問題にアクセスして、さらなるスキルアップを！</p>
                     
-                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl p-6 mb-6">
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl p-6 mb-6 pulse-glow">
                         <div class="text-4xl font-bold mb-2">¥980</div>
                         <div class="text-lg">月額</div>
                     </div>
@@ -280,7 +610,11 @@
                         </div>
                         <div class="flex items-center">
                             <span class="text-green-500 mr-2">✓</span>
-                            <span>進捗レポート機能</span>
+                            <span>高度な学習分析機能</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>広告非表示</span>
                         </div>
                         <div class="flex items-center">
                             <span class="text-green-500 mr-2">✓</span>
@@ -302,27 +636,18 @@
             </div>
         </div>
 
-        <!-- スプレッドシート設定パネル -->
-        <div id="setupPanel" class="hidden canva-card rounded-3xl p-8 mb-8">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">📊 問題データ設定</h2>
+        <!-- クイズ設定パネル（ホームから呼び出される） -->
+        <div id="setupPanel" class="hidden canva-card rounded-3xl p-6 sm:p-8 mb-8 fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-gray-800">⚙️ クイズ設定</h2>
+                <button onclick="showHome()" class="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-lg transition-all text-sm">
+                    ← ホームに戻る
+                </button>
+            </div>
+            
             <div class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Google スプレッドシート URL</label>
-                    <input type="text" id="spreadsheetUrl" 
-                           placeholder="https://docs.google.com/spreadsheets/d/..." 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                    <p class="text-sm text-gray-500 mt-1">※ スプレッドシートは「リンクを知っている全員が閲覧可能」に設定してください</p>
-                </div>
-                
                 <!-- クイズ設定 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">📚 カテゴリ選択</label>
-                        <select id="categorySelect" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
-                            <option value="all">すべてのカテゴリ</option>
-                        </select>
-                        <p class="text-xs text-gray-500 mt-1">問題数: <span id="categoryCount">0</span>問</p>
-                    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">⭐ 難易度選択</label>
                         <select id="difficultySelect" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
@@ -330,8 +655,6 @@
                         </select>
                         <p class="text-xs text-gray-500 mt-1">選択中: <span id="difficultyCount">0</span>問</p>
                     </div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">🔀 問題の順序</label>
                         <select id="shuffleMode" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
@@ -339,6 +662,8 @@
                             <option value="shuffle">ランダム</option>
                         </select>
                     </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">⏱️ 制限時間（分）</label>
                         <select id="timeLimit" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
@@ -349,112 +674,32 @@
                             <option value="30">30分</option>
                         </select>
                     </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">📊 問題数</label>
+                        <select id="questionLimit" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+                            <option value="all">すべて</option>
+                            <option value="5">5問</option>
+                            <option value="10">10問</option>
+                            <option value="20">20問</option>
+                            <option value="50">50問</option>
+                        </select>
+                    </div>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <button onclick="loadSampleData()" class="canva-button text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg">
-                        📝 サンプルデータを使用
-                    </button>
-                    <button onclick="loadFromSpreadsheet()" class="canva-button text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg">
-                        📊 スプレッドシートから読み込み
-                    </button>
-                </div>
-                
-                <div id="startQuizSection" class="hidden mt-8 text-center">
+                <div class="mt-8 text-center">
                     <button onclick="startQuiz()" class="canva-button text-white px-12 py-5 rounded-2xl font-bold text-xl shadow-2xl transform hover:scale-105">
                         🚀 クイズを開始する
                     </button>
                 </div>
-                <div id="loadingMessage" class="hidden mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                    <div class="flex items-center">
-                        <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600 mr-3"></div>
-                        <span class="text-blue-700">スプレッドシートからデータを読み込み中...</span>
-                    </div>
-                </div>
-                
-                <!-- データ検証結果 -->
-                <div id="validationResults" class="hidden mt-4"></div>
             </div>
         </div>
 
-        <!-- スプレッドシート設定手順 -->
-        <div class="canva-card rounded-3xl p-6 mb-6 border-l-4 border-yellow-400">
-            <h3 class="text-lg font-semibold text-yellow-800 mb-3">⚠️ 重要：スプレッドシートの公開設定</h3>
-            <ol class="text-sm text-yellow-700 space-y-2">
-                <li><strong>1.</strong> Google スプレッドシートで「共有」ボタンをクリック</li>
-                <li><strong>2.</strong> 「リンクを知っている全員が閲覧可能」に設定</li>
-                <li><strong>3.</strong> 「リンクをコピー」してURLを取得</li>
-                <li><strong>4.</strong> 上記のURL入力欄に貼り付け</li>
-            </ol>
-        </div>
 
-        <!-- データ形式説明 -->
-        <div class="canva-card rounded-3xl p-6 mb-8">
-            <h3 class="text-xl font-semibold text-gray-800 mb-4">📋 スプレッドシート形式</h3>
-            <div class="mb-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
-                <div class="flex items-start">
-                    <span class="text-blue-500 mr-2 mt-1">💡</span>
-                    <div>
-                        <h4 class="font-medium text-blue-800 mb-1">解説機能について</h4>
-                        <p class="text-blue-700 text-sm">G列に解説を追加すると、プレミアムプランユーザーに問題の詳細な解説が表示されます。解説は空欄でも構いません。</p>
-                    </div>
-                </div>
-            </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-4 py-2 text-left">列A: 問題文</th>
-                            <th class="px-4 py-2 text-left">列B: 問題タイプ</th>
-                            <th class="px-4 py-2 text-left">列C: 選択肢</th>
-                            <th class="px-4 py-2 text-left">列D: 正解</th>
-                            <th class="px-4 py-2 text-left">列E: カテゴリ</th>
-                            <th class="px-4 py-2 text-left">列F: 難易度</th>
-                            <th class="px-4 py-2 text-left">列G: 解説（任意）</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-600">
-                        <tr class="border-t">
-                            <td class="px-4 py-2">日本の首都は？</td>
-                            <td class="px-4 py-2">single</td>
-                            <td class="px-4 py-2">東京,大阪,京都,名古屋</td>
-                            <td class="px-4 py-2">東京</td>
-                            <td class="px-4 py-2">一般知識</td>
-                            <td class="px-4 py-2">初級</td>
-                            <td class="px-4 py-2">日本の首都は東京です。1868年の明治維新以降、政治・経済の中心地として発展してきました。</td>
-                        </tr>
-                        <tr class="border-t">
-                            <td class="px-4 py-2">地球は丸い</td>
-                            <td class="px-4 py-2">truefalse</td>
-                            <td class="px-4 py-2">○,×</td>
-                            <td class="px-4 py-2">○</td>
-                            <td class="px-4 py-2">科学</td>
-                            <td class="px-4 py-2">初級</td>
-                            <td class="px-4 py-2">地球は球体（厳密には回転楕円体）の形をしています。古代ギリシャ時代から知られていた事実です。</td>
-                        </tr>
-                        <tr class="border-t">
-                            <td class="px-4 py-2">プログラミング言語は？</td>
-                            <td class="px-4 py-2">multiple</td>
-                            <td class="px-4 py-2">JavaScript,Python,HTML,CSS</td>
-                            <td class="px-4 py-2">JavaScript,Python</td>
-                            <td class="px-4 py-2">IT</td>
-                            <td class="px-4 py-2">中級</td>
-                            <td class="px-4 py-2">JavaScriptとPythonはプログラミング言語です。HTMLはマークアップ言語、CSSはスタイルシート言語で、厳密にはプログラミング言語ではありません。</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="mt-4 text-sm text-gray-600">
-                <p><strong>問題タイプ:</strong> single（択一選択）, multiple（複数選択）, truefalse（○×問題）</p>
-                <p><strong>選択肢:</strong> カンマ区切りで入力（例: 選択肢1,選択肢2,選択肢3）</p>
-                <p><strong>正解:</strong> 複数選択の場合はカンマ区切り（例: 正解1,正解2）</p>
-            </div>
-        </div>
 
         <!-- クイズ画面 -->
         <div id="quizContainer" class="hidden">
             <!-- プログレスバーとタイマー -->
-            <div class="canva-card rounded-3xl p-6 mb-6">
+            <div class="canva-card rounded-3xl p-6 mb-6 fade-in">
                 <div class="flex justify-between items-center mb-2">
                     <span class="text-sm font-medium text-gray-600">進捗</span>
                     <div class="flex items-center space-x-4">
@@ -471,7 +716,7 @@
             </div>
 
             <!-- 問題カード -->
-            <div class="quiz-card rounded-2xl p-8 text-white mb-6">
+            <div class="quiz-card rounded-2xl p-8 text-white mb-6 slide-up">
                 <div class="text-center">
                     <div id="questionNumber" class="text-lg font-medium mb-4 opacity-90">問題 1</div>
                     <h2 id="questionText" class="text-2xl font-bold mb-6 leading-relaxed">問題文がここに表示されます</h2>
@@ -489,19 +734,33 @@
                 </div>
             </div>
 
+            <!-- 広告スペース4（問題間に表示、無料プランのみ） -->
+            <div id="adSpace4" class="ad-container mb-6">
+                <div class="ad-label">広告</div>
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">🎯 集中力UP！</h3>
+                    <p class="text-sm">プレミアムプランで広告なしの快適学習環境を体験</p>
+                </div>
+            </div>
+
             <!-- 選択肢 -->
             <div id="optionsContainer" class="space-y-4 mb-8">
                 <!-- 選択肢がここに動的に生成されます -->
             </div>
 
             <!-- 操作ボタン -->
-            <div class="flex justify-between items-center">
-                <button id="prevButton" onclick="previousQuestion()" 
-                        class="bg-gray-400 hover:bg-gray-500 text-white px-8 py-4 rounded-2xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg">
-                    ← 前の問題
-                </button>
+            <div class="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
+                <div class="flex space-x-3 w-full sm:w-auto">
+                    <button onclick="showHome()" class="flex-1 sm:flex-none bg-green-500 hover:bg-green-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-semibold transition-all shadow-lg text-sm sm:text-base">
+                        🏠 ホーム
+                    </button>
+                    <button id="prevButton" onclick="previousQuestion()" 
+                            class="flex-1 sm:flex-none bg-gray-400 hover:bg-gray-500 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-sm sm:text-base">
+                        ← 前の問題
+                    </button>
+                </div>
                 <button id="nextButton" onclick="nextQuestion()" 
-                        class="canva-button text-white px-8 py-4 rounded-2xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg">
+                        class="w-full sm:w-auto canva-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-sm sm:text-base">
                     次の問題 →
                 </button>
             </div>
@@ -509,10 +768,10 @@
 
         <!-- 結果画面 -->
         <div id="resultContainer" class="hidden">
-            <div class="canva-card rounded-3xl p-8 text-center mb-6">
+            <div class="canva-card rounded-3xl p-8 text-center mb-6 fade-in">
                 <div class="text-6xl mb-4">🎉</div>
                 <h2 class="text-3xl font-bold text-gray-800 mb-4">クイズ完了！</h2>
-                <div class="text-6xl font-bold text-purple-600 mb-2" id="finalScore">8/10</div>
+                <div class="text-6xl font-bold text-purple-600 mb-2 bounce-in" id="finalScore">8/10</div>
                 <p class="text-gray-600 mb-6">お疲れさまでした！</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                     <div class="bg-green-50 p-4 rounded-lg">
@@ -530,7 +789,7 @@
                 </div>
                 <!-- 称号表示 -->
                 <div id="achievementSection" class="hidden mb-8">
-                    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-3xl p-6 text-center text-white shadow-2xl">
+                    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-3xl p-6 text-center text-white shadow-2xl bounce-in">
                         <div class="text-4xl mb-3">🏆</div>
                         <h3 class="text-2xl font-bold mb-2">称号獲得！</h3>
                         <div id="achievementTitle" class="text-3xl font-bold mb-2">マーケティング道場 初級マスター</div>
@@ -538,20 +797,33 @@
                     </div>
                 </div>
                 
-                <div class="flex justify-center space-x-4">
+                <!-- 広告スペース5（結果画面、無料プランのみ） -->
+                <div id="adSpace5" class="ad-container mb-6">
+                    <div class="ad-label">おすすめ</div>
+                    <div class="bg-gradient-to-r from-pink-500 to-rose-600 text-white p-4 rounded-lg">
+                        <h3 class="font-bold mb-2">🏆 さらなる高みへ</h3>
+                        <p class="text-sm">プレミアムプランで上級問題に挑戦し、真のエキスパートを目指そう</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <button onclick="showHome()" 
+                            class="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold shadow-lg text-sm sm:text-base">
+                        🏠 ホームに戻る
+                    </button>
                     <button onclick="showDetailedResults()" 
-                            class="canva-button text-white px-8 py-4 rounded-2xl font-semibold shadow-lg">
+                            class="canva-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold shadow-lg text-sm sm:text-base">
                         📊 詳細結果を見る
                     </button>
                     <button onclick="restartQuiz()" 
-                            class="canva-button text-white px-8 py-4 rounded-2xl font-semibold shadow-lg">
+                            class="canva-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold shadow-lg text-sm sm:text-base">
                         🔄 もう一度挑戦
                     </button>
                 </div>
             </div>
             
             <!-- 詳細結果 -->
-            <div id="detailedResults" class="hidden canva-card rounded-3xl p-6">
+            <div id="detailedResults" class="hidden canva-card rounded-3xl p-6 fade-in">
                 <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">📊 問題別詳細結果</h3>
                 <div id="detailedResultsList" class="space-y-4">
                     <!-- 詳細結果がここに動的に生成されます -->
@@ -575,6 +847,10 @@
         let timerInterval = null;
         let timeRemaining = 0;
         let quizStartTime = null;
+        let quizHistory = JSON.parse(localStorage.getItem('quizHistory') || '[]');
+        let scoreChart = null;
+        let categoryChart = null;
+        let selectedCategory = 'all';
 
         // 文字の正規化関数（○×の文字化けを防ぐ）
         function normalizeText(text) {
@@ -592,102 +868,372 @@
         // デモ用ユーザーデータ
         const demoUsers = {
             'demo@free.com': { name: 'フリーユーザー', plan: 'free', password: 'password123' },
-            'demo@premium.com': { name: 'プレミアムユーザー', plan: 'premium', password: 'password123' }
+            'demo@premium.com': { name: 'プレミアムユーザー', plan: 'premium', password: 'password123' },
+            'admin@demo.com': { name: '管理者', plan: 'admin', password: 'admin123' }
         };
 
         // サンプルデータ
         const sampleQuestions = [
             {
-                question: "日本の首都はどこですか？",
+                question: "SEOとは何の略称ですか？",
                 type: "single",
-                options: ["東京", "大阪", "京都", "名古屋"],
-                correct: ["東京"],
-                category: "一般知識",
+                options: ["Search Engine Optimization", "Social Engine Optimization", "System Engine Operation", "Site Engine Organization"],
+                correct: ["Search Engine Optimization"],
+                category: "SEO",
                 difficulty: "初級",
-                explanation: "日本の首都は東京です。1868年の明治維新以降、政治・経済の中心地として発展してきました。"
+                explanation: "SEOは「Search Engine Optimization（検索エンジン最適化）」の略称です。検索エンジンでの表示順位を向上させる施策のことを指します。"
             },
             {
-                question: "地球は丸い形をしている",
-                type: "truefalse",
-                options: ["○", "×"],
-                correct: ["○"],
-                category: "科学",
+                question: "HTMLの正式名称は何ですか？",
+                type: "single",
+                options: ["HyperText Markup Language", "High Tech Modern Language", "Home Tool Markup Language", "Hyper Transfer Markup Language"],
+                correct: ["HyperText Markup Language"],
+                category: "HTML",
                 difficulty: "初級",
-                explanation: "地球は球体（厳密には回転楕円体）の形をしています。古代ギリシャ時代から知られていた事実です。"
+                explanation: "HTMLは「HyperText Markup Language」の略称です。Webページの構造を記述するためのマークアップ言語です。"
             },
             {
-                question: "以下のうち、プログラミング言語はどれですか？（複数選択可）",
+                question: "Google広告の課金方式として正しいものはどれですか？（複数選択可）",
                 type: "multiple",
-                options: ["JavaScript", "Python", "HTML", "CSS"],
-                correct: ["JavaScript", "Python"],
-                category: "IT",
+                options: ["CPC（クリック課金）", "CPM（インプレッション課金）", "CPA（成果課金）", "CPL（リード課金）"],
+                correct: ["CPC（クリック課金）", "CPM（インプレッション課金）"],
+                category: "広告",
                 difficulty: "中級",
-                explanation: "JavaScriptとPythonはプログラミング言語です。HTMLはマークアップ言語、CSSはスタイルシート言語で、厳密にはプログラミング言語ではありません。"
+                explanation: "Google広告では主にCPC（クリック課金）とCPM（インプレッション課金）が使用されます。CPAやCPLは他の広告プラットフォームでよく使われる課金方式です。"
             },
             {
-                question: "1 + 1 = 2である",
+                question: "CSSでテキストの色を赤にするプロパティは何ですか？",
+                type: "single",
+                options: ["color: red;", "text-color: red;", "font-color: red;", "background: red;"],
+                correct: ["color: red;"],
+                category: "CSS",
+                difficulty: "初級",
+                explanation: "CSSでテキストの色を指定するには「color」プロパティを使用します。「color: red;」でテキストが赤色になります。"
+            },
+            {
+                question: "フィッシング詐欺とは偽のWebサイトで個人情報を盗む手法である",
                 type: "truefalse",
                 options: ["○", "×"],
                 correct: ["○"],
-                category: "数学",
+                category: "リテラシー",
                 difficulty: "初級",
-                explanation: "基本的な算数の問題です。1に1を足すと2になります。"
+                explanation: "フィッシング詐欺は、正規のWebサイトを装った偽サイトでユーザーの個人情報（ID、パスワード、クレジットカード情報など）を盗む詐欺手法です。"
             },
             {
-                question: "富士山の標高は約何メートルですか？",
+                question: "WordPressで記事を投稿する際の基本的な投稿タイプはどれですか？",
                 type: "single",
-                options: ["2,776m", "3,776m", "4,776m", "5,776m"],
-                correct: ["3,776m"],
-                category: "一般知識",
-                difficulty: "中級",
-                explanation: "富士山の標高は3,776mです。日本最高峰の山として知られています。"
-            },
-            {
-                question: "オリンピックは何年に一度開催されますか？",
-                type: "single",
-                options: ["2年", "3年", "4年", "5年"],
-                correct: ["4年"],
-                category: "スポーツ",
+                options: ["Post", "Page", "Media", "Comment"],
+                correct: ["Post"],
+                category: "WordPress",
                 difficulty: "初級",
-                explanation: "オリンピックは4年に一度開催されます。夏季と冬季があり、それぞれ4年周期で開催されています。"
+                explanation: "WordPressでは「Post（投稿）」が基本的な記事投稿タイプです。Pageは固定ページ、Mediaはメディアファイル、Commentはコメント機能です。"
             },
             {
-                question: "水の化学式はH2Oである",
-                type: "truefalse",
-                options: ["○", "×"],
-                correct: ["○"],
-                category: "科学",
-                difficulty: "中級",
-                explanation: "水の化学式はH2Oです。水素原子2個と酸素原子1個から構成されています。"
-            },
-            {
-                question: "以下のうち、球技はどれですか？（複数選択可）",
+                question: "メールマーケティングで重要な指標はどれですか？（複数選択可）",
                 type: "multiple",
-                options: ["サッカー", "野球", "陸上", "水泳"],
-                correct: ["サッカー", "野球"],
-                category: "スポーツ",
-                difficulty: "初級",
-                explanation: "サッカーと野球は球技です。陸上は走る・跳ぶ・投げるなどの競技、水泳は泳ぐ競技で、球技ではありません。"
+                options: ["開封率", "クリック率", "配信数", "解除率"],
+                correct: ["開封率", "クリック率", "解除率"],
+                category: "メール",
+                difficulty: "中級",
+                explanation: "メールマーケティングでは開封率（メールが開かれた割合）、クリック率（リンクがクリックされた割合）、解除率（配信停止された割合）が重要な指標です。配信数は指標というより実績値です。"
             },
             {
-                question: "量子力学の不確定性原理を提唱したのは誰ですか？",
+                question: "コンテンツマーケティングの主な目的は何ですか？",
                 type: "single",
-                options: ["アインシュタイン", "ハイゼンベルク", "シュレーディンガー", "ボーア"],
-                correct: ["ハイゼンベルク"],
-                category: "科学",
+                options: ["価値のある情報提供で顧客との関係構築", "商品の直接販売", "競合他社の分析", "SEO対策のみ"],
+                correct: ["価値のある情報提供で顧客との関係構築"],
+                category: "コンテンツ",
+                difficulty: "中級",
+                explanation: "コンテンツマーケティングは、価値のある情報を継続的に提供することで顧客との信頼関係を構築し、最終的にビジネス成果につなげる手法です。"
+            },
+            {
+                question: "ECサイトでのコンバージョン率を向上させる施策はどれですか？（複数選択可）",
+                type: "multiple",
+                options: ["商品画像の最適化", "決済方法の多様化", "レビュー機能の充実", "サイトの表示速度向上"],
+                correct: ["商品画像の最適化", "決済方法の多様化", "レビュー機能の充実", "サイトの表示速度向上"],
+                category: "EC",
                 difficulty: "上級",
-                explanation: "不確定性原理はヴェルナー・ハイゼンベルクが1927年に提唱しました。粒子の位置と運動量を同時に正確に測定することはできないという原理です。"
+                explanation: "ECサイトのコンバージョン率向上には、商品画像の最適化、決済方法の多様化、レビュー機能の充実、サイトの表示速度向上など、ユーザー体験を向上させる全ての施策が有効です。"
             },
             {
-                question: "機械学習のアルゴリズムはどれですか？（複数選択可）",
-                type: "multiple",
-                options: ["ニューラルネットワーク", "決定木", "HTML", "ランダムフォレスト"],
-                correct: ["ニューラルネットワーク", "決定木", "ランダムフォレスト"],
-                category: "IT",
-                difficulty: "上級",
-                explanation: "ニューラルネットワーク、決定木、ランダムフォレストは機械学習のアルゴリズムです。HTMLはWebページを作成するマークアップ言語で、機械学習とは関係ありません。"
+                question: "ChatGPTなどの生成AIの特徴として正しいものはどれですか？",
+                type: "single",
+                options: ["常に正確な情報を提供する", "学習データに基づいて応答を生成する", "インターネットにリアルタイムでアクセスできる", "感情を持って判断する"],
+                correct: ["学習データに基づいて応答を生成する"],
+                category: "AI",
+                difficulty: "中級",
+                explanation: "生成AIは学習データに基づいて応答を生成します。常に正確とは限らず、リアルタイムのインターネットアクセスや感情を持った判断はできません。"
             }
         ];
+
+        // アニメーション効果
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        function createParticles(element) {
+            const rect = element.getBoundingClientRect();
+            for (let i = 0; i < 10; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = (rect.left + rect.width / 2) + 'px';
+                particle.style.top = (rect.top + rect.height / 2) + 'px';
+                particle.style.animationDelay = (i * 0.1) + 's';
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 2000);
+            }
+        }
+
+        // 広告表示制御
+        function toggleAds() {
+            const adElements = document.querySelectorAll('[id^="adSpace"], [id^="homeAdSpace"]');
+            adElements.forEach(ad => {
+                if (currentUser && currentUser.plan === 'premium') {
+                    ad.style.display = 'none';
+                } else {
+                    ad.style.display = 'block';
+                }
+            });
+        }
+
+        // データ分析機能
+        function saveQuizResult(result) {
+            const quizData = {
+                date: new Date().toISOString(),
+                score: result.correctCount,
+                total: result.totalQuestions,
+                accuracy: result.accuracy,
+                category: document.getElementById('categorySelect').value,
+                difficulty: document.getElementById('difficultySelect').value,
+                timeSpent: result.timeSpent,
+                questions: result.questions
+            };
+            
+            quizHistory.push(quizData);
+            localStorage.setItem('quizHistory', JSON.stringify(quizHistory));
+        }
+
+        function showAnalytics() {
+            document.getElementById('setupPanel').classList.add('hidden');
+            document.getElementById('analyticsContainer').classList.remove('hidden');
+            
+            updateAnalyticsDashboard();
+        }
+
+        function hideAnalytics() {
+            document.getElementById('analyticsContainer').classList.add('hidden');
+            document.getElementById('setupPanel').classList.remove('hidden');
+        }
+
+        function updateAnalyticsDashboard() {
+            if (quizHistory.length === 0) {
+                document.getElementById('totalQuizzes').textContent = '0';
+                document.getElementById('averageScore').textContent = '0%';
+                document.getElementById('totalTime').textContent = '0分';
+                document.getElementById('streak').textContent = '0日';
+                return;
+            }
+
+            // 基本統計
+            const totalQuizzes = quizHistory.length;
+            const averageScore = Math.round(
+                quizHistory.reduce((sum, quiz) => sum + quiz.accuracy, 0) / totalQuizzes
+            );
+            const totalTime = Math.round(
+                quizHistory.reduce((sum, quiz) => sum + (quiz.timeSpent || 0), 0) / 60
+            );
+            
+            // 連続学習日数計算
+            const streak = calculateStreak();
+
+            document.getElementById('totalQuizzes').textContent = totalQuizzes;
+            document.getElementById('averageScore').textContent = averageScore + '%';
+            document.getElementById('totalTime').textContent = totalTime + '分';
+            document.getElementById('streak').textContent = streak + '日';
+
+            // チャート更新
+            updateScoreChart();
+            updateCategoryChart();
+            updateWeaknessAnalysis();
+        }
+
+        function calculateStreak() {
+            if (quizHistory.length === 0) return 0;
+            
+            const today = new Date();
+            const dates = quizHistory.map(quiz => new Date(quiz.date).toDateString());
+            const uniqueDates = [...new Set(dates)].sort((a, b) => new Date(b) - new Date(a));
+            
+            let streak = 0;
+            let currentDate = today;
+            
+            for (const dateStr of uniqueDates) {
+                const date = new Date(dateStr);
+                const diffDays = Math.floor((currentDate - date) / (1000 * 60 * 60 * 24));
+                
+                if (diffDays === streak) {
+                    streak++;
+                    currentDate = date;
+                } else {
+                    break;
+                }
+            }
+            
+            return streak;
+        }
+
+        function updateScoreChart() {
+            const ctx = document.getElementById('scoreChart').getContext('2d');
+            
+            if (scoreChart) {
+                scoreChart.destroy();
+            }
+            
+            const last10Quizzes = quizHistory.slice(-10);
+            const labels = last10Quizzes.map((_, index) => `${index + 1}回目`);
+            const data = last10Quizzes.map(quiz => quiz.accuracy);
+            
+            scoreChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '正答率 (%)',
+                        data: data,
+                        borderColor: '#00c4cc',
+                        backgroundColor: 'rgba(0, 196, 204, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateCategoryChart() {
+            const ctx = document.getElementById('categoryChart').getContext('2d');
+            
+            if (categoryChart) {
+                categoryChart.destroy();
+            }
+            
+            const categoryStats = {};
+            quizHistory.forEach(quiz => {
+                const category = quiz.category || 'その他';
+                if (!categoryStats[category]) {
+                    categoryStats[category] = { total: 0, correct: 0 };
+                }
+                categoryStats[category].total += quiz.total;
+                categoryStats[category].correct += quiz.score;
+            });
+            
+            const labels = Object.keys(categoryStats);
+            const data = labels.map(category => 
+                Math.round((categoryStats[category].correct / categoryStats[category].total) * 100)
+            );
+            
+            categoryChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '正答率 (%)',
+                        data: data,
+                        backgroundColor: [
+                            '#00c4cc',
+                            '#7b68ee',
+                            '#ff6b9d',
+                            '#00d4aa',
+                            '#ffa500'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateWeaknessAnalysis() {
+            const container = document.getElementById('weaknessAnalysis');
+            
+            if (quizHistory.length === 0) {
+                container.innerHTML = '<p class="text-gray-500">データが不足しています。もっとクイズに挑戦してください！</p>';
+                return;
+            }
+            
+            // カテゴリ別の弱点分析
+            const categoryStats = {};
+            quizHistory.forEach(quiz => {
+                const category = quiz.category || 'その他';
+                if (!categoryStats[category]) {
+                    categoryStats[category] = { total: 0, correct: 0 };
+                }
+                categoryStats[category].total += quiz.total;
+                categoryStats[category].correct += quiz.score;
+            });
+            
+            const weakCategories = Object.entries(categoryStats)
+                .map(([category, stats]) => ({
+                    category,
+                    accuracy: (stats.correct / stats.total) * 100,
+                    total: stats.total
+                }))
+                .filter(item => item.accuracy < 70)
+                .sort((a, b) => a.accuracy - b.accuracy);
+            
+            let html = '';
+            if (weakCategories.length === 0) {
+                html = '<div class="text-green-600">🎉 すべてのカテゴリで良好な成績です！</div>';
+            } else {
+                html = '<div class="space-y-3">';
+                weakCategories.forEach(item => {
+                    html += `
+                        <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg border-l-4 border-red-400">
+                            <div>
+                                <span class="font-medium text-red-800">${item.category}</span>
+                                <span class="text-sm text-red-600 ml-2">(${item.total}問中)</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-lg font-bold text-red-600">${Math.round(item.accuracy)}%</div>
+                                <div class="text-xs text-red-500">要復習</div>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            }
+            
+            container.innerHTML = html;
+        }
 
         // ログイン機能
         function showLogin() {
@@ -717,6 +1263,14 @@
                     plan: demoUsers[email].plan
                 };
                 showMainApp();
+                
+                // Google Analytics イベント
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'login', {
+                        method: 'email',
+                        user_plan: currentUser.plan
+                    });
+                }
             } else {
                 alert('メールアドレスまたはパスワードが間違っています');
             }
@@ -752,6 +1306,13 @@
             
             alert('登録が完了しました！');
             showMainApp();
+            
+            // Google Analytics イベント
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'sign_up', {
+                    method: 'email'
+                });
+            }
         }
 
         function loginAsGuest() {
@@ -761,6 +1322,13 @@
                 plan: 'free'
             };
             showMainApp();
+            
+            // Google Analytics イベント
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'login', {
+                    method: 'guest'
+                });
+            }
         }
 
         function logout() {
@@ -769,6 +1337,7 @@
             document.getElementById('setupPanel').classList.add('hidden');
             document.getElementById('quizContainer').classList.add('hidden');
             document.getElementById('resultContainer').classList.add('hidden');
+            document.getElementById('analyticsContainer').classList.add('hidden');
             document.getElementById('loginContainer').classList.remove('hidden');
             
             // フォームをリセット
@@ -780,7 +1349,6 @@
             document.getElementById('loginContainer').classList.add('hidden');
             document.getElementById('registerContainer').classList.add('hidden');
             document.getElementById('mainHeader').classList.remove('hidden');
-            document.getElementById('setupPanel').classList.remove('hidden');
             
             // ユーザー情報を表示
             document.getElementById('userNameDisplay').textContent = currentUser.name;
@@ -788,15 +1356,367 @@
             const planDisplay = document.getElementById('userPlanDisplay');
             const upgradeButton = document.getElementById('upgradeButton');
             
-            if (currentUser.plan === 'premium') {
-                planDisplay.textContent = 'プレミアムプラン';
-                planDisplay.className = 'text-sm px-3 py-1 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white';
+            const adminButton = document.getElementById('adminButton');
+            
+            if (currentUser.plan === 'admin') {
+                planDisplay.textContent = '管理者';
+                planDisplay.className = 'text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-gradient-to-r from-red-500 to-orange-500 text-white';
                 upgradeButton.classList.add('hidden');
+                adminButton.classList.remove('hidden');
+            } else if (currentUser.plan === 'premium') {
+                planDisplay.textContent = 'プレミアムプラン';
+                planDisplay.className = 'text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white';
+                upgradeButton.classList.add('hidden');
+                adminButton.classList.add('hidden');
             } else {
                 planDisplay.textContent = '無料プラン';
-                planDisplay.className = 'text-sm px-3 py-1 rounded-full bg-blue-100 text-blue-600';
+                planDisplay.className = 'text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-blue-100 text-blue-600';
                 upgradeButton.classList.remove('hidden');
+                adminButton.classList.add('hidden');
             }
+            
+            // サンプルデータを自動読み込み
+            loadSampleData();
+            
+            // ホーム画面を表示
+            showHome();
+            
+            // 広告表示制御
+            toggleAds();
+        }
+
+        function showHome() {
+            // 全ての画面を非表示
+            document.getElementById('setupPanel').classList.add('hidden');
+            document.getElementById('quizContainer').classList.add('hidden');
+            document.getElementById('resultContainer').classList.add('hidden');
+            document.getElementById('analyticsContainer').classList.add('hidden');
+            document.getElementById('detailedResults').classList.add('hidden');
+            document.getElementById('adminContainer').classList.add('hidden');
+            
+            // ホーム画面を表示
+            document.getElementById('homeContainer').classList.remove('hidden');
+            
+            // ホーム画面のデータを更新
+            updateHomeStats();
+            updateCategoryGrid();
+            updateRecentHistory();
+        }
+
+        // 管理者画面機能
+        function showAdminPanel() {
+            // 全ての画面を非表示
+            document.getElementById('homeContainer').classList.add('hidden');
+            document.getElementById('setupPanel').classList.add('hidden');
+            document.getElementById('quizContainer').classList.add('hidden');
+            document.getElementById('resultContainer').classList.add('hidden');
+            document.getElementById('analyticsContainer').classList.add('hidden');
+            document.getElementById('detailedResults').classList.add('hidden');
+            
+            // 管理者画面を表示
+            document.getElementById('adminContainer').classList.remove('hidden');
+            
+            // 管理者画面のデータを更新
+            updateAdminDashboard();
+        }
+
+        function hideAdminPanel() {
+            document.getElementById('adminContainer').classList.add('hidden');
+            showHome();
+        }
+
+        function updateAdminDashboard() {
+            // 基本統計
+            const totalQuestions = originalQuestions.length;
+            const categories = [...new Set(originalQuestions.map(q => q.category || '未分類'))];
+            const lastUpdate = localStorage.getItem('lastDataUpdate') || '未更新';
+            
+            document.getElementById('adminTotalQuestions').textContent = totalQuestions;
+            document.getElementById('adminTotalCategories').textContent = categories.length;
+            document.getElementById('adminLastUpdate').textContent = lastUpdate;
+            
+            // カテゴリ別問題数
+            updateAdminCategoryBreakdown();
+        }
+
+        function updateAdminCategoryBreakdown() {
+            const container = document.getElementById('adminCategoryBreakdown');
+            container.innerHTML = '';
+            
+            if (originalQuestions.length === 0) {
+                container.innerHTML = '<div class="text-gray-500 text-center py-4">データがありません</div>';
+                return;
+            }
+            
+            const categoryStats = {};
+            originalQuestions.forEach(q => {
+                const category = q.category || '未分類';
+                const difficulty = q.difficulty || '未設定';
+                
+                if (!categoryStats[category]) {
+                    categoryStats[category] = { total: 0, difficulties: {} };
+                }
+                categoryStats[category].total++;
+                
+                if (!categoryStats[category].difficulties[difficulty]) {
+                    categoryStats[category].difficulties[difficulty] = 0;
+                }
+                categoryStats[category].difficulties[difficulty]++;
+            });
+            
+            Object.entries(categoryStats).forEach(([category, stats]) => {
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'bg-gray-50 p-4 rounded-lg border';
+                
+                const difficultyBreakdown = Object.entries(stats.difficulties)
+                    .map(([diff, count]) => `${diff}: ${count}問`)
+                    .join(', ');
+                
+                categoryCard.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="font-medium text-gray-800">${category}</span>
+                            <div class="text-sm text-gray-600 mt-1">${difficultyBreakdown}</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-lg font-bold text-blue-600">${stats.total}</div>
+                            <div class="text-xs text-gray-500">問</div>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(categoryCard);
+            });
+        }
+
+        function exportData() {
+            if (originalQuestions.length === 0) {
+                alert('エクスポートするデータがありません');
+                return;
+            }
+            
+            const csvContent = convertToCSV(originalQuestions);
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            
+            if (link.download !== undefined) {
+                const url = URL.createObjectURL(blob);
+                link.setAttribute('href', url);
+                link.setAttribute('download', `quiz_data_${new Date().toISOString().split('T')[0]}.csv`);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+
+        function convertToCSV(questions) {
+            const headers = ['問題文', 'タイプ', '選択肢', '正解', 'カテゴリ', '難易度', '解説'];
+            const csvRows = [headers.join(',')];
+            
+            questions.forEach(q => {
+                const row = [
+                    `"${q.question.replace(/"/g, '""')}"`,
+                    q.type,
+                    `"${q.options.join(',')}"`,
+                    `"${q.correct.join(',')}"`,
+                    q.category || '未分類',
+                    q.difficulty || '未設定',
+                    `"${(q.explanation || '').replace(/"/g, '""')}"`
+                ];
+                csvRows.push(row.join(','));
+            });
+            
+            return csvRows.join('\n');
+        }
+
+        function clearAllData() {
+            if (confirm('すべての問題データを削除しますか？この操作は取り消せません。')) {
+                originalQuestions = [];
+                questions = [];
+                localStorage.removeItem('lastDataUpdate');
+                updateAdminDashboard();
+                alert('すべてのデータを削除しました');
+            }
+        }
+
+        function resetToSample() {
+            if (confirm('サンプルデータにリセットしますか？現在のデータは失われます。')) {
+                loadSampleData();
+                updateAdminDashboard();
+                alert('サンプルデータにリセットしました');
+            }
+        }
+
+        function updateHomeStats() {
+            if (quizHistory.length === 0) {
+                document.getElementById('homeTotalQuizzes').textContent = '0';
+                document.getElementById('homeAverageScore').textContent = '0%';
+                document.getElementById('homeStreak').textContent = '0日';
+                document.getElementById('homeLevel').textContent = '初級';
+                return;
+            }
+
+            const totalQuizzes = quizHistory.length;
+            const averageScore = Math.round(
+                quizHistory.reduce((sum, quiz) => sum + quiz.accuracy, 0) / totalQuizzes
+            );
+            const streak = calculateStreak();
+            
+            // レベル判定
+            let level = '初級';
+            if (averageScore >= 90 && totalQuizzes >= 20) level = '上級';
+            else if (averageScore >= 70 && totalQuizzes >= 10) level = '中級';
+
+            document.getElementById('homeTotalQuizzes').textContent = totalQuizzes;
+            document.getElementById('homeAverageScore').textContent = averageScore + '%';
+            document.getElementById('homeStreak').textContent = streak + '日';
+            document.getElementById('homeLevel').textContent = level;
+        }
+
+        function updateCategoryGrid() {
+            const container = document.getElementById('categoryGrid');
+            container.innerHTML = '';
+            
+            // カテゴリアイコンマッピング
+            const categoryIcons = {
+                'SEO': '🔍',
+                'HTML': '🏗️',
+                '広告': '📢',
+                'CSS': '🎨',
+                'リテラシー': '🛡️',
+                'WordPress': '📝',
+                'メール': '📧',
+                'コンテンツ': '📄',
+                'EC': '🛒',
+                'AI': '🤖'
+            };
+            
+            if (originalQuestions.length === 0) {
+                container.innerHTML = '<div class="col-span-full text-center text-gray-500 py-8">データを読み込み中...</div>';
+                return;
+            }
+            
+            const categories = [...new Set(originalQuestions.map(q => q.category || '未分類'))].sort();
+            
+            categories.forEach(category => {
+                const categoryQuestions = originalQuestions.filter(q => (q.category || '未分類') === category);
+                const icon = categoryIcons[category] || '📝';
+                
+                // プラン制限チェック
+                const freeQuestions = categoryQuestions.filter(q => (q.difficulty || '未設定') === '初級');
+                const isLocked = currentUser.plan === 'free' && freeQuestions.length === 0;
+                
+                const card = document.createElement('div');
+                card.className = `canva-card rounded-2xl p-4 sm:p-6 text-center cursor-pointer transition-all hover:scale-105 hover:shadow-lg ${isLocked ? 'opacity-60' : ''}`;
+                
+                card.innerHTML = `
+                    <div class="text-3xl sm:text-4xl mb-3">${icon}</div>
+                    <h4 class="font-bold text-gray-800 mb-2 text-sm sm:text-base">${category}</h4>
+                    <p class="text-xs sm:text-sm text-gray-600 mb-3">${categoryQuestions.length}問</p>
+                    ${isLocked ? 
+                        '<div class="text-xs text-orange-600 font-medium">🔒 プレミアム限定</div>' : 
+                        '<div class="text-xs text-green-600 font-medium">✓ 利用可能</div>'
+                    }
+                `;
+                
+                card.onclick = () => {
+                    if (isLocked) {
+                        showUpgradeModal();
+                    } else {
+                        selectCategory(category);
+                    }
+                };
+                
+                container.appendChild(card);
+            });
+        }
+
+        function selectCategory(category) {
+            selectedCategory = category;
+            
+            // 設定画面を表示
+            document.getElementById('homeContainer').classList.add('hidden');
+            document.getElementById('setupPanel').classList.remove('hidden');
+            
+            // 難易度選択肢を更新
+            updateDifficultyOptions(category);
+        }
+
+        function updateDifficultyOptions(category) {
+            const difficultySelect = document.getElementById('difficultySelect');
+            
+            let categoryQuestions = originalQuestions;
+            if (category !== 'all') {
+                categoryQuestions = categoryQuestions.filter(q => (q.category || '未分類') === category);
+            }
+            
+            const difficulties = [...new Set(categoryQuestions.map(q => q.difficulty || '未設定'))].sort();
+            
+            difficultySelect.innerHTML = '';
+            
+            // 「すべての難易度」の問題数を計算
+            const allDifficultyOption = document.createElement('option');
+            allDifficultyOption.value = 'all';
+            allDifficultyOption.textContent = `すべての難易度 (${categoryQuestions.length}問)`;
+            difficultySelect.appendChild(allDifficultyOption);
+            
+            // 各難易度の問題数を計算
+            difficulties.forEach(difficulty => {
+                const difficultyQuestions = categoryQuestions.filter(q => (q.difficulty || '未設定') === difficulty);
+                
+                const option = document.createElement('option');
+                option.value = difficulty;
+                option.textContent = `${difficulty} (${difficultyQuestions.length}問)`;
+                difficultySelect.appendChild(option);
+            });
+            
+            // 問題数表示を更新
+            document.getElementById('difficultyCount').textContent = categoryQuestions.length;
+        }
+
+        function updateRecentHistory() {
+            const container = document.getElementById('recentHistory');
+            
+            if (quizHistory.length === 0) {
+                container.innerHTML = '<div class="text-center text-gray-500 py-8">まだ学習履歴がありません。<br>クイズに挑戦してみましょう！</div>';
+                return;
+            }
+            
+            const recentQuizzes = quizHistory.slice(-5).reverse();
+            
+            container.innerHTML = '';
+            recentQuizzes.forEach((quiz, index) => {
+                const date = new Date(quiz.date);
+                const dateStr = date.toLocaleDateString('ja-JP', { 
+                    month: 'short', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                const historyItem = document.createElement('div');
+                historyItem.className = 'flex items-center justify-between p-3 sm:p-4 bg-gray-50 rounded-lg fade-in';
+                historyItem.style.animationDelay = `${index * 0.1}s`;
+                
+                const accuracyColor = quiz.accuracy >= 80 ? 'text-green-600' : quiz.accuracy >= 60 ? 'text-yellow-600' : 'text-red-600';
+                
+                historyItem.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <div class="text-lg sm:text-xl">${quiz.accuracy >= 80 ? '🏆' : quiz.accuracy >= 60 ? '👍' : '📚'}</div>
+                        <div>
+                            <div class="font-medium text-gray-800 text-sm sm:text-base">${quiz.category || 'すべて'}</div>
+                            <div class="text-xs sm:text-sm text-gray-500">${dateStr}</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-bold ${accuracyColor} text-sm sm:text-base">${quiz.accuracy}%</div>
+                        <div class="text-xs sm:text-sm text-gray-500">${quiz.score}/${quiz.total}問</div>
+                    </div>
+                `;
+                
+                container.appendChild(historyItem);
+            });
         }
 
         function showUpgradeModal() {
@@ -813,121 +1733,33 @@
             alert('プレミアムプランにアップグレードしました！\n中級・上級問題にアクセスできるようになりました。');
             closeUpgradeModal();
             showMainApp();
+            
+            // Google Analytics イベント
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'purchase', {
+                    transaction_id: 'demo_upgrade_' + Date.now(),
+                    value: 980,
+                    currency: 'JPY',
+                    items: [{
+                        item_id: 'premium_plan',
+                        item_name: 'プレミアムプラン',
+                        category: 'subscription',
+                        quantity: 1,
+                        price: 980
+                    }]
+                });
+            }
         }
 
         function loadSampleData() {
             originalQuestions = [...sampleQuestions];
-            const validation = validateQuestions(originalQuestions);
-            showValidationResults(validation);
+            questions = [...originalQuestions];
             
-            if (validation.isValid) {
-                updateCategoryOptions();
-                questions = [...originalQuestions];
-                document.getElementById('startQuizSection').classList.remove('hidden');
-            }
+            // 最終更新時刻を保存
+            const now = new Date().toLocaleString('ja-JP');
+            localStorage.setItem('lastDataUpdate', now);
         }
 
-        function updateCategoryOptions() {
-            const categorySelect = document.getElementById('categorySelect');
-            const difficultySelect = document.getElementById('difficultySelect');
-            
-            const categories = [...new Set(originalQuestions.map(q => q.category || '未分類'))].sort();
-            const difficulties = [...new Set(originalQuestions.map(q => q.difficulty || '未設定'))].sort();
-            
-            // 変更時のイベントリスナー
-            categorySelect.onchange = updateDropdownOptions;
-            difficultySelect.onchange = updateDropdownOptions;
-            
-            // 初期表示
-            updateDropdownOptions();
-        }
-
-        function updateDropdownOptions() {
-            const categorySelect = document.getElementById('categorySelect');
-            const difficultySelect = document.getElementById('difficultySelect');
-            
-            const selectedCategory = categorySelect.value;
-            const selectedDifficulty = difficultySelect.value;
-            
-            const categories = [...new Set(originalQuestions.map(q => q.category || '未分類'))].sort();
-            const difficulties = [...new Set(originalQuestions.map(q => q.difficulty || '未設定'))].sort();
-            
-            // 現在の選択を保持
-            const currentCategoryValue = selectedCategory;
-            const currentDifficultyValue = selectedDifficulty;
-            
-            // カテゴリ選択肢を再構築
-            categorySelect.innerHTML = '';
-            
-            // 「すべてのカテゴリ」の問題数を計算
-            let allCategoryCount = originalQuestions;
-            if (selectedDifficulty !== 'all') {
-                allCategoryCount = allCategoryCount.filter(q => (q.difficulty || '未設定') === selectedDifficulty);
-            }
-            
-            const allCategoryOption = document.createElement('option');
-            allCategoryOption.value = 'all';
-            allCategoryOption.textContent = `すべてのカテゴリ (${allCategoryCount.length}問)`;
-            categorySelect.appendChild(allCategoryOption);
-            
-            // 各カテゴリの問題数を計算（難易度フィルタ適用）
-            categories.forEach(category => {
-                let categoryQuestions = originalQuestions.filter(q => (q.category || '未分類') === category);
-                if (selectedDifficulty !== 'all') {
-                    categoryQuestions = categoryQuestions.filter(q => (q.difficulty || '未設定') === selectedDifficulty);
-                }
-                
-                const option = document.createElement('option');
-                option.value = category;
-                option.textContent = `${category} (${categoryQuestions.length}問)`;
-                categorySelect.appendChild(option);
-            });
-            
-            // 難易度選択肢を再構築
-            difficultySelect.innerHTML = '';
-            
-            // 「すべての難易度」の問題数を計算
-            let allDifficultyCount = originalQuestions;
-            if (selectedCategory !== 'all') {
-                allDifficultyCount = allDifficultyCount.filter(q => (q.category || '未分類') === selectedCategory);
-            }
-            
-            const allDifficultyOption = document.createElement('option');
-            allDifficultyOption.value = 'all';
-            allDifficultyOption.textContent = `すべての難易度 (${allDifficultyCount.length}問)`;
-            difficultySelect.appendChild(allDifficultyOption);
-            
-            // 各難易度の問題数を計算（カテゴリフィルタ適用）
-            difficulties.forEach(difficulty => {
-                let difficultyQuestions = originalQuestions.filter(q => (q.difficulty || '未設定') === difficulty);
-                if (selectedCategory !== 'all') {
-                    difficultyQuestions = difficultyQuestions.filter(q => (q.category || '未分類') === selectedCategory);
-                }
-                
-                const option = document.createElement('option');
-                option.value = difficulty;
-                option.textContent = `${difficulty} (${difficultyQuestions.length}問)`;
-                difficultySelect.appendChild(option);
-            });
-            
-            // 選択状態を復元
-            categorySelect.value = currentCategoryValue;
-            difficultySelect.value = currentDifficultyValue;
-            
-            // 最終的なフィルタ結果を計算
-            let filteredQuestions = originalQuestions;
-            if (selectedCategory !== 'all') {
-                filteredQuestions = filteredQuestions.filter(q => (q.category || '未分類') === selectedCategory);
-            }
-            if (selectedDifficulty !== 'all') {
-                filteredQuestions = filteredQuestions.filter(q => (q.difficulty || '未設定') === selectedDifficulty);
-            }
-            
-            // 表示を更新
-            document.getElementById('categoryCount').textContent = filteredQuestions.length;
-            document.getElementById('difficultyCount').textContent = filteredQuestions.length;
-        }
-        
 
 
         function validateQuestions(questionsToValidate) {
@@ -1067,10 +1899,18 @@
                 document.getElementById('loadingMessage').classList.add('hidden');
                 
                 if (validation.isValid) {
-                    updateCategoryOptions();
                     questions = [...originalQuestions];
-                    document.getElementById('startQuizSection').classList.remove('hidden');
-                    alert(`${questions.length}問の問題を読み込みました！カテゴリを選択してクイズを開始してください。`);
+                    
+                    // 最終更新時刻を保存
+                    const now = new Date().toLocaleString('ja-JP');
+                    localStorage.setItem('lastDataUpdate', now);
+                    
+                    alert(`${questions.length}問の問題を読み込みました！`);
+                    
+                    // 管理者画面が表示されている場合は更新
+                    if (!document.getElementById('adminContainer').classList.contains('hidden')) {
+                        updateAdminDashboard();
+                    }
                 } else {
                     alert(`データにエラーがあります。${validation.errors.length}件のエラーを修正してください。`);
                 }
@@ -1165,7 +2005,6 @@
             }
 
             // カテゴリと難易度でフィルタリング
-            const selectedCategory = document.getElementById('categorySelect').value;
             const selectedDifficulty = document.getElementById('difficultySelect').value;
             let filteredQuestions = [...originalQuestions];
             
@@ -1211,6 +2050,15 @@
                 return;
             }
 
+            // 問題数制限
+            const questionLimit = document.getElementById('questionLimit').value;
+            if (questionLimit !== 'all') {
+                const limit = parseInt(questionLimit);
+                if (filteredQuestions.length > limit) {
+                    filteredQuestions = filteredQuestions.slice(0, limit);
+                }
+            }
+
             // シャッフル設定の確認
             const shuffleMode = document.getElementById('shuffleMode').value;
             if (shuffleMode === 'shuffle') {
@@ -1238,6 +2086,15 @@
             quizStartTime = new Date();
             
             displayQuestion();
+            
+            // Google Analytics イベント
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'quiz_start', {
+                    category: selectedCategory,
+                    difficulty: selectedDifficulty,
+                    question_count: questions.length
+                });
+            }
         }
 
         function startTimer() {
@@ -1299,7 +2156,8 @@
             
             question.options.forEach((option, index) => {
                 const button = document.createElement('button');
-                button.className = 'option-button w-full bg-white hover:bg-gray-50 text-gray-800 p-4 rounded-lg border-2 border-gray-200 text-left font-medium';
+                button.className = 'option-button w-full bg-white hover:bg-gray-50 text-gray-800 p-4 rounded-lg border-2 border-gray-200 text-left font-medium fade-in';
+                button.style.animationDelay = `${index * 0.1}s`;
                 button.innerHTML = `
                     <div class="flex items-center">
                         <span class="w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-sm font-bold mr-4">
@@ -1326,6 +2184,13 @@
                 nextButton.disabled = false;
                 nextButton.style.opacity = '1';
             }
+            
+            // 広告表示制御（5問ごと、無料プランのみ）
+            if (currentUser.plan === 'free' && currentQuestionIndex > 0 && currentQuestionIndex % 5 === 0) {
+                document.getElementById('adSpace4').style.display = 'block';
+            } else {
+                document.getElementById('adSpace4').style.display = 'none';
+            }
         }
 
         function selectOption(button, option, type) {
@@ -1336,6 +2201,7 @@
                 });
                 
                 button.classList.add('option-selected');
+                createParticles(button);
                 
                 selectedAnswers.clear();
                 selectedAnswers.add(option);
@@ -1351,6 +2217,7 @@
                 } else {
                     selectedAnswers.add(option);
                     button.classList.add('option-selected');
+                    createParticles(button);
                 }
             }
         }
@@ -1404,7 +2271,7 @@
             
             const explanationCard = document.createElement('div');
             explanationCard.id = 'explanationCard';
-            explanationCard.className = `mt-6 p-4 rounded-lg border-l-4 ${isCorrect ? 'bg-green-50 border-green-400' : 'bg-blue-50 border-blue-400'}`;
+            explanationCard.className = `mt-6 p-4 rounded-lg border-l-4 ${isCorrect ? 'bg-green-50 border-green-400' : 'bg-blue-50 border-blue-400'} fade-in`;
             explanationCard.innerHTML = `
                 <div class="flex items-start">
                     <div class="flex-shrink-0 mr-3">
@@ -1464,6 +2331,8 @@
             document.getElementById('resultContainer').classList.remove('hidden');
             
             let correctCount = 0;
+            const quizEndTime = new Date();
+            const timeSpent = Math.round((quizEndTime - quizStartTime) / 1000); // 秒
             
             questions.forEach((question, index) => {
                 const userAnswer = userAnswers[index] || [];
@@ -1483,9 +2352,38 @@
             document.getElementById('incorrectCount').textContent = incorrectCount;
             document.getElementById('accuracyRate').textContent = `${accuracy}%`;
             
+            // 結果をローカルストレージに保存
+            const result = {
+                correctCount,
+                totalQuestions,
+                accuracy,
+                timeSpent,
+                questions: questions.map((q, index) => ({
+                    question: q.question,
+                    category: q.category,
+                    difficulty: q.difficulty,
+                    userAnswer: userAnswers[index] || [],
+                    correctAnswer: q.correct,
+                    isCorrect: arraysEqual((userAnswers[index] || []).sort(), q.correct.sort())
+                }))
+            };
+            
+            saveQuizResult(result);
+            
             // 称号チェック（満点の場合のみ）
             if (correctCount === totalQuestions) {
                 checkAndShowAchievement();
+                createConfetti();
+            }
+            
+            // Google Analytics イベント
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'quiz_complete', {
+                    score: correctCount,
+                    total: totalQuestions,
+                    accuracy: accuracy,
+                    time_spent: timeSpent
+                });
             }
         }
         
@@ -1532,7 +2430,8 @@
                 const isCorrect = arraysEqual(userAnswer.sort(), correctAnswer.sort());
                 
                 const resultCard = document.createElement('div');
-                resultCard.className = `border rounded-lg p-4 ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`;
+                resultCard.className = `border rounded-lg p-4 ${isCorrect ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'} fade-in`;
+                resultCard.style.animationDelay = `${index * 0.1}s`;
                 
                 const typeText = {
                     'single': '択一選択',
@@ -1627,8 +2526,6 @@
             document.getElementById('detailedResults').classList.add('hidden');
             document.getElementById('achievementSection').classList.add('hidden');
             document.getElementById('setupPanel').classList.remove('hidden');
-            document.getElementById('validationResults').classList.add('hidden');
-            document.getElementById('startQuizSection').classList.add('hidden');
             
             currentQuestionIndex = 0;
             userAnswers = [];
@@ -1636,6 +2533,14 @@
             timeRemaining = 0;
             quizStartTime = null;
         }
+
+        // 初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 広告の初期化
+            if (typeof adsbygoogle !== 'undefined') {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9638a800109c969c',t:'MTc1MzI0NzI2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9640d453b4d2fcba',t:'MTc1MzMzMjk2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
