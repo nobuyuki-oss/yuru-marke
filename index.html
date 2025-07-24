@@ -524,6 +524,9 @@
                         <button onclick="loadFromSpreadsheet()" class="canva-button text-white px-6 py-3 rounded-lg font-semibold shadow-lg">
                             📥 データを読み込む
                         </button>
+                        <button onclick="refreshSpreadsheetData()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-all">
+                            🔄 データを更新
+                        </button>
                         <button onclick="loadSampleData()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-all">
                             🎯 サンプルデータを読み込む
                         </button>
@@ -1435,6 +1438,12 @@
             document.getElementById('adminTotalCategories').textContent = categories.length;
             document.getElementById('adminLastUpdate').textContent = lastUpdate;
             
+            // 保存されたスプレッドシートURLを復元
+            const savedUrl = localStorage.getItem('spreadsheetUrl');
+            if (savedUrl) {
+                document.getElementById('spreadsheetUrl').value = savedUrl;
+            }
+            
             // カテゴリ別問題数
             updateAdminCategoryBreakdown();
         }
@@ -1607,13 +1616,24 @@
                 const freeQuestions = categoryQuestions.filter(q => (q.difficulty || '未設定') === '初級');
                 const isLocked = currentUser.plan === 'free' && freeQuestions.length === 0;
                 
+                // 利用可能な問題数を計算
+                let availableCount = categoryQuestions.length;
+                let displayText = `${availableCount}問`;
+                
+                if (currentUser.plan === 'free') {
+                    availableCount = freeQuestions.length;
+                    if (availableCount < categoryQuestions.length) {
+                        displayText = `${availableCount}問 (初級のみ)`;
+                    }
+                }
+                
                 const card = document.createElement('div');
                 card.className = `canva-card rounded-2xl p-4 sm:p-6 text-center cursor-pointer transition-all hover:scale-105 hover:shadow-lg ${isLocked ? 'opacity-60' : ''}`;
                 
                 card.innerHTML = `
                     <div class="text-3xl sm:text-4xl mb-3">${icon}</div>
                     <h4 class="font-bold text-gray-800 mb-2 text-sm sm:text-base">${category}</h4>
-                    <p class="text-xs sm:text-sm text-gray-600 mb-3">${categoryQuestions.length}問</p>
+                    <p class="text-xs sm:text-sm text-gray-600 mb-3">${displayText}</p>
                     ${isLocked ? 
                         '<div class="text-xs text-orange-600 font-medium">🔒 プレミアム限定</div>' : 
                         '<div class="text-xs text-green-600 font-medium">✓ 利用可能</div>'
@@ -1751,6 +1771,20 @@
             }
         }
 
+        function refreshSpreadsheetData() {
+            const savedUrl = localStorage.getItem('spreadsheetUrl');
+            if (!savedUrl) {
+                alert('保存されたスプレッドシートURLがありません。\n最初にスプレッドシートを読み込んでください。');
+                return;
+            }
+            
+            // 保存されたURLを入力欄に設定
+            document.getElementById('spreadsheetUrl').value = savedUrl;
+            
+            // データを再読み込み
+            loadFromSpreadsheet();
+        }
+
         function loadSampleData() {
             originalQuestions = [...sampleQuestions];
             questions = [...originalQuestions];
@@ -1758,6 +1792,16 @@
             // 最終更新時刻を保存
             const now = new Date().toLocaleString('ja-JP');
             localStorage.setItem('lastDataUpdate', now);
+            
+            // 管理者画面が表示されている場合は更新
+            if (!document.getElementById('adminContainer').classList.contains('hidden')) {
+                updateAdminDashboard();
+            }
+            
+            // ホーム画面が表示されている場合は更新
+            if (!document.getElementById('homeContainer').classList.contains('hidden')) {
+                updateCategoryGrid();
+            }
         }
 
 
@@ -1905,11 +1949,19 @@
                     const now = new Date().toLocaleString('ja-JP');
                     localStorage.setItem('lastDataUpdate', now);
                     
+                    // スプレッドシートURLを保存
+                    localStorage.setItem('spreadsheetUrl', url);
+                    
                     alert(`${questions.length}問の問題を読み込みました！`);
                     
                     // 管理者画面が表示されている場合は更新
                     if (!document.getElementById('adminContainer').classList.contains('hidden')) {
                         updateAdminDashboard();
+                    }
+                    
+                    // ホーム画面が表示されている場合は更新
+                    if (!document.getElementById('homeContainer').classList.contains('hidden')) {
+                        updateCategoryGrid();
                     }
                 } else {
                     alert(`データにエラーがあります。${validation.errors.length}件のエラーを修正してください。`);
@@ -2542,5 +2594,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9640d453b4d2fcba',t:'MTc1MzMzMjk2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9642c44a11c9fcb4',t:'MTc1MzM1MzI4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
