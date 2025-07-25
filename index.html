@@ -1518,23 +1518,21 @@
             const planDisplay = document.getElementById('userPlanDisplay');
             const upgradeButton = document.getElementById('upgradeButton');
             
-            const adminButton = document.getElementById('adminButton');
-            
             if (currentUser.plan === 'admin') {
                 planDisplay.textContent = '管理者';
                 planDisplay.className = 'text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-gradient-to-r from-red-500 to-orange-500 text-white';
                 upgradeButton.classList.add('hidden');
-                adminButton.classList.remove('hidden');
+                document.getElementById('adminButton').classList.remove('hidden');
             } else if (currentUser.plan === 'premium') {
                 planDisplay.textContent = 'プレミアムプラン';
                 planDisplay.className = 'text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white';
                 upgradeButton.classList.add('hidden');
-                adminButton.classList.add('hidden');
+                document.getElementById('adminButton').classList.add('hidden');
             } else {
                 planDisplay.textContent = '無料プラン';
                 planDisplay.className = 'text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-blue-100 text-blue-600';
                 upgradeButton.classList.remove('hidden');
-                adminButton.classList.add('hidden');
+                document.getElementById('adminButton').classList.add('hidden');
             }
             
             // サンプルデータを自動読み込み
@@ -2753,5 +2751,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964ae6fc909e19c5',t:'MTc1MzQzODU5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964b12d8b35dd3e2',t:'MTc1MzQ0MDM4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
