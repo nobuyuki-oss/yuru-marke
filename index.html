@@ -3,11 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ゆるマーケ道場 - プレミアムクイズアプリ</title>
+    
+    <!-- SEO基本設定 -->
+    <title>ゆるマーケ道場 - マーケティング学習クイズアプリ | SEO・広告・AI問題で実力アップ</title>
+    <meta name="description" content="マーケティングスキルを楽しく学べるクイズアプリ。SEO、広告運用、AI活用など実践的な問題で知識を深めよう。無料プランから始められ、プレミアムプランで上級問題にも挑戦可能。">
+    <meta name="keywords" content="マーケティング,クイズ,SEO,広告,AI,学習,スキルアップ,デジタルマーケティング,オンライン学習">
+    <meta name="author" content="ゆるマーケ道場">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="ja">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/">
+    <meta property="og:title" content="ゆるマーケ道場 - マーケティング学習クイズアプリ">
+    <meta property="og:description" content="マーケティングスキルを楽しく学べるクイズアプリ。SEO、広告運用、AI活用など実践的な問題で知識を深めよう。">
+    <meta property="og:image" content="https://example.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="ゆるマーケ道場">
+    <meta property="og:locale" content="ja_JP">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://example.com/">
+    <meta name="twitter:title" content="ゆるマーケ道場 - マーケティング学習クイズアプリ">
+    <meta name="twitter:description" content="マーケティングスキルを楽しく学べるクイズアプリ。SEO、広告運用、AI活用など実践的な問題で知識を深めよう。">
+    <meta name="twitter:image" content="https://example.com/twitter-image.jpg">
+    <meta name="twitter:creator" content="@yurumarket">
+    
+    <!-- 構造化データ（JSON-LD） -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ゆるマーケ道場",
+        "description": "マーケティングスキルを楽しく学べるクイズアプリ。SEO、広告運用、AI活用など実践的な問題で知識を深めよう。",
+        "url": "https://example.com/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web Browser",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "無料プラン",
+                "price": "0",
+                "priceCurrency": "JPY",
+                "description": "初級問題にアクセス可能"
+            },
+            {
+                "@type": "Offer",
+                "name": "プレミアムプラン",
+                "price": "980",
+                "priceCurrency": "JPY",
+                "description": "全難易度の問題にアクセス、詳細解説付き"
+            }
+        ],
+        "author": {
+            "@type": "Organization",
+            "name": "ゆるマーケ道場",
+            "url": "https://example.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ゆるマーケ道場",
+            "url": "https://example.com/"
+        },
+        "inLanguage": "ja",
+        "isAccessibleForFree": true,
+        "hasPart": [
+            {
+                "@type": "Course",
+                "name": "SEO基礎コース",
+                "description": "検索エンジン最適化の基本を学ぶ"
+            },
+            {
+                "@type": "Course", 
+                "name": "広告運用コース",
+                "description": "デジタル広告の運用方法を学ぶ"
+            },
+            {
+                "@type": "Course",
+                "name": "AI活用コース", 
+                "description": "マーケティングでのAI活用方法を学ぶ"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://example.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+    
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
@@ -164,6 +266,19 @@
             animation: particleFloat 2s ease-out forwards;
         }
         
+        /* SEO用のスクリーンリーダー専用クラス */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
         /* 広告スタイル */
         .ad-container {
             background: rgba(255, 255, 255, 0.9);
@@ -251,12 +366,18 @@
     </div>
     
     <div class="container mx-auto px-4 py-8 max-w-4xl relative z-10">
+        <!-- SEO用のヘッダー（検索エンジン向け） -->
+        <header class="sr-only">
+            <h1>ゆるマーケ道場 - マーケティング学習クイズアプリ</h1>
+            <p>SEO、広告運用、AI活用など実践的なマーケティング問題で知識を深めよう</p>
+        </header>
+
         <!-- ログイン画面 -->
         <div id="loginContainer" class="canva-card rounded-3xl p-8 mb-8 text-center fade-in">
             <div class="mb-6">
-                <h1 class="text-5xl font-bold bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent mb-3">
+                <h2 class="text-5xl font-bold bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent mb-3">
                     ✨ ゆるマーケ道場
-                </h1>
+                </h2>
                 <p class="text-gray-700 text-lg font-medium">様々な形式の問題に挑戦しよう！</p>
             </div>
             
@@ -298,7 +419,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
 
         <!-- 新規登録画面 -->
         <div id="registerContainer" class="hidden canva-card rounded-3xl p-8 mb-8 text-center fade-in">
@@ -323,7 +444,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </main>
 
         <!-- ヘッダー（ログイン後） -->
         <div id="mainHeader" class="hidden">
@@ -360,16 +481,16 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
 
         <!-- ホーム画面 -->
-        <div id="homeContainer" class="hidden">
+        <main id="homeContainer" class="hidden">
             <!-- ウェルカムセクション -->
-            <div class="canva-card rounded-3xl p-6 sm:p-8 mb-6 text-center fade-in">
+            <section class="canva-card rounded-3xl p-6 sm:p-8 mb-6 text-center fade-in">
                 <div class="mb-6">
                     <div class="text-4xl sm:text-6xl mb-4">🏠</div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">ホーム</h2>
-                    <p class="text-gray-600 text-sm sm:text-base">学習したいカテゴリを選択してください</p>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">マーケティング学習ダッシュボード</h2>
+                    <p class="text-gray-600 text-sm sm:text-base">SEO、広告運用、AI活用など実践的な問題で知識を深めよう</p>
                 </div>
                 
                 <!-- 学習統計サマリー -->
@@ -406,20 +527,22 @@
             </div>
             
             <!-- カテゴリ選択 -->
-            <div class="canva-card rounded-3xl p-6 sm:p-8 mb-6 fade-in">
-                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6 text-center">📚 カテゴリを選択</h3>
+            <section class="canva-card rounded-3xl p-6 sm:p-8 mb-6 fade-in">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6 text-center">📚 マーケティング学習カテゴリ</h3>
+                <p class="text-center text-gray-600 mb-6 text-sm sm:text-base">実践的なマーケティングスキルを身につけよう</p>
                 <div id="categoryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                     <!-- カテゴリカードがここに動的に生成されます -->
                 </div>
-            </div>
+            </section>
             
             <!-- 最近の学習履歴 -->
-            <div class="canva-card rounded-3xl p-6 sm:p-8 mb-6 fade-in">
-                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6">📈 最近の学習履歴</h3>
+            <section class="canva-card rounded-3xl p-6 sm:p-8 mb-6 fade-in">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6">📈 学習進捗と履歴</h3>
+                <p class="text-gray-600 mb-4 text-sm sm:text-base">あなたのマーケティング学習の成果を確認しよう</p>
                 <div id="recentHistory" class="space-y-3">
                     <!-- 学習履歴がここに表示されます -->
                 </div>
-            </div>
+            </section>
             
             <!-- 広告スペース（ホーム画面下部） -->
             <div id="homeAdSpace2" class="ad-container mb-6">
@@ -429,7 +552,7 @@
                     <p class="text-xs sm:text-sm">上級問題で真のエキスパートを目指そう</p>
                 </div>
             </div>
-        </div>
+        </main>
 
         <!-- データ分析ダッシュボード -->
         <div id="analyticsContainer" class="hidden canva-card rounded-3xl p-8 mb-8 fade-in">
@@ -488,7 +611,7 @@
                     <p class="text-sm">AI分析による個別学習プランで成績向上を実現</p>
                 </div>
             </div>
-        </div>
+        </main>
 
         <!-- 管理者画面 -->
         <div id="adminContainer" class="hidden canva-card rounded-3xl p-6 sm:p-8 mb-8 fade-in">
@@ -587,7 +710,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </main>
 
         <!-- プレミアムアップグレードモーダル -->
         <div id="upgradeModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -637,7 +760,7 @@
                     <p class="text-xs text-gray-500 mt-4">※ デモ版では実際の課金は発生しません</p>
                 </div>
             </div>
-        </div>
+        </main>
 
         <!-- クイズ設定パネル（ホームから呼び出される） -->
         <div id="setupPanel" class="hidden canva-card rounded-3xl p-6 sm:p-8 mb-8 fade-in">
@@ -695,7 +818,7 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </main>
 
 
 
@@ -767,7 +890,7 @@
                     次の問題 →
                 </button>
             </div>
-        </div>
+        </main>
 
         <!-- 結果画面 -->
         <div id="resultContainer" class="hidden">
@@ -838,7 +961,43 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </main>
+        
+        <!-- SEO用フッター -->
+        <footer class="mt-16 bg-gray-800 text-white py-8">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">ゆるマーケ道場について</h4>
+                        <p class="text-gray-300 text-sm">
+                            マーケティングスキルを楽しく学べるクイズアプリです。SEO、広告運用、AI活用など実践的な問題で知識を深めることができます。
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">学習カテゴリ</h4>
+                        <ul class="text-gray-300 text-sm space-y-2">
+                            <li><a href="#" class="hover:text-white">SEO（検索エンジン最適化）</a></li>
+                            <li><a href="#" class="hover:text-white">デジタル広告運用</a></li>
+                            <li><a href="#" class="hover:text-white">AI・ChatGPT活用</a></li>
+                            <li><a href="#" class="hover:text-white">コンテンツマーケティング</a></li>
+                            <li><a href="#" class="hover:text-white">ECサイト運営</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">プラン</h4>
+                        <ul class="text-gray-300 text-sm space-y-2">
+                            <li>無料プラン - 初級問題にアクセス</li>
+                            <li>プレミアムプラン - 全問題＋詳細解説</li>
+                        </ul>
+                        <div class="mt-4">
+                            <p class="text-xs text-gray-400">
+                                © 2024 ゆるマーケ道場. All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <script>
@@ -2594,5 +2753,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9642c44a11c9fcb4',t:'MTc1MzM1MzI4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964ae6fc909e19c5',t:'MTc1MzQzODU5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
