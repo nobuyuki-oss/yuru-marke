@@ -379,6 +379,80 @@
                     ✨ ゆるマーケ道場
                 </h2>
                 <p class="text-gray-700 text-lg font-medium">様々な形式の問題に挑戦しよう！</p>
+                
+                <!-- 学習イメージ -->
+                <div class="my-8 flex justify-center">
+                    <svg width="200" height="150" viewBox="0 0 200 150" class="rounded-lg shadow-lg">
+                        <!-- 背景 -->
+                        <rect width="200" height="150" fill="#f0f9ff"/>
+                        
+                        <!-- 中年男性（立っている姿勢） -->
+                        <!-- 頭 -->
+                        <circle cx="60" cy="45" r="18" fill="#fbbf24"/>
+                        <!-- 髪（薄め、M字ハゲ風） -->
+                        <path d="M 42 40 Q 50 32 60 32 Q 70 32 78 40 Q 75 35 70 35 Q 60 30 50 35 Q 45 35 42 40" fill="#6b7280"/>
+                        <!-- 眼鏡 -->
+                        <circle cx="55" cy="43" r="4" fill="none" stroke="#374151" stroke-width="1"/>
+                        <circle cx="65" cy="43" r="4" fill="none" stroke="#374151" stroke-width="1"/>
+                        <line x1="59" y1="43" x2="61" y2="43" stroke="#374151" stroke-width="1"/>
+                        
+                        <!-- 体（シャツ） -->
+                        <rect x="48" y="63" width="24" height="45" rx="3" fill="#3b82f6"/>
+                        <!-- 襟 -->
+                        <polygon points="48,63 54,63 60,70 66,63 72,63 72,75 48,75" fill="#1e40af"/>
+                        
+                        <!-- 右腕（スマホを持つ） -->
+                        <rect x="72" y="70" width="8" height="25" rx="2" fill="#fbbf24"/>
+                        <!-- 右手 -->
+                        <circle cx="80" cy="95" r="4" fill="#fbbf24"/>
+                        
+                        <!-- スマートフォン（手に持っている） -->
+                        <rect x="82" y="85" width="25" height="40" rx="4" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+                        <rect x="85" y="90" width="19" height="30" fill="#3b82f6"/>
+                        
+                        <!-- スマホ画面のコンテンツ -->
+                        <rect x="87" y="93" width="15" height="3" rx="1" fill="#ffffff" opacity="0.9"/>
+                        <rect x="87" y="98" width="12" height="2" rx="1" fill="#ffffff" opacity="0.7"/>
+                        <rect x="87" y="102" width="13" height="2" rx="1" fill="#ffffff" opacity="0.7"/>
+                        <rect x="87" y="106" width="10" height="2" rx="1" fill="#ffffff" opacity="0.7"/>
+                        
+                        <!-- 選択肢ボタン -->
+                        <rect x="87" y="110" width="15" height="3" rx="1" fill="#10b981" opacity="0.8"/>
+                        <rect x="87" y="115" width="15" height="3" rx="1" fill="#ffffff" opacity="0.3"/>
+                        
+                        <!-- 左腕 -->
+                        <rect x="40" y="75" width="8" height="20" rx="2" fill="#fbbf24"/>
+                        <!-- 左手 -->
+                        <circle cx="40" cy="95" r="3" fill="#fbbf24"/>
+                        
+                        <!-- 脚 -->
+                        <rect x="52" y="108" width="7" height="25" rx="2" fill="#1f2937"/>
+                        <rect x="61" y="108" width="7" height="25" rx="2" fill="#1f2937"/>
+                        
+                        <!-- 靴 -->
+                        <ellipse cx="55" cy="135" rx="6" ry="3" fill="#374151"/>
+                        <ellipse cx="64" cy="135" rx="6" ry="3" fill="#374151"/>
+                        
+                        <!-- 笑顔 -->
+                        <circle cx="56" cy="42" r="1" fill="#1f2937"/>
+                        <circle cx="64" cy="42" r="1" fill="#1f2937"/>
+                        <path d="M 54 50 Q 60 54 66 50" stroke="#1f2937" stroke-width="1.2" fill="none"/>
+                        
+                        <!-- 学習効果のキラキラ -->
+                        <text x="120" y="25" font-size="16" fill="#fbbf24">✨</text>
+                        <text x="140" y="40" font-size="12" fill="#10b981">💡</text>
+                        <text x="125" y="55" font-size="14" fill="#8b5cf6">📚</text>
+                        <text x="145" y="70" font-size="12" fill="#f59e0b">🎯</text>
+                        
+                        <!-- 集中線効果 -->
+                        <line x1="110" y1="90" x2="115" y2="85" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
+                        <line x1="115" y1="95" x2="120" y2="90" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
+                        <line x1="110" y1="100" x2="115" y2="105" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
+                        
+                        <!-- 「楽しく学習中」テキスト -->
+                        <text x="100" y="140" font-size="10" fill="#6b7280" text-anchor="middle">楽しく学習中！</text>
+                    </svg>
+                </div>
             </div>
             
             <!-- 広告スペース1 -->
@@ -419,7 +493,7 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
 
         <!-- 新規登録画面 -->
         <div id="registerContainer" class="hidden canva-card rounded-3xl p-8 mb-8 text-center fade-in">
@@ -444,7 +518,7 @@
                     </button>
                 </div>
             </div>
-        </main>
+        </div>
 
         <!-- ヘッダー（ログイン後） -->
         <div id="mainHeader" class="hidden">
@@ -481,16 +555,79 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
 
         <!-- ホーム画面 -->
         <main id="homeContainer" class="hidden">
             <!-- ウェルカムセクション -->
             <section class="canva-card rounded-3xl p-6 sm:p-8 mb-6 text-center fade-in">
                 <div class="mb-6">
-                    <div class="text-4xl sm:text-6xl mb-4">🏠</div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">マーケティング学習ダッシュボード</h2>
-                    <p class="text-gray-600 text-sm sm:text-base">SEO、広告運用、AI活用など実践的な問題で知識を深めよう</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-6">
+                        <div class="flex-1">
+                            <div class="text-4xl sm:text-6xl mb-4">🏠</div>
+                            <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">マーケティング学習ダッシュボード</h2>
+                            <p class="text-gray-600 text-sm sm:text-base">SEO、広告運用、AI活用など実践的な問題で知識を深めよう</p>
+                        </div>
+                        
+                        <!-- 学習イメージ（ホーム画面用） -->
+                        <div class="flex-shrink-0">
+                            <svg width="180" height="140" viewBox="0 0 180 140" class="rounded-lg shadow-lg">
+                                <!-- 背景 -->
+                                <rect width="180" height="140" fill="#f8fafc"/>
+                                
+                                <!-- デスク -->
+                                <rect x="20" y="100" width="140" height="30" rx="4" fill="#8b5cf6" opacity="0.8"/>
+                                
+                                <!-- スマートフォン -->
+                                <rect x="60" y="70" width="45" height="70" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1.5"/>
+                                <rect x="64" y="78" width="37" height="54" fill="#3b82f6"/>
+                                
+                                <!-- スマホ画面のコンテンツ -->
+                                <rect x="68" y="82" width="29" height="6" rx="1" fill="#ffffff" opacity="0.9"/>
+                                <rect x="68" y="92" width="22" height="4" rx="1" fill="#ffffff" opacity="0.7"/>
+                                <rect x="68" y="99" width="26" height="4" rx="1" fill="#ffffff" opacity="0.7"/>
+                                <rect x="68" y="106" width="18" height="4" rx="1" fill="#ffffff" opacity="0.7"/>
+                                
+                                <!-- 選択肢ボタン -->
+                                <rect x="68" y="114" width="29" height="6" rx="1" fill="#10b981" opacity="0.8"/>
+                                <rect x="68" y="122" width="29" height="6" rx="1" fill="#ffffff" opacity="0.3"/>
+                                
+                                <!-- 中年男性（座っている） -->
+                                <!-- 頭 -->
+                                <circle cx="40" cy="60" r="12" fill="#fbbf24"/>
+                                <!-- 髪（薄め、サイド分け） -->
+                                <path d="M 28 55 Q 40 48 52 55 Q 48 52 40 52 Q 32 52 28 55" fill="#6b7280"/>
+                                <!-- 体 -->
+                                <rect x="32" y="72" width="16" height="28" rx="2" fill="#059669"/>
+                                <!-- 腕（スマホを持つ） -->
+                                <rect x="48" y="78" width="12" height="6" rx="1" fill="#fbbf24"/>
+                                <rect x="20" y="82" width="12" height="6" rx="1" fill="#fbbf24"/>
+                                
+                                <!-- 脚 -->
+                                <rect x="30" y="100" width="6" height="15" rx="1" fill="#1f2937"/>
+                                <rect x="42" y="100" width="6" height="15" rx="1" fill="#1f2937"/>
+                                
+                                <!-- 笑顔 -->
+                                <circle cx="36" cy="58" r="1" fill="#1f2937"/>
+                                <circle cx="44" cy="58" r="1" fill="#1f2937"/>
+                                <path d="M 34 64 Q 40 67 46 64" stroke="#1f2937" stroke-width="1" fill="none"/>
+                                
+                                <!-- コーヒーカップ -->
+                                <rect x="110" y="85" width="12" height="15" rx="2" fill="#ffffff" stroke="#d1d5db"/>
+                                <rect x="112" y="87" width="8" height="11" fill="#8b4513" opacity="0.6"/>
+                                <path d="M 122 90 Q 127 90 127 95 Q 127 100 122 100" stroke="#d1d5db" fill="none"/>
+                                
+                                <!-- 学習効果のキラキラ -->
+                                <text x="130" y="25" font-size="14" fill="#fbbf24">✨</text>
+                                <text x="145" y="40" font-size="10" fill="#10b981">💡</text>
+                                <text x="135" y="55" font-size="12" fill="#8b5cf6">📈</text>
+                                <text x="150" y="70" font-size="10" fill="#f59e0b">🎯</text>
+                                
+                                <!-- 「集中学習中」テキスト -->
+                                <text x="90" y="130" font-size="9" fill="#6b7280" text-anchor="middle">集中学習中！</text>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- 学習統計サマリー -->
@@ -552,7 +689,7 @@
                     <p class="text-xs sm:text-sm">上級問題で真のエキスパートを目指そう</p>
                 </div>
             </div>
-        </main>
+        </div>
 
         <!-- データ分析ダッシュボード -->
         <div id="analyticsContainer" class="hidden canva-card rounded-3xl p-8 mb-8 fade-in">
@@ -611,7 +748,7 @@
                     <p class="text-sm">AI分析による個別学習プランで成績向上を実現</p>
                 </div>
             </div>
-        </main>
+        </div>
 
         <!-- 管理者画面 -->
         <div id="adminContainer" class="hidden canva-card rounded-3xl p-6 sm:p-8 mb-8 fade-in">
@@ -668,6 +805,48 @@
                 <div id="validationResults" class="hidden mt-4"></div>
             </div>
             
+            <!-- ユーザー統計 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">👥 ユーザー統計</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-blue-50 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-blue-600" id="adminTotalUsers">0</div>
+                        <div class="text-sm text-blue-600">総ユーザー数</div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-green-600" id="adminTodayLogins">0</div>
+                        <div class="text-sm text-green-600">今日のログイン</div>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-purple-600" id="adminWeeklyLogins">0</div>
+                        <div class="text-sm text-purple-600">今週のログイン</div>
+                    </div>
+                    <div class="bg-orange-50 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-orange-600" id="adminPremiumUsers">0</div>
+                        <div class="text-sm text-orange-600">プレミアムユーザー</div>
+                    </div>
+                </div>
+                
+                <!-- プラン別ユーザー数 -->
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-gray-800 mb-3">プラン別ユーザー数</h4>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-blue-600" id="adminFreeUsers">0</div>
+                            <div class="text-xs text-gray-600">無料プラン</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-purple-600" id="adminPremiumUsersDetail">0</div>
+                            <div class="text-xs text-gray-600">プレミアムプラン</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-red-600" id="adminAdminUsers">0</div>
+                            <div class="text-xs text-gray-600">管理者</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- 現在のデータ状況 -->
             <div class="mb-8">
                 <h3 class="text-xl font-bold text-gray-800 mb-4">📈 現在のデータ状況</h3>
@@ -710,7 +889,7 @@
                     </button>
                 </div>
             </div>
-        </main>
+        </div>
 
         <!-- プレミアムアップグレードモーダル -->
         <div id="upgradeModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -760,7 +939,7 @@
                     <p class="text-xs text-gray-500 mt-4">※ デモ版では実際の課金は発生しません</p>
                 </div>
             </div>
-        </main>
+        </div>
 
         <!-- クイズ設定パネル（ホームから呼び出される） -->
         <div id="setupPanel" class="hidden canva-card rounded-3xl p-6 sm:p-8 mb-8 fade-in">
@@ -818,7 +997,7 @@
                     </button>
                 </div>
             </div>
-        </main>
+        </div>
 
 
 
@@ -890,7 +1069,7 @@
                     次の問題 →
                 </button>
             </div>
-        </main>
+        </div>
 
         <!-- 結果画面 -->
         <div id="resultContainer" class="hidden">
@@ -961,7 +1140,7 @@
                     </button>
                 </div>
             </div>
-        </main>
+        </div>
         
         <!-- SEO用フッター -->
         <footer class="mt-16 bg-gray-800 text-white py-8">
@@ -1033,6 +1212,57 @@
             'demo@premium.com': { name: 'プレミアムユーザー', plan: 'premium', password: 'password123' },
             'admin@demo.com': { name: '管理者', plan: 'admin', password: 'admin123' }
         };
+
+        // ユーザー統計管理
+        function getUserStats() {
+            const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+            const loginHistory = JSON.parse(localStorage.getItem('loginHistory') || '[]');
+            
+            // 今日のログイン数
+            const today = new Date().toDateString();
+            const todayLogins = loginHistory.filter(login => 
+                new Date(login.timestamp).toDateString() === today
+            ).length;
+            
+            // 今週のログイン数
+            const weekAgo = new Date();
+            weekAgo.setDate(weekAgo.getDate() - 7);
+            const weeklyLogins = loginHistory.filter(login => 
+                new Date(login.timestamp) >= weekAgo
+            ).length;
+            
+            // プラン別ユーザー数
+            const planStats = {
+                free: registeredUsers.filter(user => user.plan === 'free').length,
+                premium: registeredUsers.filter(user => user.plan === 'premium').length,
+                admin: registeredUsers.filter(user => user.plan === 'admin').length
+            };
+            
+            return {
+                totalUsers: registeredUsers.length + Object.keys(demoUsers).length,
+                registeredUsers: registeredUsers.length,
+                demoUsers: Object.keys(demoUsers).length,
+                todayLogins,
+                weeklyLogins,
+                planStats
+            };
+        }
+
+        function trackLogin(email, plan) {
+            const loginHistory = JSON.parse(localStorage.getItem('loginHistory') || '[]');
+            loginHistory.push({
+                email,
+                plan,
+                timestamp: new Date().toISOString()
+            });
+            
+            // 最新100件のみ保持
+            if (loginHistory.length > 100) {
+                loginHistory.splice(0, loginHistory.length - 100);
+            }
+            
+            localStorage.setItem('loginHistory', JSON.stringify(loginHistory));
+        }
 
         // サンプルデータ
         const sampleQuestions = [
@@ -1424,6 +1654,10 @@
                     name: demoUsers[email].name,
                     plan: demoUsers[email].plan
                 };
+                
+                // ログイン履歴を記録
+                trackLogin(email, currentUser.plan);
+                
                 showMainApp();
                 
                 // Google Analytics イベント
@@ -1466,6 +1700,14 @@
                 plan: 'free'
             };
             
+            // 登録ユーザーをローカルストレージに保存
+            const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
+            registeredUsers.push(currentUser);
+            localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+            
+            // ログイン履歴を記録
+            trackLogin(email, 'free');
+            
             alert('登録が完了しました！');
             showMainApp();
             
@@ -1483,6 +1725,10 @@
                 name: 'ゲストユーザー',
                 plan: 'free'
             };
+            
+            // ログイン履歴を記録
+            trackLogin('guest@example.com', 'free');
+            
             showMainApp();
             
             // Google Analytics イベント
@@ -1517,22 +1763,23 @@
             
             const planDisplay = document.getElementById('userPlanDisplay');
             const upgradeButton = document.getElementById('upgradeButton');
+            const adminButton = document.getElementById('adminButton');
             
             if (currentUser.plan === 'admin') {
                 planDisplay.textContent = '管理者';
                 planDisplay.className = 'text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-gradient-to-r from-red-500 to-orange-500 text-white';
                 upgradeButton.classList.add('hidden');
-                document.getElementById('adminButton').classList.remove('hidden');
+                if (adminButton) adminButton.classList.remove('hidden');
             } else if (currentUser.plan === 'premium') {
                 planDisplay.textContent = 'プレミアムプラン';
                 planDisplay.className = 'text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white';
                 upgradeButton.classList.add('hidden');
-                document.getElementById('adminButton').classList.add('hidden');
+                if (adminButton) adminButton.classList.add('hidden');
             } else {
                 planDisplay.textContent = '無料プラン';
                 planDisplay.className = 'text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-blue-100 text-blue-600';
                 upgradeButton.classList.remove('hidden');
-                document.getElementById('adminButton').classList.add('hidden');
+                if (adminButton) adminButton.classList.add('hidden');
             }
             
             // サンプルデータを自動読み込み
@@ -1586,6 +1833,16 @@
         }
 
         function updateAdminDashboard() {
+            // ユーザー統計
+            const userStats = getUserStats();
+            document.getElementById('adminTotalUsers').textContent = userStats.totalUsers;
+            document.getElementById('adminTodayLogins').textContent = userStats.todayLogins;
+            document.getElementById('adminWeeklyLogins').textContent = userStats.weeklyLogins;
+            document.getElementById('adminPremiumUsers').textContent = userStats.planStats.premium;
+            document.getElementById('adminFreeUsers').textContent = userStats.planStats.free;
+            document.getElementById('adminPremiumUsersDetail').textContent = userStats.planStats.premium;
+            document.getElementById('adminAdminUsers').textContent = userStats.planStats.admin;
+            
             // 基本統計
             const totalQuestions = originalQuestions.length;
             const categories = [...new Set(originalQuestions.map(q => q.category || '未分類'))];
@@ -2751,5 +3008,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964b12d8b35dd3e2',t:'MTc1MzQ0MDM4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96584c7ec27f3062',t:'MTc1MzU3OTA2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
