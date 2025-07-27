@@ -1799,6 +1799,14 @@
                     originalQuestions = JSON.parse(storedQuestions);
                     questions = [...originalQuestions];
                     console.log('保存されたデータを復元しました:', originalQuestions.length + '問');
+                    
+                    // データ復元後に全画面を更新
+                    setTimeout(() => {
+                        updateCategoryGrid();
+                        updateHomeStats();
+                        updateRecentHistory();
+                        updateDifficultyOptions(selectedCategory);
+                    }, 100);
                 } catch (error) {
                     console.error('保存されたデータの復元に失敗:', error);
                     loadSampleData();
@@ -2237,22 +2245,14 @@
             // データをローカルストレージに保存
             localStorage.setItem('quizQuestions', JSON.stringify(originalQuestions));
             
-            // 管理者画面が表示されている場合は更新
-            if (!document.getElementById('adminContainer').classList.contains('hidden')) {
-                updateAdminDashboard();
-            }
+            // 全ての画面を強制更新
+            updateAdminDashboard();
+            updateCategoryGrid();
+            updateHomeStats();
+            updateRecentHistory();
+            updateDifficultyOptions(selectedCategory);
             
-            // ホーム画面が表示されている場合は更新
-            if (!document.getElementById('homeContainer').classList.contains('hidden')) {
-                updateCategoryGrid();
-                updateHomeStats();
-                updateRecentHistory();
-            }
-            
-            // 設定画面が表示されている場合は更新
-            if (!document.getElementById('setupPanel').classList.contains('hidden')) {
-                updateDifficultyOptions(selectedCategory);
-            }
+            console.log('サンプルデータ読み込み完了:', originalQuestions.length + '問');
         }
 
 
@@ -2408,22 +2408,16 @@
                     
                     alert(`${questions.length}問の問題を読み込みました！`);
                     
-                    // 管理者画面が表示されている場合は更新
-                    if (!document.getElementById('adminContainer').classList.contains('hidden')) {
-                        updateAdminDashboard();
-                    }
+                    // 全ての画面を強制更新
+                    updateAdminDashboard();
+                    updateCategoryGrid();
+                    updateHomeStats();
+                    updateRecentHistory();
                     
-                    // ホーム画面が表示されている場合は更新
-                    if (!document.getElementById('homeContainer').classList.contains('hidden')) {
-                        updateCategoryGrid();
-                        updateHomeStats();
-                        updateRecentHistory();
-                    }
+                    // 設定画面の難易度選択肢も更新
+                    updateDifficultyOptions(selectedCategory);
                     
-                    // 設定画面が表示されている場合は更新
-                    if (!document.getElementById('setupPanel').classList.contains('hidden')) {
-                        updateDifficultyOptions(selectedCategory);
-                    }
+                    console.log('データ更新完了:', originalQuestions.length + '問');
                 } else {
                     alert(`データにエラーがあります。${validation.errors.length}件のエラーを修正してください。`);
                 }
@@ -3055,5 +3049,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9658653da0cbd3cd',t:'MTc1MzU4MDA3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96586ac1b34b19d2',t:'MTc1MzU4MDMwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
