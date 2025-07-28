@@ -118,6 +118,9 @@
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
     </script>
+    
+    <!-- Google Sign-In API -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         body { 
@@ -476,6 +479,15 @@
                     <button onclick="login()" class="canva-button text-white px-8 py-3 rounded-2xl font-semibold w-full shadow-lg">
                         🔑 ログイン
                     </button>
+                    <button onclick="googleLogin()" class="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-2xl font-semibold w-full shadow-lg transition-all flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Googleでログイン
+                    </button>
                     <button onclick="showRegister()" class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-2xl font-semibold w-full shadow-lg transition-all">
                         📝 新規登録
                     </button>
@@ -490,6 +502,10 @@
                         <p><strong>無料プラン:</strong> demo@free.com / password123</p>
                         <p><strong>プレミアムプラン:</strong> demo@premium.com / password123</p>
                         <p><strong>管理者:</strong> admin@demo.com / admin123</p>
+                        <p><strong>Googleログイン:</strong> 「Googleでログイン」ボタンをクリック（デモ版）</p>
+                    </div>
+                    <div class="mt-3 p-2 bg-green-50 rounded text-xs text-green-700">
+                        ✨ <strong>新機能:</strong> ログイン状態がページリロード後も保持されます
                     </div>
                 </div>
             </div>
@@ -1206,6 +1222,28 @@
         // ユーザー管理
         let currentUser = null;
         
+        // ログイン状態の永続化
+        function saveUserSession(user) {
+            localStorage.setItem('currentUser', JSON.stringify(user));
+        }
+        
+        function loadUserSession() {
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                try {
+                    return JSON.parse(savedUser);
+                } catch (error) {
+                    console.error('ユーザーセッションの復元に失敗:', error);
+                    localStorage.removeItem('currentUser');
+                }
+            }
+            return null;
+        }
+        
+        function clearUserSession() {
+            localStorage.removeItem('currentUser');
+        }
+        
         // デモ用ユーザーデータ
         const demoUsers = {
             'demo@free.com': { name: 'フリーユーザー', plan: 'free', password: 'password123' },
@@ -1652,8 +1690,12 @@
                 currentUser = {
                     email: email,
                     name: demoUsers[email].name,
-                    plan: demoUsers[email].plan
+                    plan: demoUsers[email].plan,
+                    loginMethod: 'email'
                 };
+                
+                // ログイン状態を保存
+                saveUserSession(currentUser);
                 
                 // ログイン履歴を記録
                 trackLogin(email, currentUser.plan);
@@ -1669,6 +1711,79 @@
                 }
             } else {
                 alert('メールアドレスまたはパスワードが間違っています');
+            }
+        }
+        
+        // Googleログイン機能
+        function googleLogin() {
+            // デモ版では簡易的なGoogleログインをシミュレート
+            if (typeof google !== 'undefined' && google.accounts) {
+                // 実際のGoogle Sign-In実装
+                google.accounts.id.initialize({
+                    client_id: 'YOUR_GOOGLE_CLIENT_ID', // 実際のクライアントIDに置き換え
+                    callback: handleGoogleSignIn
+                });
+                
+                google.accounts.id.prompt();
+            } else {
+                // デモ版のシミュレート
+                const mockGoogleUser = {
+                    email: 'demo.google@gmail.com',
+                    name: 'Google ユーザー',
+                    picture: 'https://via.placeholder.com/40',
+                    plan: 'free'
+                };
+                
+                currentUser = {
+                    ...mockGoogleUser,
+                    loginMethod: 'google'
+                };
+                
+                // ログイン状態を保存
+                saveUserSession(currentUser);
+                
+                // ログイン履歴を記録
+                trackLogin(mockGoogleUser.email, mockGoogleUser.plan);
+                
+                alert('Googleアカウントでログインしました！\n（デモ版のため、実際のGoogleアカウントは使用されません）');
+                showMainApp();
+                
+                // Google Analytics イベント
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'login', {
+                        method: 'google',
+                        user_plan: currentUser.plan
+                    });
+                }
+            }
+        }
+        
+        function handleGoogleSignIn(response) {
+            // JWTトークンをデコード（実際の実装では適切なライブラリを使用）
+            const payload = JSON.parse(atob(response.credential.split('.')[1]));
+            
+            currentUser = {
+                email: payload.email,
+                name: payload.name,
+                picture: payload.picture,
+                plan: 'free', // 新規Googleユーザーは無料プランから開始
+                loginMethod: 'google'
+            };
+            
+            // ログイン状態を保存
+            saveUserSession(currentUser);
+            
+            // ログイン履歴を記録
+            trackLogin(payload.email, 'free');
+            
+            showMainApp();
+            
+            // Google Analytics イベント
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'login', {
+                    method: 'google',
+                    user_plan: 'free'
+                });
             }
         }
 
@@ -1697,8 +1812,12 @@
             currentUser = {
                 email: email,
                 name: name,
-                plan: 'free'
+                plan: 'free',
+                loginMethod: 'email'
             };
+            
+            // ログイン状態を保存
+            saveUserSession(currentUser);
             
             // 登録ユーザーをローカルストレージに保存
             const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
@@ -1723,8 +1842,12 @@
             currentUser = {
                 email: 'guest@example.com',
                 name: 'ゲストユーザー',
-                plan: 'free'
+                plan: 'free',
+                loginMethod: 'guest'
             };
+            
+            // ログイン状態を保存
+            saveUserSession(currentUser);
             
             // ログイン履歴を記録
             trackLogin('guest@example.com', 'free');
@@ -1741,16 +1864,27 @@
 
         function logout() {
             currentUser = null;
+            
+            // ログイン状態をクリア
+            clearUserSession();
+            
             document.getElementById('mainHeader').classList.add('hidden');
+            document.getElementById('homeContainer').classList.add('hidden');
             document.getElementById('setupPanel').classList.add('hidden');
             document.getElementById('quizContainer').classList.add('hidden');
             document.getElementById('resultContainer').classList.add('hidden');
             document.getElementById('analyticsContainer').classList.add('hidden');
+            document.getElementById('adminContainer').classList.add('hidden');
             document.getElementById('loginContainer').classList.remove('hidden');
             
             // フォームをリセット
             document.getElementById('loginEmail').value = '';
             document.getElementById('loginPassword').value = '';
+            
+            // Google Analytics イベント
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'logout');
+            }
         }
 
         function showMainApp() {
@@ -1759,7 +1893,19 @@
             document.getElementById('mainHeader').classList.remove('hidden');
             
             // ユーザー情報を表示
-            document.getElementById('userNameDisplay').textContent = currentUser.name;
+            const userNameDisplay = document.getElementById('userNameDisplay');
+            
+            // Googleログインユーザーの場合はプロフィール画像も表示
+            if (currentUser.loginMethod === 'google' && currentUser.picture) {
+                userNameDisplay.innerHTML = `
+                    <div class="flex items-center">
+                        <img src="${currentUser.picture}" alt="プロフィール" class="w-6 h-6 rounded-full mr-2">
+                        <span>${currentUser.name}</span>
+                    </div>
+                `;
+            } else {
+                userNameDisplay.textContent = currentUser.name;
+            }
             
             const planDisplay = document.getElementById('userPlanDisplay');
             const upgradeButton = document.getElementById('upgradeButton');
@@ -2199,6 +2345,10 @@
         function upgradeToPremium() {
             // デモ版では即座にアップグレード
             currentUser.plan = 'premium';
+            
+            // 更新されたユーザー情報を保存
+            saveUserSession(currentUser);
+            
             alert('プレミアムプランにアップグレードしました！\n中級・上級問題にアクセスできるようになりました。');
             closeUpgradeModal();
             showMainApp();
@@ -3043,11 +3193,22 @@
 
         // 初期化
         document.addEventListener('DOMContentLoaded', function() {
+            // 保存されたログイン状態を確認
+            const savedUser = loadUserSession();
+            if (savedUser) {
+                currentUser = savedUser;
+                console.log('ログイン状態を復元しました:', currentUser.name);
+                showMainApp();
+            } else {
+                // ログイン画面を表示
+                document.getElementById('loginContainer').classList.remove('hidden');
+            }
+            
             // 広告の初期化
             if (typeof adsbygoogle !== 'undefined') {
                 (adsbygoogle = window.adsbygoogle || []).push({});
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96586ac1b34b19d2',t:'MTc1MzU4MDMwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96639c27238019d8',t:'MTc1MzY5NzY3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
