@@ -930,6 +930,37 @@
                     </div>
                 </div>
                 
+                <!-- Phase 2: ゲーミフィケーション - レベル・XPバー -->
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-4 sm:p-6 rounded-2xl mb-6 shadow-lg">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="text-2xl sm:text-3xl mr-3">⭐</div>
+                            <div>
+                                <div class="text-lg sm:text-xl font-bold" id="userLevelDisplay">Lv.1</div>
+                                <div class="text-xs sm:text-sm opacity-90" id="userXPDisplay">0 / 100 XP</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm opacity-90">総XP</div>
+                            <div class="text-lg font-bold" id="totalXPDisplay">0</div>
+                        </div>
+                    </div>
+                    <div class="w-full bg-white bg-opacity-20 rounded-full h-3">
+                        <div id="xpProgressBar" class="bg-white rounded-full h-3 transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <!-- 今日の目標 -->
+                <div class="canva-card rounded-2xl p-4 sm:p-6 mb-6">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">🎯</span>
+                        今日の目標
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="dailyGoalsContainer">
+                        <!-- 目標がここに動的に生成されます -->
+                    </div>
+                </div>
+                
                 <!-- 学習統計サマリー -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6">
                     <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-3 sm:p-4 rounded-xl text-center">
@@ -943,10 +974,25 @@
                     <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-3 sm:p-4 rounded-xl text-center">
                         <div class="text-lg sm:text-2xl font-bold" id="homeStreak">0日</div>
                         <div class="text-xs sm:text-sm opacity-90">連続学習</div>
+                        <div class="text-xs opacity-75 mt-1">最高: <span id="homeBestStreak">0</span>日</div>
                     </div>
                     <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-3 sm:p-4 rounded-xl text-center">
-                        <div class="text-lg sm:text-2xl font-bold" id="homeLevel">初級</div>
+                        <div class="text-lg sm:text-2xl font-bold" id="homeLevel">Lv.1</div>
                         <div class="text-xs sm:text-sm opacity-90">現在レベル</div>
+                    </div>
+                </div>
+                
+                <!-- 最近獲得したバッジ -->
+                <div class="canva-card rounded-2xl p-4 sm:p-6 mb-6" id="recentBadgesSection">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <span class="text-2xl mr-2">🏆</span>
+                        最近のバッジ
+                        <button onclick="showAllBadges()" class="ml-auto text-sm bg-blue-500 text-white px-3 py-1 rounded-full hover:bg-blue-600 transition-all">
+                            すべて見る
+                        </button>
+                    </h3>
+                    <div id="recentBadgesContainer" class="flex flex-wrap gap-3">
+                        <!-- 最近のバッジがここに表示されます -->
                     </div>
                 </div>
                 
@@ -1187,6 +1233,37 @@
                     <button onclick="resetToSample()" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-all">
                         🔄 サンプルデータにリセット
                     </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- バッジ一覧モーダル -->
+        <div id="badgeModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="canva-card rounded-3xl p-6 sm:p-8 max-w-4xl mx-4 max-h-[80vh] overflow-y-auto bounce-in">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 flex items-center">
+                        <span class="text-3xl mr-3">🏆</span>
+                        バッジコレクション
+                    </h2>
+                    <button onclick="closeBadgeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-lg font-semibold text-gray-700">
+                            獲得済み: <span id="earnedBadgeCount">0</span> / <span id="totalBadgeCount">15</span>
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            コンプリート率: <span id="badgeCompletionRate">0%</span>
+                        </div>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div id="badgeProgressBar" class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full h-2 transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="allBadgesContainer">
+                    <!-- 全バッジがここに表示されます -->
                 </div>
             </div>
         </div>
@@ -1731,7 +1808,7 @@
                 score: result.correctCount,
                 total: result.totalQuestions,
                 accuracy: result.accuracy,
-                category: document.getElementById('categorySelect').value,
+                category: selectedCategory,
                 difficulty: document.getElementById('difficultySelect').value,
                 timeSpent: result.timeSpent,
                 questions: result.questions
@@ -1739,6 +1816,39 @@
             
             quizHistory.push(quizData);
             localStorage.setItem('quizHistory', JSON.stringify(quizHistory));
+            
+            // Phase 2: ゲーミフィケーション処理
+            const xpGained = calculateXP(result.correctCount, result.totalQuestions, quizData.difficulty);
+            const leveledUp = updateUserLevel(xpGained);
+            const newBadges = checkAndAwardBadges(quizData);
+            updateDailyGoals(quizData, xpGained);
+            
+            // XP獲得通知
+            if (xpGained > 0) {
+                showXPNotification(xpGained, leveledUp);
+            }
+        }
+        
+        function showXPNotification(xp, leveledUp) {
+            if (leveledUp) return; // レベルアップ通知が優先
+            
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-20 right-4 bg-gradient-to-r from-green-400 to-blue-500 text-white p-4 rounded-xl shadow-lg z-50 fade-in';
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <div class="text-2xl mr-3">⭐</div>
+                    <div>
+                        <div class="font-bold">+${xp} XP 獲得！</div>
+                        <div class="text-sm opacity-90">よくできました！</div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
         }
 
         function showAnalytics() {
@@ -2437,11 +2547,17 @@
         }
 
         function updateHomeStats() {
+            // Phase 2: ゲーミフィケーション要素の更新
+            updateLevelDisplay();
+            updateDailyGoalsDisplay();
+            updateRecentBadges();
+            
             if (quizHistory.length === 0) {
                 document.getElementById('homeTotalQuizzes').textContent = '0';
                 document.getElementById('homeAverageScore').textContent = '0%';
                 document.getElementById('homeStreak').textContent = '0日';
-                document.getElementById('homeLevel').textContent = '初級';
+                document.getElementById('homeBestStreak').textContent = '0';
+                document.getElementById('homeLevel').textContent = 'Lv.1';
                 return;
             }
 
@@ -2449,17 +2565,149 @@
             const averageScore = Math.round(
                 quizHistory.reduce((sum, quiz) => sum + quiz.accuracy, 0) / totalQuizzes
             );
-            const streak = calculateStreak();
-            
-            // レベル判定
-            let level = '初級';
-            if (averageScore >= 90 && totalQuizzes >= 20) level = '上級';
-            else if (averageScore >= 70 && totalQuizzes >= 10) level = '中級';
+            const streak = learningStreak.current;
+            const bestStreak = learningStreak.best;
 
             document.getElementById('homeTotalQuizzes').textContent = totalQuizzes;
             document.getElementById('homeAverageScore').textContent = averageScore + '%';
             document.getElementById('homeStreak').textContent = streak + '日';
-            document.getElementById('homeLevel').textContent = level;
+            document.getElementById('homeBestStreak').textContent = bestStreak;
+            document.getElementById('homeLevel').textContent = `Lv.${userLevel.level}`;
+        }
+        
+        function updateLevelDisplay() {
+            document.getElementById('userLevelDisplay').textContent = `Lv.${userLevel.level}`;
+            document.getElementById('totalXPDisplay').textContent = userLevel.totalXP.toLocaleString();
+            
+            // 次のレベルまでのXP計算
+            const nextLevelXP = levelThresholds[userLevel.level] || levelThresholds[levelThresholds.length - 1];
+            const currentLevelXP = levelThresholds[userLevel.level - 1] || 0;
+            const currentXP = userLevel.totalXP - currentLevelXP;
+            const xpToNext = nextLevelXP - userLevel.totalXP;
+            
+            document.getElementById('userXPDisplay').textContent = `${currentXP.toLocaleString()} / ${(nextLevelXP - currentLevelXP).toLocaleString()} XP`;
+            
+            // プログレスバー更新
+            const progressPercent = (currentXP / (nextLevelXP - currentLevelXP)) * 100;
+            document.getElementById('xpProgressBar').style.width = `${Math.min(progressPercent, 100)}%`;
+        }
+        
+        function updateDailyGoalsDisplay() {
+            const today = new Date().toDateString();
+            initializeDailyGoals();
+            
+            const todayGoals = dailyGoals[today];
+            const container = document.getElementById('dailyGoalsContainer');
+            
+            container.innerHTML = `
+                <div class="text-center">
+                    <div class="text-2xl mb-2">📝</div>
+                    <div class="text-sm text-gray-600 mb-1">クイズ完了</div>
+                    <div class="text-lg font-bold text-blue-600">${todayGoals.quizzesCompleted} / ${todayGoals.goals.quizzes}</div>
+                    <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                        <div class="bg-blue-500 rounded-full h-2 transition-all" style="width: ${Math.min((todayGoals.quizzesCompleted / todayGoals.goals.quizzes) * 100, 100)}%"></div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl mb-2">❓</div>
+                    <div class="text-sm text-gray-600 mb-1">問題数</div>
+                    <div class="text-lg font-bold text-green-600">${todayGoals.questionsAnswered} / ${todayGoals.goals.questions}</div>
+                    <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                        <div class="bg-green-500 rounded-full h-2 transition-all" style="width: ${Math.min((todayGoals.questionsAnswered / todayGoals.goals.questions) * 100, 100)}%"></div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl mb-2">⭐</div>
+                    <div class="text-sm text-gray-600 mb-1">XP獲得</div>
+                    <div class="text-lg font-bold text-purple-600">${todayGoals.xpEarned} / ${todayGoals.goals.xp}</div>
+                    <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                        <div class="bg-purple-500 rounded-full h-2 transition-all" style="width: ${Math.min((todayGoals.xpEarned / todayGoals.goals.xp) * 100, 100)}%"></div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function updateRecentBadges() {
+            const container = document.getElementById('recentBadgesContainer');
+            
+            if (achievements.length === 0) {
+                container.innerHTML = '<div class="text-gray-500 text-center py-4 w-full">まだバッジを獲得していません</div>';
+                return;
+            }
+            
+            const recentBadges = achievements.slice(-6); // 最新6個
+            container.innerHTML = '';
+            
+            recentBadges.forEach(badgeId => {
+                const badge = badgeDefinitions[badgeId];
+                if (!badge) return;
+                
+                const rarityColors = {
+                    'common': 'border-gray-300 bg-gray-50',
+                    'uncommon': 'border-green-300 bg-green-50',
+                    'rare': 'border-blue-300 bg-blue-50',
+                    'epic': 'border-purple-300 bg-purple-50',
+                    'legendary': 'border-yellow-300 bg-yellow-50'
+                };
+                
+                const badgeElement = document.createElement('div');
+                badgeElement.className = `${rarityColors[badge.rarity]} border-2 rounded-lg p-3 text-center min-w-[80px] hover:scale-105 transition-transform cursor-pointer`;
+                badgeElement.innerHTML = `
+                    <div class="text-2xl mb-1">${badge.icon}</div>
+                    <div class="text-xs font-medium text-gray-700">${badge.name}</div>
+                `;
+                badgeElement.title = badge.description;
+                
+                container.appendChild(badgeElement);
+            });
+        }
+        
+        function showAllBadges() {
+            document.getElementById('badgeModal').classList.remove('hidden');
+            updateAllBadgesDisplay();
+        }
+        
+        function closeBadgeModal() {
+            document.getElementById('badgeModal').classList.add('hidden');
+        }
+        
+        function updateAllBadgesDisplay() {
+            const container = document.getElementById('allBadgesContainer');
+            const totalBadges = Object.keys(badgeDefinitions).length;
+            const earnedBadges = achievements.length;
+            const completionRate = Math.round((earnedBadges / totalBadges) * 100);
+            
+            document.getElementById('earnedBadgeCount').textContent = earnedBadges;
+            document.getElementById('totalBadgeCount').textContent = totalBadges;
+            document.getElementById('badgeCompletionRate').textContent = completionRate + '%';
+            document.getElementById('badgeProgressBar').style.width = completionRate + '%';
+            
+            container.innerHTML = '';
+            
+            Object.entries(badgeDefinitions).forEach(([badgeId, badge]) => {
+                const isEarned = achievements.includes(badgeId);
+                
+                const rarityColors = {
+                    'common': isEarned ? 'border-gray-400 bg-gray-100' : 'border-gray-200 bg-gray-50',
+                    'uncommon': isEarned ? 'border-green-400 bg-green-100' : 'border-green-200 bg-green-50',
+                    'rare': isEarned ? 'border-blue-400 bg-blue-100' : 'border-blue-200 bg-blue-50',
+                    'epic': isEarned ? 'border-purple-400 bg-purple-100' : 'border-purple-200 bg-purple-50',
+                    'legendary': isEarned ? 'border-yellow-400 bg-yellow-100' : 'border-yellow-200 bg-yellow-50'
+                };
+                
+                const badgeElement = document.createElement('div');
+                badgeElement.className = `${rarityColors[badge.rarity]} border-2 rounded-lg p-4 text-center ${isEarned ? '' : 'opacity-50'}`;
+                badgeElement.innerHTML = `
+                    <div class="text-3xl mb-2 ${isEarned ? '' : 'grayscale'}">${badge.icon}</div>
+                    <div class="font-bold text-sm mb-1">${badge.name}</div>
+                    <div class="text-xs text-gray-600 mb-2">${badge.description}</div>
+                    <div class="text-xs px-2 py-1 rounded-full ${isEarned ? 'bg-green-200 text-green-800' : 'bg-gray-200 text-gray-600'}">
+                        ${isEarned ? '獲得済み' : '未獲得'}
+                    </div>
+                `;
+                
+                container.appendChild(badgeElement);
+            });
         }
 
         function updateCategoryGrid() {
@@ -3591,6 +3839,9 @@
             // フォーカス管理初期化
             manageFocus();
             
+            // Phase 2: ゲーミフィケーション初期化
+            initializeDailyGoals();
+            
             // 保存されたログイン状態を確認
             const savedUser = loadUserSession();
             if (savedUser) {
@@ -3608,5 +3859,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'966893714496963d',t:'MTc1Mzc0OTc0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9668a050e21cfc98',t:'MTc1Mzc1MDI2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
