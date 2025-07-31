@@ -669,76 +669,87 @@
                 
                 <!-- 学習イメージ -->
                 <div class="my-8 flex justify-center">
-                    <svg width="200" height="150" viewBox="0 0 200 150" class="rounded-lg shadow-lg">
-                        <!-- 背景 -->
-                        <rect width="200" height="150" fill="#f0f9ff"/>
+                    <div class="relative">
+                        <!-- デフォルトのSVGイラスト -->
+                        <svg id="defaultIllustration" width="200" height="150" viewBox="0 0 200 150" class="rounded-lg shadow-lg">
+                            <!-- 背景 -->
+                            <rect width="200" height="150" fill="#f0f9ff"/>
+                            
+                            <!-- 中年男性（立っている姿勢） -->
+                            <!-- 頭 -->
+                            <circle cx="60" cy="45" r="18" fill="#fbbf24"/>
+                            <!-- 髪（薄め、M字ハゲ風） -->
+                            <path d="M 42 40 Q 50 32 60 32 Q 70 32 78 40 Q 75 35 70 35 Q 60 30 50 35 Q 45 35 42 40" fill="#6b7280"/>
+                            <!-- 眼鏡 -->
+                            <circle cx="55" cy="43" r="4" fill="none" stroke="#374151" stroke-width="1"/>
+                            <circle cx="65" cy="43" r="4" fill="none" stroke="#374151" stroke-width="1"/>
+                            <line x1="59" y1="43" x2="61" y2="43" stroke="#374151" stroke-width="1"/>
+                            
+                            <!-- 体（シャツ） -->
+                            <rect x="48" y="63" width="24" height="45" rx="3" fill="#3b82f6"/>
+                            <!-- 襟 -->
+                            <polygon points="48,63 54,63 60,70 66,63 72,63 72,75 48,75" fill="#1e40af"/>
+                            
+                            <!-- 右腕（スマホを持つ） -->
+                            <rect x="72" y="70" width="8" height="25" rx="2" fill="#fbbf24"/>
+                            <!-- 右手 -->
+                            <circle cx="80" cy="95" r="4" fill="#fbbf24"/>
+                            
+                            <!-- スマートフォン（手に持っている） -->
+                            <rect x="82" y="85" width="25" height="40" rx="4" fill="#1f2937" stroke="#374151" stroke-width="1"/>
+                            <rect x="85" y="90" width="19" height="30" fill="#3b82f6"/>
+                            
+                            <!-- スマホ画面のコンテンツ -->
+                            <rect x="87" y="93" width="15" height="3" rx="1" fill="#ffffff" opacity="0.9"/>
+                            <rect x="87" y="98" width="12" height="2" rx="1" fill="#ffffff" opacity="0.7"/>
+                            <rect x="87" y="102" width="13" height="2" rx="1" fill="#ffffff" opacity="0.7"/>
+                            <rect x="87" y="106" width="10" height="2" rx="1" fill="#ffffff" opacity="0.7"/>
+                            
+                            <!-- 選択肢ボタン -->
+                            <rect x="87" y="110" width="15" height="3" rx="1" fill="#10b981" opacity="0.8"/>
+                            <rect x="87" y="115" width="15" height="3" rx="1" fill="#ffffff" opacity="0.3"/>
+                            
+                            <!-- 左腕 -->
+                            <rect x="40" y="75" width="8" height="20" rx="2" fill="#fbbf24"/>
+                            <!-- 左手 -->
+                            <circle cx="40" cy="95" r="3" fill="#fbbf24"/>
+                            
+                            <!-- 脚 -->
+                            <rect x="52" y="108" width="7" height="25" rx="2" fill="#1f2937"/>
+                            <rect x="61" y="108" width="7" height="25" rx="2" fill="#1f2937"/>
+                            
+                            <!-- 靴 -->
+                            <ellipse cx="55" cy="135" rx="6" ry="3" fill="#374151"/>
+                            <ellipse cx="64" cy="135" rx="6" ry="3" fill="#374151"/>
+                            
+                            <!-- 笑顔 -->
+                            <circle cx="56" cy="42" r="1" fill="#1f2937"/>
+                            <circle cx="64" cy="42" r="1" fill="#1f2937"/>
+                            <path d="M 54 50 Q 60 54 66 50" stroke="#1f2937" stroke-width="1.2" fill="none"/>
+                            
+                            <!-- 学習効果のキラキラ -->
+                            <text x="120" y="25" font-size="16" fill="#fbbf24">✨</text>
+                            <text x="140" y="40" font-size="12" fill="#10b981">💡</text>
+                            <text x="125" y="55" font-size="14" fill="#8b5cf6">📚</text>
+                            <text x="145" y="70" font-size="12" fill="#f59e0b">🎯</text>
+                            
+                            <!-- 集中線効果 -->
+                            <line x1="110" y1="90" x2="115" y2="85" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
+                            <line x1="115" y1="95" x2="120" y2="90" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
+                            <line x1="110" y1="100" x2="115" y2="105" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
+                            
+                            <!-- 「楽しく学習中」テキスト -->
+                            <text x="100" y="140" font-size="10" fill="#6b7280" text-anchor="middle">楽しく学習中！</text>
+                        </svg>
                         
-                        <!-- 中年男性（立っている姿勢） -->
-                        <!-- 頭 -->
-                        <circle cx="60" cy="45" r="18" fill="#fbbf24"/>
-                        <!-- 髪（薄め、M字ハゲ風） -->
-                        <path d="M 42 40 Q 50 32 60 32 Q 70 32 78 40 Q 75 35 70 35 Q 60 30 50 35 Q 45 35 42 40" fill="#6b7280"/>
-                        <!-- 眼鏡 -->
-                        <circle cx="55" cy="43" r="4" fill="none" stroke="#374151" stroke-width="1"/>
-                        <circle cx="65" cy="43" r="4" fill="none" stroke="#374151" stroke-width="1"/>
-                        <line x1="59" y1="43" x2="61" y2="43" stroke="#374151" stroke-width="1"/>
+                        <!-- カスタム画像（設定されている場合） -->
+                        <img id="customHeroImage" src="" alt="学習イメージ" class="hidden rounded-lg shadow-lg w-[200px] h-[150px] object-cover">
                         
-                        <!-- 体（シャツ） -->
-                        <rect x="48" y="63" width="24" height="45" rx="3" fill="#3b82f6"/>
-                        <!-- 襟 -->
-                        <polygon points="48,63 54,63 60,70 66,63 72,63 72,75 48,75" fill="#1e40af"/>
-                        
-                        <!-- 右腕（スマホを持つ） -->
-                        <rect x="72" y="70" width="8" height="25" rx="2" fill="#fbbf24"/>
-                        <!-- 右手 -->
-                        <circle cx="80" cy="95" r="4" fill="#fbbf24"/>
-                        
-                        <!-- スマートフォン（手に持っている） -->
-                        <rect x="82" y="85" width="25" height="40" rx="4" fill="#1f2937" stroke="#374151" stroke-width="1"/>
-                        <rect x="85" y="90" width="19" height="30" fill="#3b82f6"/>
-                        
-                        <!-- スマホ画面のコンテンツ -->
-                        <rect x="87" y="93" width="15" height="3" rx="1" fill="#ffffff" opacity="0.9"/>
-                        <rect x="87" y="98" width="12" height="2" rx="1" fill="#ffffff" opacity="0.7"/>
-                        <rect x="87" y="102" width="13" height="2" rx="1" fill="#ffffff" opacity="0.7"/>
-                        <rect x="87" y="106" width="10" height="2" rx="1" fill="#ffffff" opacity="0.7"/>
-                        
-                        <!-- 選択肢ボタン -->
-                        <rect x="87" y="110" width="15" height="3" rx="1" fill="#10b981" opacity="0.8"/>
-                        <rect x="87" y="115" width="15" height="3" rx="1" fill="#ffffff" opacity="0.3"/>
-                        
-                        <!-- 左腕 -->
-                        <rect x="40" y="75" width="8" height="20" rx="2" fill="#fbbf24"/>
-                        <!-- 左手 -->
-                        <circle cx="40" cy="95" r="3" fill="#fbbf24"/>
-                        
-                        <!-- 脚 -->
-                        <rect x="52" y="108" width="7" height="25" rx="2" fill="#1f2937"/>
-                        <rect x="61" y="108" width="7" height="25" rx="2" fill="#1f2937"/>
-                        
-                        <!-- 靴 -->
-                        <ellipse cx="55" cy="135" rx="6" ry="3" fill="#374151"/>
-                        <ellipse cx="64" cy="135" rx="6" ry="3" fill="#374151"/>
-                        
-                        <!-- 笑顔 -->
-                        <circle cx="56" cy="42" r="1" fill="#1f2937"/>
-                        <circle cx="64" cy="42" r="1" fill="#1f2937"/>
-                        <path d="M 54 50 Q 60 54 66 50" stroke="#1f2937" stroke-width="1.2" fill="none"/>
-                        
-                        <!-- 学習効果のキラキラ -->
-                        <text x="120" y="25" font-size="16" fill="#fbbf24">✨</text>
-                        <text x="140" y="40" font-size="12" fill="#10b981">💡</text>
-                        <text x="125" y="55" font-size="14" fill="#8b5cf6">📚</text>
-                        <text x="145" y="70" font-size="12" fill="#f59e0b">🎯</text>
-                        
-                        <!-- 集中線効果 -->
-                        <line x1="110" y1="90" x2="115" y2="85" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
-                        <line x1="115" y1="95" x2="120" y2="90" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
-                        <line x1="110" y1="100" x2="115" y2="105" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
-                        
-                        <!-- 「楽しく学習中」テキスト -->
-                        <text x="100" y="140" font-size="10" fill="#6b7280" text-anchor="middle">楽しく学習中！</text>
-                    </svg>
+                        <!-- 管理者のみ：画像変更ボタン -->
+                        <button id="changeImageButton" onclick="showImageUploadModal()" class="hidden absolute -bottom-2 -right-2 bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full shadow-lg transition-all text-xs">
+                            📷
+                        </button>
+                    </div>
                 </div>
             </div>
             
@@ -1233,6 +1244,40 @@
                     <button onclick="resetToSample()" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-all">
                         🔄 サンプルデータにリセット
                     </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 画像アップロードモーダル -->
+        <div id="imageUploadModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="canva-card rounded-3xl p-6 sm:p-8 max-w-md mx-4 bounce-in">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl sm:text-2xl font-bold text-gray-800 flex items-center">
+                        <span class="text-2xl mr-3">📷</span>
+                        ヒーロー画像の変更
+                    </h2>
+                    <button onclick="closeImageUploadModal()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">画像URL</label>
+                        <input type="url" id="heroImageUrl" placeholder="https://example.com/image.jpg" 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                        <p class="text-xs text-gray-500 mt-1">推奨サイズ: 200×150px または同比率</p>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <button onclick="updateHeroImage()" class="canva-button text-white px-6 py-3 rounded-lg font-semibold w-full shadow-lg">
+                            🖼️ 画像を設定
+                        </button>
+                        <button onclick="resetToDefaultImage()" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold w-full shadow-lg transition-all">
+                            🔄 デフォルトに戻す
+                        </button>
+                        <button onclick="closeImageUploadModal()" class="bg-gray-400 hover:bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold w-full shadow-lg transition-all">
+                            キャンセル
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2304,22 +2349,26 @@
             const planDisplay = document.getElementById('userPlanDisplay');
             const upgradeButton = document.getElementById('upgradeButton');
             const adminButton = document.getElementById('adminButton');
+            const changeImageButton = document.getElementById('changeImageButton');
             
             if (currentUser.plan === 'admin') {
                 planDisplay.textContent = '管理者';
                 planDisplay.className = 'text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-gradient-to-r from-red-500 to-orange-500 text-white';
                 upgradeButton.classList.add('hidden');
                 if (adminButton) adminButton.classList.remove('hidden');
+                if (changeImageButton) changeImageButton.classList.remove('hidden');
             } else if (currentUser.plan === 'premium') {
                 planDisplay.textContent = 'プレミアムプラン';
                 planDisplay.className = 'text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white';
                 upgradeButton.classList.add('hidden');
                 if (adminButton) adminButton.classList.add('hidden');
+                if (changeImageButton) changeImageButton.classList.add('hidden');
             } else {
                 planDisplay.textContent = '無料プラン';
                 planDisplay.className = 'text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-blue-100 text-blue-600';
                 upgradeButton.classList.remove('hidden');
                 if (adminButton) adminButton.classList.add('hidden');
+                if (changeImageButton) changeImageButton.classList.add('hidden');
             }
             
             // 保存されたデータを復元、なければサンプルデータを読み込み
@@ -2330,6 +2379,9 @@
             
             // 広告表示制御
             toggleAds();
+            
+            // カスタム画像の復元
+            loadCustomHeroImage();
         }
 
         function loadStoredDataOrSample() {
@@ -2603,25 +2655,25 @@
                 <div class="text-center">
                     <div class="text-2xl mb-2">📝</div>
                     <div class="text-sm text-gray-600 mb-1">クイズ完了</div>
-                    <div class="text-lg font-bold text-blue-600">${todayGoals.quizzesCompleted} / ${todayGoals.goals.quizzes}</div>
+                    <div class="text-lg font-bold text-blue-600">${todayGoals.progress.quizzesCompleted} / ${todayGoals.goals.quizzes}</div>
                     <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
-                        <div class="bg-blue-500 rounded-full h-2 transition-all" style="width: ${Math.min((todayGoals.quizzesCompleted / todayGoals.goals.quizzes) * 100, 100)}%"></div>
+                        <div class="bg-blue-500 rounded-full h-2 transition-all" style="width: ${Math.min((todayGoals.progress.quizzesCompleted / todayGoals.goals.quizzes) * 100, 100)}%"></div>
                     </div>
                 </div>
                 <div class="text-center">
                     <div class="text-2xl mb-2">❓</div>
                     <div class="text-sm text-gray-600 mb-1">問題数</div>
-                    <div class="text-lg font-bold text-green-600">${todayGoals.questionsAnswered} / ${todayGoals.goals.questions}</div>
+                    <div class="text-lg font-bold text-green-600">${todayGoals.progress.questionsAnswered} / ${todayGoals.goals.questions}</div>
                     <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
-                        <div class="bg-green-500 rounded-full h-2 transition-all" style="width: ${Math.min((todayGoals.questionsAnswered / todayGoals.goals.questions) * 100, 100)}%"></div>
+                        <div class="bg-green-500 rounded-full h-2 transition-all" style="width: ${Math.min((todayGoals.progress.questionsAnswered / todayGoals.goals.questions) * 100, 100)}%"></div>
                     </div>
                 </div>
                 <div class="text-center">
                     <div class="text-2xl mb-2">⭐</div>
                     <div class="text-sm text-gray-600 mb-1">XP獲得</div>
-                    <div class="text-lg font-bold text-purple-600">${todayGoals.xpEarned} / ${todayGoals.goals.xp}</div>
+                    <div class="text-lg font-bold text-purple-600">${todayGoals.progress.xpEarned} / ${todayGoals.goals.xp}</div>
                     <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
-                        <div class="bg-purple-500 rounded-full h-2 transition-all" style="width: ${Math.min((todayGoals.xpEarned / todayGoals.goals.xp) * 100, 100)}%"></div>
+                        <div class="bg-purple-500 rounded-full h-2 transition-all" style="width: ${Math.min((todayGoals.progress.xpEarned / todayGoals.goals.xp) * 100, 100)}%"></div>
                     </div>
                 </div>
             `;
@@ -3828,6 +3880,487 @@
             observer.observe(upgradeModal, { attributes: true });
         }
 
+        // Phase 2: ゲーミフィケーション - レベルシステム
+        let userLevel = JSON.parse(localStorage.getItem('userLevel') || '{"level": 1, "totalXP": 0}');
+        let achievements = JSON.parse(localStorage.getItem('achievements') || '[]');
+        let dailyGoals = JSON.parse(localStorage.getItem('dailyGoals') || '{}');
+        let learningStreak = JSON.parse(localStorage.getItem('learningStreak') || '{"current": 0, "best": 0, "lastDate": null}');
+
+        // レベル閾値（各レベルに必要な累計XP）
+        const levelThresholds = [
+            0, 100, 250, 450, 700, 1000, 1350, 1750, 2200, 2700, 3250, 3850, 4500, 5200, 5950, 6750, 7600, 8500, 9450, 10500
+        ];
+
+        // バッジ定義
+        const badgeDefinitions = {
+            'first_quiz': {
+                name: '初回挑戦',
+                description: '初めてクイズに挑戦しました',
+                icon: '🎯',
+                rarity: 'common'
+            },
+            'perfect_score': {
+                name: '満点獲得',
+                description: 'クイズで満点を取りました',
+                icon: '🏆',
+                rarity: 'uncommon'
+            },
+            'streak_3': {
+                name: '3日連続',
+                description: '3日連続で学習しました',
+                icon: '🔥',
+                rarity: 'uncommon'
+            },
+            'streak_7': {
+                name: '1週間連続',
+                description: '7日連続で学習しました',
+                icon: '⚡',
+                rarity: 'rare'
+            },
+            'streak_30': {
+                name: '1ヶ月連続',
+                description: '30日連続で学習しました',
+                icon: '💎',
+                rarity: 'legendary'
+            },
+            'seo_master': {
+                name: 'SEOマスター',
+                description: 'SEO問題を10問以上正解しました',
+                icon: '🔍',
+                rarity: 'rare'
+            },
+            'ai_expert': {
+                name: 'AI専門家',
+                description: 'AI問題を10問以上正解しました',
+                icon: '🤖',
+                rarity: 'rare'
+            },
+            'early_bird': {
+                name: '早起き学習者',
+                description: '朝6時前に学習しました',
+                icon: '🌅',
+                rarity: 'uncommon'
+            },
+            'night_owl': {
+                name: '夜更かし学習者',
+                description: '夜22時以降に学習しました',
+                icon: '🦉',
+                rarity: 'uncommon'
+            },
+            'comeback_kid': {
+                name: 'カムバックキッド',
+                description: '7日ぶりに学習を再開しました',
+                icon: '🎭',
+                rarity: 'rare'
+            },
+            'perfectionist': {
+                name: '完璧主義者',
+                description: '5回連続で満点を取りました',
+                icon: '💯',
+                rarity: 'epic'
+            },
+            'grand_master': {
+                name: 'グランドマスター',
+                description: 'レベル20に到達しました',
+                icon: '👑',
+                rarity: 'legendary'
+            },
+            'explorer': {
+                name: '探検家',
+                description: '全カテゴリの問題に挑戦しました',
+                icon: '🗺️',
+                rarity: 'epic'
+            },
+            'speed_demon': {
+                name: 'スピードデーモン',
+                description: '1問を10秒以内で正解しました',
+                icon: '⚡',
+                rarity: 'rare'
+            },
+            'knowledge_seeker': {
+                name: '知識探求者',
+                description: '100問以上に挑戦しました',
+                icon: '📚',
+                rarity: 'epic'
+            }
+        };
+
+        // XP計算
+        function calculateXP(correctCount, totalQuestions, difficulty) {
+            const baseXP = correctCount * 10;
+            const difficultyMultiplier = {
+                '初級': 1.0,
+                '中級': 1.5,
+                '上級': 2.0,
+                '未設定': 1.0
+            };
+            const accuracyBonus = (correctCount / totalQuestions) >= 0.8 ? 20 : 0;
+            
+            return Math.round(baseXP * (difficultyMultiplier[difficulty] || 1.0) + accuracyBonus);
+        }
+
+        // レベルアップ処理
+        function updateUserLevel(xpGained) {
+            userLevel.totalXP += xpGained;
+            
+            // 新しいレベルを計算
+            let newLevel = 1;
+            for (let i = levelThresholds.length - 1; i >= 0; i--) {
+                if (userLevel.totalXP >= levelThresholds[i]) {
+                    newLevel = i + 1;
+                    break;
+                }
+            }
+            
+            const leveledUp = newLevel > userLevel.level;
+            userLevel.level = newLevel;
+            
+            // データを保存
+            localStorage.setItem('userLevel', JSON.stringify(userLevel));
+            
+            if (leveledUp) {
+                showLevelUpNotification(newLevel);
+                
+                // レベル20到達でグランドマスターバッジ
+                if (newLevel === 20) {
+                    awardBadge('grand_master');
+                }
+            }
+            
+            return leveledUp;
+        }
+
+        function showLevelUpNotification(newLevel) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-20 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-6 rounded-xl shadow-2xl z-50 bounce-in';
+            notification.innerHTML = `
+                <div class="text-center">
+                    <div class="text-4xl mb-2">🎉</div>
+                    <div class="text-xl font-bold mb-1">レベルアップ！</div>
+                    <div class="text-2xl font-bold">Lv.${newLevel}</div>
+                    <div class="text-sm opacity-90 mt-1">おめでとうございます！</div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // 紙吹雪効果
+            createConfetti();
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 4000);
+        }
+
+        // バッジ獲得処理
+        function awardBadge(badgeId) {
+            if (!achievements.includes(badgeId)) {
+                achievements.push(badgeId);
+                localStorage.setItem('achievements', JSON.stringify(achievements));
+                showBadgeNotification(badgeId);
+            }
+        }
+
+        function showBadgeNotification(badgeId) {
+            const badge = badgeDefinitions[badgeId];
+            if (!badge) return;
+            
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-20 left-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 rounded-xl shadow-lg z-50 bounce-in';
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <div class="text-3xl mr-3">${badge.icon}</div>
+                    <div>
+                        <div class="font-bold">バッジ獲得！</div>
+                        <div class="text-sm">${badge.name}</div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // バッジ獲得チェック
+        function checkAndAwardBadges(quizData) {
+            const newBadges = [];
+            
+            // 初回挑戦
+            if (quizHistory.length === 1) {
+                awardBadge('first_quiz');
+                newBadges.push('first_quiz');
+            }
+            
+            // 満点獲得
+            if (quizData.accuracy === 100) {
+                awardBadge('perfect_score');
+                newBadges.push('perfect_score');
+                
+                // 5回連続満点チェック
+                const recentQuizzes = quizHistory.slice(-5);
+                if (recentQuizzes.length === 5 && recentQuizzes.every(q => q.accuracy === 100)) {
+                    awardBadge('perfectionist');
+                    newBadges.push('perfectionist');
+                }
+            }
+            
+            // 連続学習バッジ
+            updateLearningStreak();
+            if (learningStreak.current === 3) {
+                awardBadge('streak_3');
+                newBadges.push('streak_3');
+            } else if (learningStreak.current === 7) {
+                awardBadge('streak_7');
+                newBadges.push('streak_7');
+            } else if (learningStreak.current === 30) {
+                awardBadge('streak_30');
+                newBadges.push('streak_30');
+            }
+            
+            // カテゴリ専門バッジ
+            const categoryStats = {};
+            quizHistory.forEach(quiz => {
+                quiz.questions.forEach(q => {
+                    if (q.isCorrect) {
+                        const category = q.category || '未分類';
+                        categoryStats[category] = (categoryStats[category] || 0) + 1;
+                    }
+                });
+            });
+            
+            if (categoryStats['SEO'] >= 10) {
+                awardBadge('seo_master');
+                newBadges.push('seo_master');
+            }
+            if (categoryStats['AI'] >= 10) {
+                awardBadge('ai_expert');
+                newBadges.push('ai_expert');
+            }
+            
+            // 時間帯バッジ
+            const hour = new Date().getHours();
+            if (hour < 6) {
+                awardBadge('early_bird');
+                newBadges.push('early_bird');
+            } else if (hour >= 22) {
+                awardBadge('night_owl');
+                newBadges.push('night_owl');
+            }
+            
+            // 探検家バッジ（全カテゴリ挑戦）
+            const attemptedCategories = [...new Set(quizHistory.map(q => q.category))];
+            const totalCategories = [...new Set(originalQuestions.map(q => q.category || '未分類'))];
+            if (attemptedCategories.length >= totalCategories.length && totalCategories.length > 0) {
+                awardBadge('explorer');
+                newBadges.push('explorer');
+            }
+            
+            // 知識探求者バッジ
+            const totalQuestionsAnswered = quizHistory.reduce((sum, quiz) => sum + quiz.total, 0);
+            if (totalQuestionsAnswered >= 100) {
+                awardBadge('knowledge_seeker');
+                newBadges.push('knowledge_seeker');
+            }
+            
+            return newBadges;
+        }
+
+        // 学習継続管理
+        function updateLearningStreak() {
+            const today = new Date().toDateString();
+            const lastDate = learningStreak.lastDate;
+            
+            if (lastDate) {
+                const lastDateObj = new Date(lastDate);
+                const todayObj = new Date(today);
+                const diffDays = Math.floor((todayObj - lastDateObj) / (1000 * 60 * 60 * 24));
+                
+                if (diffDays === 1) {
+                    // 連続学習
+                    learningStreak.current++;
+                } else if (diffDays > 1) {
+                    // 7日ぶりの復帰チェック
+                    if (diffDays === 7) {
+                        awardBadge('comeback_kid');
+                    }
+                    // 連続記録リセット
+                    learningStreak.current = 1;
+                }
+                // diffDays === 0 の場合（同日）は何もしない
+            } else {
+                // 初回学習
+                learningStreak.current = 1;
+            }
+            
+            // 最高記録更新
+            if (learningStreak.current > learningStreak.best) {
+                learningStreak.best = learningStreak.current;
+            }
+            
+            learningStreak.lastDate = today;
+            localStorage.setItem('learningStreak', JSON.stringify(learningStreak));
+        }
+
+        // 今日の目標管理
+        function initializeDailyGoals() {
+            const today = new Date().toDateString();
+            
+            if (!dailyGoals[today]) {
+                dailyGoals[today] = {
+                    goals: {
+                        quizzes: 3,      // クイズ完了数
+                        questions: 20,   // 問題回答数
+                        xp: 100         // XP獲得量
+                    },
+                    progress: {
+                        quizzesCompleted: 0,
+                        questionsAnswered: 0,
+                        xpEarned: 0
+                    }
+                };
+                
+                // 古いデータを削除（7日以上前）
+                const weekAgo = new Date();
+                weekAgo.setDate(weekAgo.getDate() - 7);
+                
+                Object.keys(dailyGoals).forEach(date => {
+                    if (new Date(date) < weekAgo) {
+                        delete dailyGoals[date];
+                    }
+                });
+                
+                localStorage.setItem('dailyGoals', JSON.stringify(dailyGoals));
+            }
+        }
+
+        function updateDailyGoals(quizData, xpGained) {
+            const today = new Date().toDateString();
+            initializeDailyGoals();
+            
+            const todayGoals = dailyGoals[today];
+            todayGoals.progress.quizzesCompleted++;
+            todayGoals.progress.questionsAnswered += quizData.total;
+            todayGoals.progress.xpEarned += xpGained;
+            
+            localStorage.setItem('dailyGoals', JSON.stringify(dailyGoals));
+            
+            // 目標達成チェック
+            checkDailyGoalCompletion(todayGoals);
+        }
+
+        function checkDailyGoalCompletion(todayGoals) {
+            const { goals, progress } = todayGoals;
+            
+            if (progress.quizzesCompleted >= goals.quizzes && 
+                progress.questionsAnswered >= goals.questions && 
+                progress.xpEarned >= goals.xp) {
+                
+                showDailyGoalCompletionNotification();
+            }
+        }
+
+        function showDailyGoalCompletionNotification() {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-20 right-4 bg-gradient-to-r from-green-400 to-blue-500 text-white p-4 rounded-xl shadow-lg z-50 bounce-in';
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <div class="text-2xl mr-3">🎯</div>
+                    <div>
+                        <div class="font-bold">今日の目標達成！</div>
+                        <div class="text-sm opacity-90">素晴らしい学習成果です！</div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // 画像管理機能
+        function showImageUploadModal() {
+            document.getElementById('imageUploadModal').classList.remove('hidden');
+            
+            // 現在の画像URLを表示
+            const currentImageUrl = localStorage.getItem('customHeroImageUrl');
+            if (currentImageUrl) {
+                document.getElementById('heroImageUrl').value = currentImageUrl;
+            }
+        }
+        
+        function closeImageUploadModal() {
+            document.getElementById('imageUploadModal').classList.add('hidden');
+            document.getElementById('heroImageUrl').value = '';
+        }
+        
+        function updateHeroImage() {
+            const imageUrl = document.getElementById('heroImageUrl').value.trim();
+            
+            if (!imageUrl) {
+                alert('画像URLを入力してください');
+                return;
+            }
+            
+            // URLの妥当性をチェック
+            if (!isValidImageUrl(imageUrl)) {
+                alert('有効な画像URLを入力してください（jpg, jpeg, png, gif, webp形式）');
+                return;
+            }
+            
+            // 画像の読み込みテスト
+            const testImage = new Image();
+            testImage.onload = function() {
+                // 画像の読み込みが成功した場合
+                localStorage.setItem('customHeroImageUrl', imageUrl);
+                loadCustomHeroImage();
+                closeImageUploadModal();
+                alert('ヒーロー画像を更新しました！');
+            };
+            testImage.onerror = function() {
+                alert('画像の読み込みに失敗しました。URLを確認してください。');
+            };
+            testImage.src = imageUrl;
+        }
+        
+        function resetToDefaultImage() {
+            localStorage.removeItem('customHeroImageUrl');
+            loadCustomHeroImage();
+            closeImageUploadModal();
+            alert('デフォルトのイラストに戻しました！');
+        }
+        
+        function loadCustomHeroImage() {
+            const customImageUrl = localStorage.getItem('customHeroImageUrl');
+            const defaultIllustration = document.getElementById('defaultIllustration');
+            const customHeroImage = document.getElementById('customHeroImage');
+            
+            if (customImageUrl) {
+                // カスタム画像を表示
+                customHeroImage.src = customImageUrl;
+                customHeroImage.classList.remove('hidden');
+                defaultIllustration.classList.add('hidden');
+            } else {
+                // デフォルトのSVGイラストを表示
+                customHeroImage.classList.add('hidden');
+                defaultIllustration.classList.remove('hidden');
+            }
+        }
+        
+        function isValidImageUrl(url) {
+            try {
+                const urlObj = new URL(url);
+                const pathname = urlObj.pathname.toLowerCase();
+                return pathname.match(/\.(jpg|jpeg|png|gif|webp)$/);
+            } catch (e) {
+                return false;
+            }
+        }
+
         // 初期化
         document.addEventListener('DOMContentLoaded', function() {
             // テーマ初期化
@@ -3859,5 +4392,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9668a050e21cfc98',t:'MTc1Mzc1MDI2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'967bbabfd3161450',t:'MTc1Mzk1MDU4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
