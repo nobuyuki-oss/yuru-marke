@@ -3,1964 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゆるマーケ道場 - マーケティング学習アプリ</title>
     
-    <!-- SEO基本設定 -->
-    <title>ゆるマーケ道場 - マーケティング学習クイズアプリ | SEO・広告・AI問題で実力アップ</title>
-    <meta name="description" content="マーケティングスキルを楽しく学べるクイズアプリ。SEO、広告運用、AI活用など実践的な問題で知識を深めよう。無料プランから始められ、プレミアムプランで上級問題にも挑戦可能。">
-    <meta name="keywords" content="マーケティング,クイズ,SEO,広告,AI,学習,スキルアップ,デジタルマーケティング,オンライン学習">
-    <meta name="author" content="ゆるマーケ道場">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="ja">
+    <!-- PWA マニフェスト -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIuOChuOCi+ODnuODvOOCsemBk+WgtCAtIOODnuODvOOCseODhuOCo+ODs+OCsOWtpuS5oOOCouODl+ODqiIsCiAgInNob3J0X25hbWUiOiAi44KG44KL44Oe44O844Kx6YGT5aC0IiwKICAiZGVzY3JpcHRpb24iOiAi44Oe44O844Kx44K/44Kj44Oz44Kw44KS5qW95LuY44GP5a2m44G544KL44Ki44OX44KqIiwKICAic3RhcnRfdXJsIjogIi8iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwMGM0Y2MiLAogICJ0aGVtZV9jb2xvciI6ICIjMDBjNGNjIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTVRreUlpQm9aV2xuYUhROUlqRTVNaUlnZG1sbGQwSnZlRDBpTUNBd0lERTVNaUF4T1RJaUlHWnBiR3c5SW01dmJtVWlJSGh0Ykc1elBTSm9kSFJ3T2k4dmQzZDNMbmN6TG05eVp5OHlNREF3TDNOMlp5SStQSEpsWTNRZ2VEMGlNQ0lnZVQwaU1DSWdkMmxrZEdnOUlqRTVNaUlnYUdWcFoyaDBQU0l4T1RJaUlHWnBiR3c5SWlNd01HTTBZMk1pTHo0OFkybHlZMnhsSUdONFBTSTROaUlnWTNrOUlqZzRJaUJ5UFNJek1DSWdabWxzYkQwaUkwWkdSa1pHUmlJdkx6NDhkR1Y0ZENCNFBTSTBOaUlnZVQwaU5EWWlJR1pwYkd3OUlpTXdNR000WTJNaUlHWnZiblF0YzJsNlpUMGlNVGdpSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaVBuWnNQQzlwUGp3dmRHVjRkRDQ4TDNOMlp6ND0iLAogICAgICAic2l6ZXMiOiAiMTkyeDE5MiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiCiAgICB9LAogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjNhV1IwYUQwaU5URXlJaUJvWldsbmFIUTlJalV4TWlJZ2RtbGxkMEp2ZUQwaU1DQXdJRFV4TWlBMU1USWlJR1pwYkd3OUltNXZibVVpSUhodGJHNXpQU0pvZEhSd09pOHZkM2QzTG5jekxtOXlaeTh5TURBd0wzTjJaeUkrUEhKbFkzUWdlRDBpTUNJZ2VUMGlNQ0lnZDJsa2RHZzlJalV4TWlJZ2FHVnBaMmgwUFNJMU1USWlJR1pwYkd3OUlpTXdNR000WTJNaUx6NDhZMmx5WTJ4bElHTjRQU0l5TlRZaUlHTjVQU0l5TlRZaUlISTlJamN3SWlCbWFXeHNQU0lqUmtaR1JrWkdJaTh2UGp4MFpYaDBJSGc5SWpFeU9DSWdlVDBpTVRJNElpQm1hV3hzUFNJak1EQmpOR05qSWlCbWIyNTBMWE5wZW1VOUlqUTBJaUIwWlhoMExXRnVZMmh2Y2owaWJXbGtaR3hsSWo1MmJEd3ZhVDQ4TDNSbGVIUStQQzl6ZG1jKyIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0KICBdCn0=">
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://example.com/">
-    <meta property="og:title" content="ゆるマーケ道場 - マーケティング学習クイズアプリ">
-    <meta property="og:description" content="マーケティングスキルを楽しく学べるクイズアプリ。SEO、広告運用、AI活用など実践的な問題で知識を深めよう。">
-    <meta property="og:image" content="https://example.com/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="ゆるマーケ道場">
-    <meta property="og:locale" content="ja_JP">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://example.com/">
-    <meta name="twitter:title" content="ゆるマーケ道場 - マーケティング学習クイズアプリ">
-    <meta name="twitter:description" content="マーケティングスキルを楽しく学べるクイズアプリ。SEO、広告運用、AI活用など実践的な問題で知識を深めよう。">
-    <meta name="twitter:image" content="https://example.com/twitter-image.jpg">
-    <meta name="twitter:creator" content="@yurumarket">
-    
-    <!-- 構造化データ（JSON-LD） -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "ゆるマーケ道場",
-        "description": "マーケティングスキルを楽しく学べるクイズアプリ。SEO、広告運用、AI活用など実践的な問題で知識を深めよう。",
-        "url": "https://example.com/",
-        "applicationCategory": "EducationalApplication",
-        "operatingSystem": "Web Browser",
-        "offers": [
-            {
-                "@type": "Offer",
-                "name": "無料プラン",
-                "price": "0",
-                "priceCurrency": "JPY",
-                "description": "初級問題にアクセス可能"
-            },
-            {
-                "@type": "Offer",
-                "name": "プレミアムプラン",
-                "price": "980",
-                "priceCurrency": "JPY",
-                "description": "全難易度の問題にアクセス、詳細解説付き"
-            }
-        ],
-        "author": {
-            "@type": "Organization",
-            "name": "ゆるマーケ道場",
-            "url": "https://example.com/"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "ゆるマーケ道場",
-            "url": "https://example.com/"
-        },
-        "inLanguage": "ja",
-        "isAccessibleForFree": true,
-        "hasPart": [
-            {
-                "@type": "Course",
-                "name": "SEO基礎コース",
-                "description": "検索エンジン最適化の基本を学ぶ"
-            },
-            {
-                "@type": "Course", 
-                "name": "広告運用コース",
-                "description": "デジタル広告の運用方法を学ぶ"
-            },
-            {
-                "@type": "Course",
-                "name": "AI活用コース", 
-                "description": "マーケティングでのAI活用方法を学ぶ"
-            }
-        ]
-    }
-    </script>
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://example.com/">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
-    
-    <!-- Google Sign-In API -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: linear-gradient(135deg, #00c4cc 0%, #7b68ee 50%, #ff6b9d 100%);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
             min-height: 100vh;
         }
-        .canva-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-        .quiz-card {
-            background: linear-gradient(135deg, #00c4cc 0%, #7b68ee 100%);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            position: relative;
-            overflow: hidden;
-        }
-        .quiz-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-            pointer-events: none;
-        }
-        .option-button {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(0);
-            border: 2px solid transparent;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            /* タッチ操作最適化 */
-            min-height: 44px; /* iOS推奨タッチターゲットサイズ */
-            touch-action: manipulation; /* ダブルタップズーム無効化 */
-            -webkit-tap-highlight-color: transparent; /* タップハイライト除去 */
-            user-select: none; /* テキスト選択防止 */
-        }
-        .option-button:hover,
-        .option-button:focus {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0, 196, 204, 0.3);
-            border-color: #00c4cc;
-            outline: none;
-        }
-        /* タッチデバイス用のアクティブ状態 */
-        .option-button:active {
-            transform: translateY(-1px);
-            transition-duration: 0.1s;
-        }
-        /* モバイル専用スタイル */
-        @media (max-width: 768px) {
-            .option-button {
-                min-height: 48px; /* モバイルでより大きなタッチターゲット */
-                font-size: 16px; /* iOS自動ズーム防止 */
-            }
-        }
-        .option-selected {
-            background: linear-gradient(135deg, #00c4cc, #7b68ee) !important;
-            color: white !important;
-            border-color: #00c4cc !important;
-        }
-        .correct { 
-            background: linear-gradient(135deg, #00d4aa, #00c4cc) !important; 
-            animation: correctPulse 0.6s ease-out;
-        }
-        .incorrect { 
-            background: linear-gradient(135deg, #ff6b9d, #ff8a80) !important; 
-            animation: incorrectShake 0.6s ease-out;
-        }
-        .progress-bar {
-            background: linear-gradient(90deg, #00c4cc, #7b68ee, #ff6b9d);
-            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            animation: shimmer 2s infinite;
-        }
-        .canva-button {
-            background: linear-gradient(135deg, #00c4cc, #7b68ee);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            /* タッチ操作最適化 */
-            min-height: 44px;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
-            user-select: none;
-        }
-        .canva-button:hover,
-        .canva-button:focus {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0, 196, 204, 0.4);
-            outline: 2px solid #00c4cc;
-            outline-offset: 2px;
-        }
-        .canva-button:active {
-            transform: translateY(0px);
-            transition-duration: 0.1s;
-        }
-        @media (max-width: 768px) {
-            .canva-button {
-                min-height: 48px;
-                font-size: 16px;
-            }
-        }
-        .canva-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        .canva-button:hover::before {
-            left: 100%;
-        }
-        .floating-shapes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .shape {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-        .shape:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-        .shape:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
-        .shape:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
-        .shape:nth-child(4) { bottom: 10%; right: 20%; animation-delay: 1s; }
-        
-        /* 新しいアニメーション効果 */
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-        .slide-up {
-            animation: slideUp 0.5s ease-out;
-        }
-        .bounce-in {
-            animation: bounceIn 0.8s ease-out;
-        }
-        .pulse-glow {
-            animation: pulseGlow 2s ease-in-out infinite;
-        }
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: #ff6b9d;
-            animation: confettiFall 3s linear infinite;
-            z-index: 1000;
-        }
-        .confetti:nth-child(odd) { background: #00c4cc; }
-        .confetti:nth-child(3n) { background: #7b68ee; }
-        .confetti:nth-child(4n) { background: #00d4aa; }
-        
-        /* パーティクル効果 */
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #fff;
-            border-radius: 50%;
-            pointer-events: none;
-            animation: particleFloat 2s ease-out forwards;
-        }
-        
-        /* SEO用のスクリーンリーダー専用クラス */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        
-        /* 細かいブレークポイント対応 */
-        /* 極小デバイス (320px以下) */
-        @media (max-width: 320px) {
-            .container { padding: 8px; }
-            .canva-card { padding: 12px; }
-            .text-4xl { font-size: 1.875rem; }
-            .text-3xl { font-size: 1.5rem; }
-            .text-2xl { font-size: 1.25rem; }
-        }
-        
-        /* 小型スマートフォン (321px - 480px) */
-        @media (min-width: 321px) and (max-width: 480px) {
-            .container { padding: 12px; }
-            .canva-card { padding: 16px; }
-        }
-        
-        /* 大型スマートフォン (481px - 768px) */
-        @media (min-width: 481px) and (max-width: 768px) {
-            .container { padding: 16px; }
-            .canva-card { padding: 20px; }
-        }
-        
-        /* 小型タブレット (769px - 1024px) */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .container { padding: 20px; }
-            .canva-card { padding: 24px; }
-        }
-        
-        /* 大型タブレット・小型デスクトップ (1025px - 1440px) */
-        @media (min-width: 1025px) and (max-width: 1440px) {
-            .container { padding: 24px; }
-            .canva-card { padding: 32px; }
-        }
-        
-        /* 大型デスクトップ (1441px以上) */
-        @media (min-width: 1441px) {
-            .container { max-width: 1200px; }
-            .canva-card { padding: 40px; }
-        }
-        
-        /* 横向きスマートフォン対応 */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .text-6xl { font-size: 2rem; }
-            .text-5xl { font-size: 1.875rem; }
-            .py-8 { padding-top: 1rem; padding-bottom: 1rem; }
-            .mb-8 { margin-bottom: 1rem; }
-        }
-        
-        /* 広告スタイル */
-        .ad-container {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 16px;
+
+        .header {
             text-align: center;
-            margin: 16px 0;
+            margin-bottom: 30px;
+            padding-top: 20px;
         }
-        .ad-label {
-            font-size: 12px;
-            color: #6b7280;
-            margin-bottom: 8px;
-        }
-        
-        /* キーボード操作・アクセシビリティ改善 */
-        /* フォーカス可能な要素の基本スタイル */
-        button, input, select, textarea, [tabindex]:not([tabindex="-1"]) {
-            outline: none;
-        }
-        
-        /* 高コントラストフォーカスリング */
-        button:focus-visible, 
-        input:focus-visible, 
-        select:focus-visible, 
-        textarea:focus-visible,
-        [tabindex]:focus-visible {
-            outline: 3px solid #0066cc;
-            outline-offset: 2px;
-            box-shadow: 0 0 0 1px #ffffff;
-        }
-        
-        /* ボタンのキーボード操作 */
-        .option-button:focus-visible {
-            outline: 3px solid #0066cc;
-            outline-offset: 2px;
-            box-shadow: 0 0 0 1px #ffffff, 0 12px 40px rgba(0, 196, 204, 0.3);
-            border-color: #00c4cc;
-        }
-        
-        /* スキップリンク */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 6px;
-            background: #000;
-            color: #fff;
-            padding: 8px;
-            text-decoration: none;
-            border-radius: 4px;
-            z-index: 1000;
+
+        .logo {
+            font-size: 28px;
             font-weight: bold;
+            color: white;
+            margin-bottom: 10px;
         }
-        .skip-link:focus {
-            top: 6px;
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
         }
-        
-        /* 高コントラスト対応 */
-        @media (prefers-contrast: high) {
-            .canva-card {
-                border: 2px solid #000;
-                background: #fff;
-            }
-            .option-button {
-                border: 2px solid #000;
-                background: #fff;
-                color: #000;
-            }
-            .canva-button {
-                background: #000;
-                color: #fff;
-                border: 2px solid #000;
-            }
-        }
-        
-        /* 動きを減らす設定への対応 */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            .floating-shapes {
-                display: none;
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-        @keyframes correctPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        @keyframes incorrectShake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideUp {
-            from { transform: translateY(100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes bounceIn {
-            0% { transform: scale(0.3); opacity: 0; }
-            50% { transform: scale(1.05); }
-            70% { transform: scale(0.9); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 196, 204, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(0, 196, 204, 0.6); }
-        }
-        @keyframes confettiFall {
-            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-        }
-        @keyframes particleFloat {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(-100px) scale(0); opacity: 0; }
-        }
-        
-        /* ダークモード対応 */
-        [data-theme="dark"] {
-            --bg-primary: #1a1a1a;
-            --bg-secondary: #2d2d2d;
-            --bg-card: rgba(45, 45, 45, 0.95);
-            --text-primary: #ffffff;
-            --text-secondary: #b3b3b3;
-            --text-muted: #808080;
-            --border-color: #404040;
-            --accent-primary: #00c4cc;
-            --accent-secondary: #7b68ee;
-        }
-        
-        [data-theme="light"] {
-            --bg-primary: linear-gradient(135deg, #00c4cc 0%, #7b68ee 50%, #ff6b9d 100%);
-            --bg-secondary: #ffffff;
-            --bg-card: rgba(255, 255, 255, 0.95);
-            --text-primary: #1f2937;
-            --text-secondary: #4b5563;
-            --text-muted: #6b7280;
-            --border-color: #e5e7eb;
-            --accent-primary: #00c4cc;
-            --accent-secondary: #7b68ee;
-        }
-        
-        /* ダークモード時のbody背景 */
-        [data-theme="dark"] body {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #404040 100%);
-            color: var(--text-primary);
-        }
-        
-        /* ダークモード時のカード */
-        [data-theme="dark"] .canva-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-        }
-        
-        /* ダークモード時のテキスト */
-        [data-theme="dark"] .text-gray-800 { color: var(--text-primary) !important; }
-        [data-theme="dark"] .text-gray-700 { color: var(--text-secondary) !important; }
-        [data-theme="dark"] .text-gray-600 { color: var(--text-muted) !important; }
-        [data-theme="dark"] .text-gray-500 { color: var(--text-muted) !important; }
-        
-        /* ダークモード時のボタン */
-        [data-theme="dark"] .option-button {
-            background: rgba(45, 45, 45, 0.9);
-            border-color: var(--border-color);
-            color: var(--text-primary);
-        }
-        [data-theme="dark"] .option-button:hover {
-            background: rgba(60, 60, 60, 0.9);
-            border-color: var(--accent-primary);
-        }
-        
-        /* ダークモード時の入力フィールド */
-        [data-theme="dark"] input, 
-        [data-theme="dark"] select, 
-        [data-theme="dark"] textarea {
-            background: var(--bg-secondary);
-            border-color: var(--border-color);
-            color: var(--text-primary);
-        }
-        [data-theme="dark"] input:focus,
-        [data-theme="dark"] select:focus,
-        [data-theme="dark"] textarea:focus {
-            border-color: var(--accent-primary);
-            background: rgba(45, 45, 45, 0.8);
-        }
-        
-        /* ダークモード時の広告 */
-        [data-theme="dark"] .ad-container {
-            background: var(--bg-card);
-            border-color: var(--border-color);
-        }
-        
-        /* ダークモード時のフッター */
-        [data-theme="dark"] footer {
-            background: #0f0f0f;
-        }
-        
-        /* テーマ切り替えボタン */
-        .theme-toggle {
+
+        .install-btn {
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 1000;
-            background: var(--bg-card);
-            border: 2px solid var(--border-color);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 20px;
-        }
-        .theme-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 20px rgba(0, 196, 204, 0.3);
-        }
-        
-        /* PWAインストールボタン */
-        .install-button {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            z-index: 1000;
-            background: linear-gradient(135deg, #00c4cc, #7b68ee);
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
             color: white;
-            box-shadow: 0 4px 20px rgba(0, 196, 204, 0.3);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            display: none;
         }
-        .install-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(0, 196, 204, 0.4);
+
+        .install-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
-        .install-button:active {
-            transform: scale(0.95);
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
-        
-        /* システム設定に従う場合の初期設定 */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-primary: #1a1a1a;
-                --bg-secondary: #2d2d2d;
-                --bg-card: rgba(45, 45, 45, 0.95);
-                --text-primary: #ffffff;
-                --text-secondary: #b3b3b3;
-                --text-muted: #808080;
-                --border-color: #404040;
-                --accent-primary: #00c4cc;
-                --accent-secondary: #7b68ee;
-            }
+
+        .quiz-section {
+            text-align: center;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .option:hover {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .option.selected {
+            background: #e8f5e8;
+            border-color: #4caf50;
+        }
+
+        .option.correct {
+            background: #e8f5e8;
+            border-color: #4caf50;
+        }
+
+        .option.incorrect {
+            background: #ffebee;
+            border-color: #f44336;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .score {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .progress {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .result {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .result h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .result p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .emoji {
+            font-size: 48px;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
-    <!-- Floating Background Shapes -->
-    <div class="floating-shapes">
-        <div class="shape">
-            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                <circle cx="40" cy="40" r="30" fill="#00c4cc"/>
-            </svg>
-        </div>
-        <div class="shape">
-            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-                <rect x="15" y="15" width="30" height="30" rx="8" fill="#7b68ee"/>
-            </svg>
-        </div>
-        <div class="shape">
-            <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
-                <polygon points="35,10 55,50 15,50" fill="#ff6b9d"/>
-            </svg>
-        </div>
-        <div class="shape">
-            <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                <path d="M25 5 L45 25 L25 45 L5 25 Z" fill="#00d4aa"/>
-            </svg>
-        </div>
-    </div>
-    
-    <!-- アクセシビリティ: スキップリンク -->
-    <a href="#main-content" class="skip-link">メインコンテンツにスキップ</a>
-    
-    <!-- テーマ切り替えボタン -->
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="ダークモード切り替え" title="テーマを切り替える">
-        <span id="themeIcon">🌙</span>
-    </button>
-    
-    <!-- PWAインストールボタン -->
-    <button id="installButton" class="install-button" onclick="installPWA()" style="display: none;" aria-label="アプリをインストール" title="ホーム画面に追加">
-        <span>📱</span>
-    </button>
-    
-    <div class="container mx-auto px-4 py-8 max-w-4xl relative z-10" id="main-content">
-        <!-- SEO用のヘッダー（検索エンジン向け） -->
-        <header class="sr-only">
-            <h1>ゆるマーケ道場 - マーケティング学習クイズアプリ</h1>
-            <p>SEO、広告運用、AI活用など実践的なマーケティング問題で知識を深めよう</p>
-        </header>
-
-        <!-- ログイン画面 -->
-        <div id="loginContainer" class="canva-card rounded-3xl p-8 mb-8 text-center fade-in">
-            <div class="mb-6">
-                <h2 class="text-5xl font-bold bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent mb-3">
-                    ✨ ゆるマーケ道場
-                </h2>
-                <p class="text-gray-700 text-lg font-medium">40代以上の非マーケター、非デジタル社会人向けのWebスキル学習サイト</p>
-                
-                <!-- 学習イメージ -->
-                <div class="my-8 flex justify-center">
-                    <div class="relative">
-                        <!-- デフォルトのSVGイラスト -->
-                        <svg id="defaultIllustration" width="200" height="150" viewBox="0 0 200 150" class="rounded-lg shadow-lg">
-                            <!-- 背景 -->
-                            <rect width="200" height="150" fill="#f0f9ff"/>
-                            
-                            <!-- 中年男性（立っている姿勢） -->
-                            <!-- 頭 -->
-                            <circle cx="60" cy="45" r="18" fill="#fbbf24"/>
-                            <!-- 髪（薄め、M字ハゲ風） -->
-                            <path d="M 42 40 Q 50 32 60 32 Q 70 32 78 40 Q 75 35 70 35 Q 60 30 50 35 Q 45 35 42 40" fill="#6b7280"/>
-                            <!-- 眼鏡 -->
-                            <circle cx="55" cy="43" r="4" fill="none" stroke="#374151" stroke-width="1"/>
-                            <circle cx="65" cy="43" r="4" fill="none" stroke="#374151" stroke-width="1"/>
-                            <line x1="59" y1="43" x2="61" y2="43" stroke="#374151" stroke-width="1"/>
-                            
-                            <!-- 体（シャツ） -->
-                            <rect x="48" y="63" width="24" height="45" rx="3" fill="#3b82f6"/>
-                            <!-- 襟 -->
-                            <polygon points="48,63 54,63 60,70 66,63 72,63 72,75 48,75" fill="#1e40af"/>
-                            
-                            <!-- 右腕（スマホを持つ） -->
-                            <rect x="72" y="70" width="8" height="25" rx="2" fill="#fbbf24"/>
-                            <!-- 右手 -->
-                            <circle cx="80" cy="95" r="4" fill="#fbbf24"/>
-                            
-                            <!-- スマートフォン（手に持っている） -->
-                            <rect x="82" y="85" width="25" height="40" rx="4" fill="#1f2937" stroke="#374151" stroke-width="1"/>
-                            <rect x="85" y="90" width="19" height="30" fill="#3b82f6"/>
-                            
-                            <!-- スマホ画面のコンテンツ -->
-                            <rect x="87" y="93" width="15" height="3" rx="1" fill="#ffffff" opacity="0.9"/>
-                            <rect x="87" y="98" width="12" height="2" rx="1" fill="#ffffff" opacity="0.7"/>
-                            <rect x="87" y="102" width="13" height="2" rx="1" fill="#ffffff" opacity="0.7"/>
-                            <rect x="87" y="106" width="10" height="2" rx="1" fill="#ffffff" opacity="0.7"/>
-                            
-                            <!-- 選択肢ボタン -->
-                            <rect x="87" y="110" width="15" height="3" rx="1" fill="#10b981" opacity="0.8"/>
-                            <rect x="87" y="115" width="15" height="3" rx="1" fill="#ffffff" opacity="0.3"/>
-                            
-                            <!-- 左腕 -->
-                            <rect x="40" y="75" width="8" height="20" rx="2" fill="#fbbf24"/>
-                            <!-- 左手 -->
-                            <circle cx="40" cy="95" r="3" fill="#fbbf24"/>
-                            
-                            <!-- 脚 -->
-                            <rect x="52" y="108" width="7" height="25" rx="2" fill="#1f2937"/>
-                            <rect x="61" y="108" width="7" height="25" rx="2" fill="#1f2937"/>
-                            
-                            <!-- 靴 -->
-                            <ellipse cx="55" cy="135" rx="6" ry="3" fill="#374151"/>
-                            <ellipse cx="64" cy="135" rx="6" ry="3" fill="#374151"/>
-                            
-                            <!-- 笑顔 -->
-                            <circle cx="56" cy="42" r="1" fill="#1f2937"/>
-                            <circle cx="64" cy="42" r="1" fill="#1f2937"/>
-                            <path d="M 54 50 Q 60 54 66 50" stroke="#1f2937" stroke-width="1.2" fill="none"/>
-                            
-                            <!-- 学習効果のキラキラ -->
-                            <text x="120" y="25" font-size="16" fill="#fbbf24">✨</text>
-                            <text x="140" y="40" font-size="12" fill="#10b981">💡</text>
-                            <text x="125" y="55" font-size="14" fill="#8b5cf6">📚</text>
-                            <text x="145" y="70" font-size="12" fill="#f59e0b">🎯</text>
-                            
-                            <!-- 集中線効果 -->
-                            <line x1="110" y1="90" x2="115" y2="85" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
-                            <line x1="115" y1="95" x2="120" y2="90" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
-                            <line x1="110" y1="100" x2="115" y2="105" stroke="#fbbf24" stroke-width="2" opacity="0.6"/>
-                            
-                            <!-- 「楽しく学習中」テキスト -->
-                            <text x="100" y="140" font-size="10" fill="#6b7280" text-anchor="middle">楽しく学習中！</text>
-                        </svg>
-                        
-                        <!-- カスタム画像（設定されている場合） -->
-                        <img id="customHeroImage" src="" alt="学習イメージ" class="hidden rounded-lg shadow-lg w-[200px] h-[150px] object-cover">
-                        
-                        <!-- 管理者のみ：画像変更ボタン -->
-                        <button id="changeImageButton" onclick="showImageUploadModal()" class="hidden absolute -bottom-2 -right-2 bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full shadow-lg transition-all text-xs">
-                            📷
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 広告スペース1 -->
-            <div class="ad-container mb-6">
-                <div class="ad-label">スポンサー</div>
-                <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-lg">
-                    <h3 class="font-bold mb-2">📚 学習効率UP！</h3>
-                    <p class="text-sm">プレミアムプランで詳細解説と進捗分析を体験</p>
-                </div>
-            </div>
-            
-            <div class="max-w-md mx-auto">
-                <div class="mb-6">
-                    <input type="email" id="loginEmail" placeholder="メールアドレス" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent mb-3">
-                    <input type="password" id="loginPassword" placeholder="パスワード" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                </div>
-                
-                <div class="space-y-3">
-                    <button onclick="login()" class="canva-button text-white px-8 py-3 rounded-2xl font-semibold w-full shadow-lg">
-                        🔑 ログイン
-                    </button>
-                    <button onclick="googleLogin()" class="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-2xl font-semibold w-full shadow-lg transition-all flex items-center justify-center">
-                        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                            <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                            <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                            <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                        </svg>
-                        Googleでログイン
-                    </button>
-                    <button onclick="showRegister()" class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-2xl font-semibold w-full shadow-lg transition-all">
-                        📝 新規登録
-                    </button>
-                    <button onclick="loginAsGuest()" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-2xl font-semibold w-full shadow-lg transition-all">
-                        👤 ゲストログイン（無料プラン）
-                    </button>
-                </div>
-                
-                <div class="mt-6 p-4 bg-blue-50 rounded-lg">
-                    <h3 class="font-semibold text-blue-800 mb-2">💡 デモ用アカウント</h3>
-                    <div class="text-sm text-blue-700 space-y-1">
-                        <p><strong>無料プラン:</strong> demo@free.com / password123</p>
-                        <p><strong>プレミアムプラン:</strong> demo@premium.com / password123</p>
-                        <p><strong>管理者:</strong> admin@demo.com / admin123</p>
-                        <p><strong>Googleログイン:</strong> 「Googleでログイン」ボタンをクリック（デモ版）</p>
-                    </div>
-                    <div class="mt-3 p-2 bg-green-50 rounded text-xs text-green-700">
-                        ✨ <strong>新機能:</strong> ログイン状態がページリロード後も保持されます
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <div class="header">
+            <div class="logo">📚 ゆるマーケ道場</div>
+            <div class="subtitle">楽しく学ぶマーケティング</div>
         </div>
 
-        <!-- 新規登録画面 -->
-        <div id="registerContainer" class="hidden canva-card rounded-3xl p-8 mb-8 text-center fade-in">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">📝 新規登録</h2>
+        <button class="install-btn" id="installBtn">📱</button>
+
+        <div class="card">
+            <div class="score">
+                スコア: <span id="score">0</span> / <span id="total">5</span>
+            </div>
             
-            <div class="max-w-md mx-auto">
-                <div class="mb-6 space-y-3">
-                    <input type="text" id="registerName" placeholder="お名前" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                    <input type="email" id="registerEmail" placeholder="メールアドレス" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                    <input type="password" id="registerPassword" placeholder="パスワード" 
-                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                </div>
-                
-                <div class="space-y-3">
-                    <button onclick="register()" class="canva-button text-white px-8 py-3 rounded-2xl font-semibold w-full shadow-lg">
-                        ✨ 登録する（無料プラン）
-                    </button>
-                    <button onclick="showLogin()" class="bg-gray-500 hover:bg-gray-600 text-white px-8 py-3 rounded-2xl font-semibold w-full shadow-lg transition-all">
-                        ← ログイン画面に戻る
-                    </button>
-                </div>
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <div class="quiz-section" id="quizSection">
+                <div class="question" id="question"></div>
+                <div class="options" id="options"></div>
+                <button class="btn" id="nextBtn" onclick="nextQuestion()" disabled>次の問題</button>
+            </div>
+
+            <div class="result hidden" id="result">
+                <div class="emoji" id="resultEmoji"></div>
+                <h2 id="resultTitle"></h2>
+                <p id="resultMessage"></p>
+                <button class="btn" onclick="restartQuiz()">もう一度挑戦</button>
             </div>
         </div>
-
-        <!-- ヘッダー（ログイン後） -->
-        <div id="mainHeader" class="hidden">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 space-y-4 sm:space-y-0">
-                <div class="canva-card rounded-2xl px-4 sm:px-8 py-4 sm:py-6 fade-in w-full sm:w-auto">
-                    <h1 class="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent mb-1 sm:mb-2">
-                        ✨ ゆるマーケ道場
-                    </h1>
-                    <p class="text-gray-700 text-sm sm:text-lg font-medium">40代以上の非マーケター、非デジタル社会人向けのWebスキル学習サイト</p>
-                </div>
-                
-                <div class="canva-card rounded-2xl px-3 sm:px-6 py-3 sm:py-4 fade-in w-full sm:w-auto">
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                        <div class="flex-1 sm:text-right">
-                            <div class="font-semibold text-gray-800 text-sm sm:text-base" id="userNameDisplay">ユーザー名</div>
-                            <div class="flex items-center justify-start sm:justify-end mt-1">
-                                <span id="userPlanDisplay" class="text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full bg-blue-100 text-blue-600">無料プラン</span>
-                                <button id="upgradeButton" onclick="showUpgradeModal()" class="hidden ml-2 text-xs bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 sm:px-3 py-1 rounded-full hover:shadow-lg transition-all">
-                                    ⭐ アップグレード
-                                </button>
-                            </div>
-                        </div>
-                        <div class="flex space-x-2 w-full sm:w-auto">
-                            <button id="adminButton" onclick="showAdminPanel()" class="hidden flex-1 sm:flex-none bg-purple-500 hover:bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition-all text-xs sm:text-sm">
-                                ⚙️ 管理
-                            </button>
-                            <button onclick="showAnalytics()" class="flex-1 sm:flex-none bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition-all text-xs sm:text-sm">
-                                📊 分析
-                            </button>
-                            <button onclick="logout()" class="flex-1 sm:flex-none bg-red-500 hover:bg-red-600 text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition-all text-xs sm:text-sm">
-                                ログアウト
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ホーム画面 -->
-        <main id="homeContainer" class="hidden">
-            <!-- ウェルカムセクション -->
-            <section class="canva-card rounded-3xl p-6 sm:p-8 mb-6 text-center fade-in">
-                <div class="mb-6">
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-6">
-                        <div class="flex-1">
-                            <div class="text-4xl sm:text-6xl mb-4">🏠</div>
-                            <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">マーケティング学習ダッシュボード</h2>
-                            <p class="text-gray-600 text-sm sm:text-base">40代以上の非マーケター、非デジタル社会人向けのWebスキル学習サイト</p>
-                        </div>
-                        
-                        <!-- 学習イメージ（ホーム画面用） -->
-                        <div class="flex-shrink-0 relative">
-                            <!-- デフォルトのSVGイラスト -->
-                            <svg id="defaultHomeIllustration" width="180" height="140" viewBox="0 0 180 140" class="rounded-lg shadow-lg">
-                                <!-- 背景 -->
-                                <rect width="180" height="140" fill="#f8fafc"/>
-                                
-                                <!-- デスク -->
-                                <rect x="20" y="100" width="140" height="30" rx="4" fill="#8b5cf6" opacity="0.8"/>
-                                
-                                <!-- スマートフォン -->
-                                <rect x="60" y="70" width="45" height="70" rx="6" fill="#1f2937" stroke="#374151" stroke-width="1.5"/>
-                                <rect x="64" y="78" width="37" height="54" fill="#3b82f6"/>
-                                
-                                <!-- スマホ画面のコンテンツ -->
-                                <rect x="68" y="82" width="29" height="6" rx="1" fill="#ffffff" opacity="0.9"/>
-                                <rect x="68" y="92" width="22" height="4" rx="1" fill="#ffffff" opacity="0.7"/>
-                                <rect x="68" y="99" width="26" height="4" rx="1" fill="#ffffff" opacity="0.7"/>
-                                <rect x="68" y="106" width="18" height="4" rx="1" fill="#ffffff" opacity="0.7"/>
-                                
-                                <!-- 選択肢ボタン -->
-                                <rect x="68" y="114" width="29" height="6" rx="1" fill="#10b981" opacity="0.8"/>
-                                <rect x="68" y="122" width="29" height="6" rx="1" fill="#ffffff" opacity="0.3"/>
-                                
-                                <!-- 中年男性（座っている） -->
-                                <!-- 頭 -->
-                                <circle cx="40" cy="60" r="12" fill="#fbbf24"/>
-                                <!-- 髪（薄め、サイド分け） -->
-                                <path d="M 28 55 Q 40 48 52 55 Q 48 52 40 52 Q 32 52 28 55" fill="#6b7280"/>
-                                <!-- 体 -->
-                                <rect x="32" y="72" width="16" height="28" rx="2" fill="#059669"/>
-                                <!-- 腕（スマホを持つ） -->
-                                <rect x="48" y="78" width="12" height="6" rx="1" fill="#fbbf24"/>
-                                <rect x="20" y="82" width="12" height="6" rx="1" fill="#fbbf24"/>
-                                
-                                <!-- 脚 -->
-                                <rect x="30" y="100" width="6" height="15" rx="1" fill="#1f2937"/>
-                                <rect x="42" y="100" width="6" height="15" rx="1" fill="#1f2937"/>
-                                
-                                <!-- 笑顔 -->
-                                <circle cx="36" cy="58" r="1" fill="#1f2937"/>
-                                <circle cx="44" cy="58" r="1" fill="#1f2937"/>
-                                <path d="M 34 64 Q 40 67 46 64" stroke="#1f2937" stroke-width="1" fill="none"/>
-                                
-                                <!-- コーヒーカップ -->
-                                <rect x="110" y="85" width="12" height="15" rx="2" fill="#ffffff" stroke="#d1d5db"/>
-                                <rect x="112" y="87" width="8" height="11" fill="#8b4513" opacity="0.6"/>
-                                <path d="M 122 90 Q 127 90 127 95 Q 127 100 122 100" stroke="#d1d5db" fill="none"/>
-                                
-                                <!-- 学習効果のキラキラ -->
-                                <text x="130" y="25" font-size="14" fill="#fbbf24">✨</text>
-                                <text x="145" y="40" font-size="10" fill="#10b981">💡</text>
-                                <text x="135" y="55" font-size="12" fill="#8b5cf6">📈</text>
-                                <text x="150" y="70" font-size="10" fill="#f59e0b">🎯</text>
-                                
-                                <!-- 「集中学習中」テキスト -->
-                                <text x="90" y="130" font-size="9" fill="#6b7280" text-anchor="middle">集中学習中！</text>
-                            </svg>
-                            
-                            <!-- カスタム画像（設定されている場合） -->
-                            <img id="customHomeImage" src="" alt="学習イメージ" class="hidden rounded-lg shadow-lg w-[180px] h-[140px] object-cover">
-                            
-                            <!-- 管理者のみ：画像変更ボタン -->
-                            <button id="changeHomeImageButton" onclick="showImageUploadModal()" class="hidden absolute -bottom-2 -right-2 bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full shadow-lg transition-all text-xs">
-                                📷
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Phase 2: ゲーミフィケーション - レベル・XPバー -->
-                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-4 sm:p-6 rounded-2xl mb-6 shadow-lg">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex items-center">
-                            <div class="text-2xl sm:text-3xl mr-3">⭐</div>
-                            <div>
-                                <div class="text-lg sm:text-xl font-bold" id="userLevelDisplay">Lv.1</div>
-                                <div class="text-xs sm:text-sm opacity-90" id="userXPDisplay">0 / 100 XP</div>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-sm opacity-90">総XP</div>
-                            <div class="text-lg font-bold" id="totalXPDisplay">0</div>
-                        </div>
-                    </div>
-                    <div class="w-full bg-white bg-opacity-20 rounded-full h-3">
-                        <div id="xpProgressBar" class="bg-white rounded-full h-3 transition-all duration-500" style="width: 0%"></div>
-                    </div>
-                </div>
-                
-                <!-- 今日の目標 -->
-                <div class="canva-card rounded-2xl p-4 sm:p-6 mb-6">
-                    <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4 flex items-center">
-                        <span class="text-2xl mr-2">🎯</span>
-                        今日の目標
-                    </h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="dailyGoalsContainer">
-                        <!-- 目標がここに動的に生成されます -->
-                    </div>
-                </div>
-                
-                <!-- 学習統計サマリー -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6">
-                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-3 sm:p-4 rounded-xl text-center">
-                        <div class="text-lg sm:text-2xl font-bold" id="homeTotalQuizzes">0</div>
-                        <div class="text-xs sm:text-sm opacity-90">総クイズ数</div>
-                    </div>
-                    <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-3 sm:p-4 rounded-xl text-center">
-                        <div class="text-lg sm:text-2xl font-bold" id="homeAverageScore">0%</div>
-                        <div class="text-xs sm:text-sm opacity-90">平均正答率</div>
-                    </div>
-                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-3 sm:p-4 rounded-xl text-center">
-                        <div class="text-lg sm:text-2xl font-bold" id="homeStreak">0日</div>
-                        <div class="text-xs sm:text-sm opacity-90">連続学習</div>
-                        <div class="text-xs opacity-75 mt-1">最高: <span id="homeBestStreak">0</span>日</div>
-                    </div>
-                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-3 sm:p-4 rounded-xl text-center">
-                        <div class="text-lg sm:text-2xl font-bold" id="homeLevel">Lv.1</div>
-                        <div class="text-xs sm:text-sm opacity-90">現在レベル</div>
-                    </div>
-                </div>
-                
-                <!-- 最近獲得したバッジ -->
-                <div class="canva-card rounded-2xl p-4 sm:p-6 mb-6" id="recentBadgesSection">
-                    <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-4 flex items-center">
-                        <span class="text-2xl mr-2">🏆</span>
-                        最近のバッジ
-                        <button onclick="showAllBadges()" class="ml-auto text-sm bg-blue-500 text-white px-3 py-1 rounded-full hover:bg-blue-600 transition-all">
-                            すべて見る
-                        </button>
-                    </h3>
-                    <div id="recentBadgesContainer" class="flex flex-wrap gap-3">
-                        <!-- 最近のバッジがここに表示されます -->
-                    </div>
-                </div>
-                
-                <!-- 広告スペース（ホーム画面上部） -->
-                <div id="homeAdSpace1" class="ad-container mb-6">
-                    <div class="ad-label">おすすめ</div>
-                    <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-4 rounded-lg">
-                        <h3 class="font-bold mb-2 text-sm sm:text-base">🎯 学習効率を最大化！</h3>
-                        <p class="text-xs sm:text-sm">プレミアムプランで詳細解説と高度分析機能を体験</p>
-                        <button onclick="showUpgradeModal()" class="mt-2 bg-white text-indigo-600 px-3 py-1 rounded-full text-xs font-medium hover:shadow-lg transition-all">
-                            今すぐアップグレード
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- カテゴリ選択 -->
-            <section class="canva-card rounded-3xl p-6 sm:p-8 mb-6 fade-in">
-                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6 text-center">📚 マーケティング学習カテゴリ</h3>
-                <p class="text-center text-gray-600 mb-6 text-sm sm:text-base">実践的なマーケティングスキルを身につけよう</p>
-                <div id="categoryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                    <!-- カテゴリカードがここに動的に生成されます -->
-                </div>
-            </section>
-            
-            <!-- 最近の学習履歴 -->
-            <section class="canva-card rounded-3xl p-6 sm:p-8 mb-6 fade-in">
-                <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-6">📈 学習進捗と履歴</h3>
-                <p class="text-gray-600 mb-4 text-sm sm:text-base">あなたのマーケティング学習の成果を確認しよう</p>
-                <div id="recentHistory" class="space-y-3">
-                    <!-- 学習履歴がここに表示されます -->
-                </div>
-            </section>
-            
-            <!-- 広告スペース（ホーム画面下部） -->
-            <div id="homeAdSpace2" class="ad-container mb-6">
-                <div class="ad-label">スポンサー</div>
-                <div class="bg-gradient-to-r from-pink-500 to-rose-600 text-white p-4 rounded-lg">
-                    <h3 class="font-bold mb-2 text-sm sm:text-base">🏆 さらなる高みへ</h3>
-                    <p class="text-xs sm:text-sm">上級問題で真のエキスパートを目指そう</p>
-                </div>
-            </div>
-        </main>
-
-        <!-- データ分析ダッシュボード -->
-        <div id="analyticsContainer" class="hidden canva-card rounded-3xl p-8 mb-8 fade-in">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-3xl font-bold text-gray-800">📊 学習分析ダッシュボード</h2>
-                <button onclick="hideAnalytics()" class="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-lg transition-all">
-                    ← 戻る
-                </button>
-            </div>
-            
-            <!-- 統計サマリー -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-2xl text-center">
-                    <div class="text-3xl font-bold" id="totalQuizzes">0</div>
-                    <div class="text-sm opacity-90">総クイズ数</div>
-                </div>
-                <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-2xl text-center">
-                    <div class="text-3xl font-bold" id="averageScore">0%</div>
-                    <div class="text-sm opacity-90">平均正答率</div>
-                </div>
-                <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 rounded-2xl text-center">
-                    <div class="text-3xl font-bold" id="totalTime">0分</div>
-                    <div class="text-sm opacity-90">総学習時間</div>
-                </div>
-                <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 rounded-2xl text-center">
-                    <div class="text-3xl font-bold" id="streak">0日</div>
-                    <div class="text-sm opacity-90">連続学習日数</div>
-                </div>
-            </div>
-            
-            <!-- チャート -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                <div class="bg-white p-6 rounded-2xl shadow-lg">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">📈 正答率の推移</h3>
-                    <canvas id="scoreChart" width="400" height="200"></canvas>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-lg">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">📊 カテゴリ別成績</h3>
-                    <canvas id="categoryChart" width="400" height="200"></canvas>
-                </div>
-            </div>
-            
-            <!-- 詳細分析 -->
-            <div class="bg-white p-6 rounded-2xl shadow-lg">
-                <h3 class="text-xl font-bold text-gray-800 mb-4">🎯 弱点分析</h3>
-                <div id="weaknessAnalysis" class="space-y-4">
-                    <!-- 弱点分析がここに表示されます -->
-                </div>
-            </div>
-            
-            <!-- 広告スペース2 -->
-            <div class="ad-container mt-8">
-                <div class="ad-label">おすすめ</div>
-                <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white p-4 rounded-lg">
-                    <h3 class="font-bold mb-2">🚀 学習効率を最大化</h3>
-                    <p class="text-sm">AI分析による個別学習プランで成績向上を実現</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 管理者画面 -->
-        <div id="adminContainer" class="hidden canva-card rounded-3xl p-6 sm:p-8 mb-8 fade-in">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800">⚙️ 管理者画面</h2>
-                <button onclick="hideAdminPanel()" class="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-lg transition-all">
-                    ← 戻る
-                </button>
-            </div>
-            
-            <!-- スプレッドシート読み込み -->
-            <div class="mb-8">
-                <h3 class="text-xl font-bold text-gray-800 mb-4">📊 スプレッドシートから問題を読み込み</h3>
-                <div class="bg-blue-50 p-4 rounded-lg mb-4">
-                    <h4 class="font-semibold text-blue-800 mb-2">📋 データ形式</h4>
-                    <p class="text-blue-700 text-sm mb-3">スプレッドシートは以下の列構成で作成してください：</p>
-                    <div class="bg-white p-3 rounded border text-xs font-mono">
-                        A列: 問題文 | B列: タイプ(single/multiple/truefalse) | C列: 選択肢(カンマ区切り) | D列: 正解(カンマ区切り) | E列: カテゴリ | F列: 難易度 | G列: 解説
-                    </div>
-                    <p class="text-blue-600 text-sm mt-2">
-                        ⚠️ スプレッドシートを「リンクを知っている全員が閲覧可能」に設定してください
-                    </p>
-                </div>
-                
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">📎 スプレッドシートURL</label>
-                        <input type="url" id="spreadsheetUrl" placeholder="https://docs.google.com/spreadsheets/d/..." 
-                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                    </div>
-                    
-                    <div class="flex space-x-3">
-                        <button onclick="loadFromSpreadsheet()" class="canva-button text-white px-6 py-3 rounded-lg font-semibold shadow-lg">
-                            📥 データを読み込む
-                        </button>
-                        <button onclick="refreshSpreadsheetData()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-all">
-                            🔄 データを更新
-                        </button>
-                        <button onclick="loadSampleData()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-all">
-                            🎯 サンプルデータを読み込む
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- 読み込み状況 -->
-                <div id="loadingMessage" class="hidden mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                    <div class="flex items-center">
-                        <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-yellow-600 mr-3"></div>
-                        <span class="text-yellow-700">データを読み込み中...</span>
-                    </div>
-                </div>
-                
-                <!-- 検証結果 -->
-                <div id="validationResults" class="hidden mt-4"></div>
-            </div>
-            
-            <!-- ユーザー統計 -->
-            <div class="mb-8">
-                <h3 class="text-xl font-bold text-gray-800 mb-4">👥 ユーザー統計</h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                    <div class="bg-blue-50 p-4 rounded-lg text-center">
-                        <div class="text-2xl font-bold text-blue-600" id="adminTotalUsers">0</div>
-                        <div class="text-sm text-blue-600">総ユーザー数</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg text-center">
-                        <div class="text-2xl font-bold text-green-600" id="adminTodayLogins">0</div>
-                        <div class="text-sm text-green-600">今日のログイン</div>
-                    </div>
-                    <div class="bg-purple-50 p-4 rounded-lg text-center">
-                        <div class="text-2xl font-bold text-purple-600" id="adminWeeklyLogins">0</div>
-                        <div class="text-sm text-purple-600">今週のログイン</div>
-                    </div>
-                    <div class="bg-orange-50 p-4 rounded-lg text-center">
-                        <div class="text-2xl font-bold text-orange-600" id="adminPremiumUsers">0</div>
-                        <div class="text-sm text-orange-600">プレミアムユーザー</div>
-                    </div>
-                </div>
-                
-                <!-- プラン別ユーザー数 -->
-                <div class="bg-gray-50 p-4 rounded-lg">
-                    <h4 class="font-semibold text-gray-800 mb-3">プラン別ユーザー数</h4>
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="text-center">
-                            <div class="text-lg font-bold text-blue-600" id="adminFreeUsers">0</div>
-                            <div class="text-xs text-gray-600">無料プラン</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-lg font-bold text-purple-600" id="adminPremiumUsersDetail">0</div>
-                            <div class="text-xs text-gray-600">プレミアムプラン</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-lg font-bold text-red-600" id="adminAdminUsers">0</div>
-                            <div class="text-xs text-gray-600">管理者</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 現在のデータ状況 -->
-            <div class="mb-8">
-                <h3 class="text-xl font-bold text-gray-800 mb-4">📈 現在のデータ状況</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-blue-50 p-4 rounded-lg text-center">
-                        <div class="text-2xl font-bold text-blue-600" id="adminTotalQuestions">0</div>
-                        <div class="text-sm text-blue-600">総問題数</div>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg text-center">
-                        <div class="text-2xl font-bold text-green-600" id="adminTotalCategories">0</div>
-                        <div class="text-sm text-green-600">カテゴリ数</div>
-                    </div>
-                    <div class="bg-purple-50 p-4 rounded-lg text-center">
-                        <div class="text-2xl font-bold text-purple-600" id="adminLastUpdate">未更新</div>
-                        <div class="text-sm text-purple-600">最終更新</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- カテゴリ別問題数 -->
-            <div class="mb-8">
-                <h3 class="text-xl font-bold text-gray-800 mb-4">📚 カテゴリ別問題数</h3>
-                <div id="adminCategoryBreakdown" class="space-y-2">
-                    <!-- カテゴリ別データがここに表示されます -->
-                </div>
-            </div>
-            
-            <!-- データ管理 -->
-            <div>
-                <h3 class="text-xl font-bold text-gray-800 mb-4">🗂️ データ管理</h3>
-                <div class="flex flex-wrap gap-3">
-                    <button onclick="exportData()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-all">
-                        📤 データをエクスポート
-                    </button>
-                    <button onclick="clearAllData()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-medium transition-all">
-                        🗑️ 全データを削除
-                    </button>
-                    <button onclick="resetToSample()" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-all">
-                        🔄 サンプルデータにリセット
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- 画像アップロードモーダル -->
-        <div id="imageUploadModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div class="canva-card rounded-3xl p-6 sm:p-8 max-w-md mx-4 bounce-in">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-800 flex items-center">
-                        <span class="text-2xl mr-3">📷</span>
-                        ヒーロー画像の変更
-                    </h2>
-                    <button onclick="closeImageUploadModal()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
-                </div>
-                
-                <div class="space-y-6">
-                    <!-- タブ切り替え -->
-                    <div class="flex bg-gray-100 rounded-lg p-1">
-                        <button id="urlTab" onclick="switchImageTab('url')" class="flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all bg-white text-blue-600 shadow-sm">
-                            🔗 URL指定
-                        </button>
-                        <button id="uploadTab" onclick="switchImageTab('upload')" class="flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all text-gray-600 hover:text-gray-800">
-                            📁 ファイル添付
-                        </button>
-                    </div>
-                    
-                    <!-- URL入力タブ -->
-                    <div id="urlTabContent" class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">画像URL</label>
-                            <input type="url" id="heroImageUrl" placeholder="https://example.com/image.jpg" 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                            <p class="text-xs text-gray-500 mt-1">推奨サイズ: 200×150px または同比率</p>
-                        </div>
-                    </div>
-                    
-                    <!-- ファイルアップロードタブ -->
-                    <div id="uploadTabContent" class="hidden space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">画像ファイル</label>
-                            <div class="relative">
-                                <input type="file" id="heroImageFile" accept="image/*" 
-                                       class="hidden" onchange="handleImageFileSelect(event)">
-                                <div onclick="document.getElementById('heroImageFile').click()" 
-                                     class="w-full px-4 py-8 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-purple-400 hover:bg-purple-50 transition-all text-center">
-                                    <div class="text-4xl mb-2">📁</div>
-                                    <div class="text-sm text-gray-600 mb-1">クリックして画像を選択</div>
-                                    <div class="text-xs text-gray-500">JPG, PNG, GIF, WebP (最大5MB)</div>
-                                </div>
-                            </div>
-                            <div id="selectedFileName" class="hidden mt-2 p-2 bg-blue-50 rounded text-sm text-blue-700"></div>
-                        </div>
-                        
-                        <!-- プレビュー -->
-                        <div id="imagePreview" class="hidden">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">プレビュー</label>
-                            <div class="flex justify-center">
-                                <img id="previewImage" src="" alt="プレビュー" class="max-w-full h-32 object-cover rounded-lg border">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-3">
-                        <button onclick="updateHeroImage()" class="canva-button text-white px-6 py-3 rounded-lg font-semibold w-full shadow-lg">
-                            🖼️ 画像を設定
-                        </button>
-                        <button onclick="resetToDefaultImage()" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold w-full shadow-lg transition-all">
-                            🔄 デフォルトに戻す
-                        </button>
-                        <button onclick="closeImageUploadModal()" class="bg-gray-400 hover:bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold w-full shadow-lg transition-all">
-                            キャンセル
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- バッジ一覧モーダル -->
-        <div id="badgeModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div class="canva-card rounded-3xl p-6 sm:p-8 max-w-4xl mx-4 max-h-[80vh] overflow-y-auto bounce-in">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 flex items-center">
-                        <span class="text-3xl mr-3">🏆</span>
-                        バッジコレクション
-                    </h2>
-                    <button onclick="closeBadgeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
-                </div>
-                
-                <div class="mb-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="text-lg font-semibold text-gray-700">
-                            獲得済み: <span id="earnedBadgeCount">0</span> / <span id="totalBadgeCount">15</span>
-                        </div>
-                        <div class="text-sm text-gray-500">
-                            コンプリート率: <span id="badgeCompletionRate">0%</span>
-                        </div>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div id="badgeProgressBar" class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full h-2 transition-all duration-500" style="width: 0%"></div>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="allBadgesContainer">
-                    <!-- 全バッジがここに表示されます -->
-                </div>
-            </div>
-        </div>
-
-        <!-- プレミアムアップグレードモーダル -->
-        <div id="upgradeModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div class="canva-card rounded-3xl p-8 max-w-md mx-4 bounce-in">
-                <div class="text-center">
-                    <div class="text-6xl mb-4">⭐</div>
-                    <h2 class="text-3xl font-bold text-gray-800 mb-4">プレミアムプランにアップグレード</h2>
-                    <p class="text-gray-600 mb-6">中級・上級問題にアクセスして、さらなるスキルアップを！</p>
-                    
-                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl p-6 mb-6 pulse-glow">
-                        <div class="text-4xl font-bold mb-2">¥980</div>
-                        <div class="text-lg">月額</div>
-                    </div>
-                    
-                    <div class="text-left mb-6 space-y-2">
-                        <div class="flex items-center">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>全難易度の問題にアクセス</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>詳細な解説付き</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>高度な学習分析機能</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>広告非表示</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span>優先サポート</span>
-                        </div>
-                    </div>
-                    
-                    <div class="space-y-3">
-                        <button onclick="upgradeToPremium()" class="canva-button text-white px-8 py-3 rounded-2xl font-semibold w-full shadow-lg">
-                            💳 今すぐアップグレード
-                        </button>
-                        <button onclick="closeUpgradeModal()" class="bg-gray-400 hover:bg-gray-500 text-white px-8 py-3 rounded-2xl font-semibold w-full shadow-lg transition-all">
-                            後で
-                        </button>
-                    </div>
-                    
-                    <p class="text-xs text-gray-500 mt-4">※ デモ版では実際の課金は発生しません</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- クイズ設定パネル（ホームから呼び出される） -->
-        <div id="setupPanel" class="hidden canva-card rounded-3xl p-6 sm:p-8 mb-8 fade-in">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-xl sm:text-2xl font-semibold text-gray-800">⚙️ クイズ設定</h2>
-                <button onclick="showHome()" class="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-lg transition-all text-sm">
-                    ← ホームに戻る
-                </button>
-            </div>
-            
-            <div class="space-y-4">
-                <!-- クイズ設定 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">⭐ 難易度選択</label>
-                        <select id="difficultySelect" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
-                            <option value="all">すべての難易度</option>
-                        </select>
-                        <p class="text-xs text-gray-500 mt-1">選択中: <span id="difficultyCount">0</span>問</p>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">🔀 問題の順序</label>
-                        <select id="shuffleMode" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
-                            <option value="normal">順番通り</option>
-                            <option value="shuffle">ランダム</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">⏱️ 制限時間（分）</label>
-                        <select id="timeLimit" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
-                            <option value="0">制限なし</option>
-                            <option value="5">5分</option>
-                            <option value="10">10分</option>
-                            <option value="15">15分</option>
-                            <option value="30">30分</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">📊 問題数</label>
-                        <select id="questionLimit" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
-                            <option value="all">すべて</option>
-                            <option value="5">5問</option>
-                            <option value="10">10問</option>
-                            <option value="20">20問</option>
-                            <option value="50">50問</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="mt-8 text-center">
-                    <button onclick="startQuiz()" class="canva-button text-white px-12 py-5 rounded-2xl font-bold text-xl shadow-2xl transform hover:scale-105">
-                        🚀 クイズを開始する
-                    </button>
-                </div>
-            </div>
-        </div>
-
-
-
-        <!-- クイズ画面 -->
-        <div id="quizContainer" class="hidden">
-            <!-- プログレスバーとタイマー -->
-            <div class="canva-card rounded-3xl p-6 mb-6 fade-in">
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-sm font-medium text-gray-600">進捗</span>
-                    <div class="flex items-center space-x-4">
-                        <span id="progressText" class="text-sm font-medium text-gray-600" aria-live="polite">1 / 10</span>
-                        <div id="timerDisplay" class="hidden flex items-center text-sm font-medium text-orange-600">
-                            <span class="mr-1" aria-hidden="true">⏱️</span>
-                            <span id="timeRemaining" aria-live="polite" aria-label="残り時間">10:00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-3" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10" aria-label="クイズ進捗">
-                    <div id="progressBar" class="progress-bar h-3 rounded-full" style="width: 10%"></div>
-                </div>
-            </div>
-
-            <!-- 問題カード -->
-            <div class="quiz-card rounded-2xl p-8 text-white mb-6 slide-up">
-                <div class="text-center">
-                    <div id="questionNumber" class="text-lg font-medium mb-4 opacity-90">問題 1</div>
-                    <h2 id="questionText" class="text-2xl font-bold mb-6 leading-relaxed">問題文がここに表示されます</h2>
-                    <div class="flex justify-center space-x-3 mb-4">
-                        <div id="questionCategory" class="inline-block bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm font-medium">
-                            一般知識
-                        </div>
-                        <div id="questionDifficulty" class="inline-block bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm font-medium">
-                            初級
-                        </div>
-                        <div id="questionType" class="inline-block bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm font-medium">
-                            択一選択
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 広告スペース4（問題間に表示、無料プランのみ） -->
-            <div id="adSpace4" class="ad-container mb-6">
-                <div class="ad-label">広告</div>
-                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-4 rounded-lg">
-                    <h3 class="font-bold mb-2">🎯 集中力UP！</h3>
-                    <p class="text-sm">プレミアムプランで広告なしの快適学習環境を体験</p>
-                </div>
-            </div>
-
-            <!-- 選択肢 -->
-            <div id="optionsContainer" class="space-y-4 mb-8">
-                <!-- 選択肢がここに動的に生成されます -->
-            </div>
-
-            <!-- 操作ボタン -->
-            <div class="space-y-4">
-                <!-- 決定ボタン -->
-                <div class="text-center">
-                    <button id="confirmButton" onclick="confirmAnswer()" 
-                            class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 sm:px-12 py-3 sm:py-4 rounded-xl font-bold text-lg sm:text-xl shadow-2xl transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105">
-                        ✅ 決定
-                    </button>
-                    <p class="text-sm text-gray-600 mt-2">選択肢を選んで「決定」ボタンを押してください</p>
-                </div>
-                
-                <!-- ナビゲーションボタン -->
-                <div class="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
-                    <div class="flex space-x-3 w-full sm:w-auto">
-                        <button onclick="showHome()" class="flex-1 sm:flex-none bg-green-500 hover:bg-green-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-semibold transition-all shadow-lg text-sm sm:text-base">
-                            🏠 ホーム
-                        </button>
-                        <button id="prevButton" onclick="previousQuestion()" 
-                                class="flex-1 sm:flex-none bg-gray-400 hover:bg-gray-500 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-sm sm:text-base">
-                            ← 前の問題
-                        </button>
-                    </div>
-                    <button id="nextButton" onclick="nextQuestion()" 
-                            class="w-full sm:w-auto canva-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-sm sm:text-base">
-                        次の問題 →
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- 結果画面 -->
-        <div id="resultContainer" class="hidden">
-            <div class="canva-card rounded-3xl p-8 text-center mb-6 fade-in">
-                <div class="text-6xl mb-4">🎉</div>
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">クイズ完了！</h2>
-                <div class="text-6xl font-bold text-purple-600 mb-2 bounce-in" id="finalScore">8/10</div>
-                <p class="text-gray-600 mb-6">お疲れさまでした！</p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                    <div class="bg-green-50 p-4 rounded-lg">
-                        <div class="text-2xl font-bold text-green-600" id="correctCount">8</div>
-                        <div class="text-sm text-green-600">正解</div>
-                    </div>
-                    <div class="bg-red-50 p-4 rounded-lg">
-                        <div class="text-2xl font-bold text-red-600" id="incorrectCount">2</div>
-                        <div class="text-sm text-red-600">不正解</div>
-                    </div>
-                    <div class="bg-blue-50 p-4 rounded-lg">
-                        <div class="text-2xl font-bold text-blue-600" id="accuracyRate">80%</div>
-                        <div class="text-sm text-blue-600">正答率</div>
-                    </div>
-                </div>
-                <!-- 称号表示 -->
-                <div id="achievementSection" class="hidden mb-8">
-                    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-3xl p-6 text-center text-white shadow-2xl bounce-in">
-                        <div class="text-4xl mb-3">🏆</div>
-                        <h3 class="text-2xl font-bold mb-2">称号獲得！</h3>
-                        <div id="achievementTitle" class="text-3xl font-bold mb-2">マーケティング道場 初級マスター</div>
-                        <p id="achievementDescription" class="text-lg opacity-90">初級レベルの問題を全問正解しました！</p>
-                    </div>
-                </div>
-                
-                <!-- 広告スペース5（結果画面、無料プランのみ） -->
-                <div id="adSpace5" class="ad-container mb-6">
-                    <div class="ad-label">おすすめ</div>
-                    <div class="bg-gradient-to-r from-pink-500 to-rose-600 text-white p-4 rounded-lg">
-                        <h3 class="font-bold mb-2">🏆 さらなる高みへ</h3>
-                        <p class="text-sm">プレミアムプランで上級問題に挑戦し、真のエキスパートを目指そう</p>
-                    </div>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
-                    <button onclick="showHome()" 
-                            class="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold shadow-lg text-sm sm:text-base">
-                        🏠 ホームに戻る
-                    </button>
-                    <button onclick="showDetailedResults()" 
-                            class="canva-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold shadow-lg text-sm sm:text-base">
-                        📊 詳細結果を見る
-                    </button>
-                    <button onclick="restartQuiz()" 
-                            class="canva-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold shadow-lg text-sm sm:text-base">
-                        🔄 もう一度挑戦
-                    </button>
-                </div>
-            </div>
-            
-            <!-- 詳細結果 -->
-            <div id="detailedResults" class="hidden canva-card rounded-3xl p-6 fade-in">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">📊 問題別詳細結果</h3>
-                <div id="detailedResultsList" class="space-y-4">
-                    <!-- 詳細結果がここに動的に生成されます -->
-                </div>
-                <div class="text-center mt-6">
-                    <button onclick="hideDetailedResults()" 
-                            class="bg-gray-400 hover:bg-gray-500 text-white px-8 py-4 rounded-2xl font-semibold transition-all shadow-lg">
-                        ← 戻る
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- SEO用フッター -->
-        <footer class="mt-16 bg-gray-800 text-white py-8">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div>
-                        <h4 class="text-lg font-bold mb-4">ゆるマーケ道場について</h4>
-                        <p class="text-gray-300 text-sm">
-                            マーケティングスキルを楽しく学べるクイズアプリです。SEO、広告運用、AI活用など実践的な問題で知識を深めることができます。
-                        </p>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold mb-4">学習カテゴリ</h4>
-                        <ul class="text-gray-300 text-sm space-y-2">
-                            <li><a href="#" class="hover:text-white">SEO（検索エンジン最適化）</a></li>
-                            <li><a href="#" class="hover:text-white">デジタル広告運用</a></li>
-                            <li><a href="#" class="hover:text-white">AI・ChatGPT活用</a></li>
-                            <li><a href="#" class="hover:text-white">コンテンツマーケティング</a></li>
-                            <li><a href="#" class="hover:text-white">ECサイト運営</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold mb-4">プラン</h4>
-                        <ul class="text-gray-300 text-sm space-y-2">
-                            <li>無料プラン - 初級問題にアクセス</li>
-                            <li>プレミアムプラン - 全問題＋詳細解説</li>
-                        </ul>
-                        <div class="mt-4">
-                            <p class="text-xs text-gray-400">
-                                © 2024 ゆるマーケ道場. All rights reserved.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </div>
 
     <script>
-        let questions = [];
-        let originalQuestions = [];
-        let currentQuestionIndex = 0;
-        let userAnswers = [];
-        let selectedAnswers = new Set();
-        let timerInterval = null;
-        let timeRemaining = 0;
-        let quizStartTime = null;
-        let quizHistory = JSON.parse(localStorage.getItem('quizHistory') || '[]');
-        let scoreChart = null;
-        let categoryChart = null;
-        let selectedCategory = 'all';
-
-        // 文字の正規化関数（○×の文字化けを防ぐ）
-        function normalizeText(text) {
-            return text.trim()
-                .replace(/○/g, '○')  // 全角○に統一
-                .replace(/×/g, '×')  // 全角×に統一
-                .replace(/◯/g, '○')  // ◯を○に変換
-                .replace(/✕/g, '×')  // ✕を×に変換
-                .replace(/\s+/g, ' '); // 複数の空白を1つに
-        }
-
-        // ユーザー管理
-        let currentUser = null;
-        
-        // ログイン状態の永続化
-        function saveUserSession(user) {
-            localStorage.setItem('currentUser', JSON.stringify(user));
-        }
-        
-        function loadUserSession() {
-            const savedUser = localStorage.getItem('currentUser');
-            if (savedUser) {
-                try {
-                    return JSON.parse(savedUser);
-                } catch (error) {
-                    console.error('ユーザーセッションの復元に失敗:', error);
-                    localStorage.removeItem('currentUser');
-                }
+        // クイズデータ
+        const quizData = [
+            {
+                question: "マーケティングの4Pに含まれないものは？",
+                options: ["Product（製品）", "Price（価格）", "People（人）", "Place（流通）"],
+                correct: 2,
+                explanation: "マーケティングの4Pは、Product（製品）、Price（価格）、Place（流通）、Promotion（販促）です。"
+            },
+            {
+                question: "ターゲット顧客を明確にすることを何という？",
+                options: ["セグメンテーション", "ポジショニング", "ターゲティング", "ブランディング"],
+                correct: 2,
+                explanation: "ターゲティングは、セグメンテーションで分けた市場の中から、自社が狙う顧客層を決めることです。"
+            },
+            {
+                question: "顧客生涯価値を表すアルファベット3文字は？",
+                options: ["ROI", "LTV", "CPA", "CTR"],
+                correct: 1,
+                explanation: "LTV（Life Time Value）は、一人の顧客が生涯にわたって企業にもたらす価値のことです。"
+            },
+            {
+                question: "SNSマーケティングで最も重要なことは？",
+                options: ["フォロワー数を増やす", "毎日投稿する", "ユーザーとの関係構築", "広告費をかける"],
+                correct: 2,
+                explanation: "SNSマーケティングでは、単なる宣伝ではなく、ユーザーとの信頼関係を築くことが最も重要です。"
+            },
+            {
+                question: "コンテンツマーケティングの目的は？",
+                options: ["商品を直接売る", "価値ある情報を提供する", "競合を批判する", "価格を下げる"],
+                correct: 1,
+                explanation: "コンテンツマーケティングは、顧客にとって価値ある情報を提供し、信頼関係を築くことが目的です。"
             }
-            return null;
-        }
-        
-        function clearUserSession() {
-            localStorage.removeItem('currentUser');
-        }
-        
-        // デモ用ユーザーデータ
-        const demoUsers = {
-            'demo@free.com': { name: 'フリーユーザー', plan: 'free', password: 'password123' },
-            'demo@premium.com': { name: 'プレミアムユーザー', plan: 'premium', password: 'password123' },
-            'admin@demo.com': { name: '管理者', plan: 'admin', password: 'admin123' }
-        };
+        ];
 
-        // ユーザー統計管理
-        function getUserStats() {
-            const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
-            const loginHistory = JSON.parse(localStorage.getItem('loginHistory') || '[]');
-            
-            // 今日のログイン数
-            const today = new Date().toDateString();
-            const todayLogins = loginHistory.filter(login => 
-                new Date(login.timestamp).toDateString() === today
-            ).length;
-            
-            // 今週のログイン数
-            const weekAgo = new Date();
-            weekAgo.setDate(weekAgo.getDate() - 7);
-            const weeklyLogins = loginHistory.filter(login => 
-                new Date(login.timestamp) >= weekAgo
-            ).length;
-            
-            // プラン別ユーザー数
-            const planStats = {
-                free: registeredUsers.filter(user => user.plan === 'free').length,
-                premium: registeredUsers.filter(user => user.plan === 'premium').length,
-                admin: registeredUsers.filter(user => user.plan === 'admin').length
-            };
-            
-            return {
-                totalUsers: registeredUsers.length + Object.keys(demoUsers).length,
-                registeredUsers: registeredUsers.length,
-                demoUsers: Object.keys(demoUsers).length,
-                todayLogins,
-                weeklyLogins,
-                planStats
-            };
-        }
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedOption = null;
 
-        function trackLogin(email, plan) {
-            const loginHistory = JSON.parse(localStorage.getItem('loginHistory') || '[]');
-            loginHistory.push({
-                email,
-                plan,
-                timestamp: new Date().toISOString()
-            });
-            
-            // 最新100件のみ保持
-            if (loginHistory.length > 100) {
-                loginHistory.splice(0, loginHistory.length - 100);
-            }
-            
-            localStorage.setItem('loginHistory', JSON.stringify(loginHistory));
-        }
-
-        // PWA関連の変数
+        // PWA インストール機能
         let deferredPrompt;
-        let isInstalled = false;
+        const installBtn = document.getElementById('installBtn');
 
-        // PWAインストール関連
         window.addEventListener('beforeinstallprompt', (e) => {
-            // デフォルトのインストールプロンプトを防ぐ
             e.preventDefault();
             deferredPrompt = e;
-            showInstallButton();
+            installBtn.style.display = 'block';
         });
 
-        window.addEventListener('appinstalled', () => {
-            console.log('PWA がインストールされました');
-            isInstalled = true;
-            hideInstallButton();
-            showInstallSuccessMessage();
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    installBtn.style.display = 'none';
+                }
+                deferredPrompt = null;
+            }
         });
 
-        // サービスワーカーの登録
+        // クイズ機能
+        function loadQuestion() {
+            const quiz = quizData[currentQuestion];
+            document.getElementById('question').textContent = quiz.question;
+            
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            
+            quiz.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.textContent = option;
+                optionElement.onclick = () => selectOption(index);
+                optionsContainer.appendChild(optionElement);
+            });
+
+            document.getElementById('nextBtn').disabled = true;
+            selectedOption = null;
+            updateProgress();
+        }
+
+        function selectOption(index) {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[index].classList.add('selected');
+            
+            selectedOption = index;
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (selectedOption === null) return;
+
+            const quiz = quizData[currentQuestion];
+            const options = document.querySelectorAll('.option');
+            
+            // 正解・不正解の表示
+            options.forEach((option, index) => {
+                if (index === quiz.correct) {
+                    option.classList.add('correct');
+                } else if (index === selectedOption && index !== quiz.correct) {
+                    option.classList.add('incorrect');
+                }
+            });
+
+            // スコア更新
+            if (selectedOption === quiz.correct) {
+                score++;
+                document.getElementById('score').textContent = score;
+            }
+
+            // 次の問題または結果表示
+            setTimeout(() => {
+                currentQuestion++;
+                if (currentQuestion < quizData.length) {
+                    loadQuestion();
+                } else {
+                    showResult();
+                }
+            }, 1500);
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function showResult() {
+            document.getElementById('quizSection').classList.add('hidden');
+            document.getElementById('result').classList.remove('hidden');
+
+            const percentage = (score / quizData.length) * 100;
+            let emoji, title, message;
+
+            if (percentage >= 80) {
+                emoji = '🎉';
+                title = 'マーケティングマスター！';
+                message = `素晴らしい！${score}問正解です。マーケティングの基礎がしっかり身についていますね！`;
+            } else if (percentage >= 60) {
+                emoji = '👍';
+                title = 'なかなか良い感じ！';
+                message = `${score}問正解！もう少し勉強すればマスターレベルです。`;
+            } else {
+                emoji = '📚';
+                title = 'もう少し頑張ろう！';
+                message = `${score}問正解。基礎から復習してみましょう。継続が大切です！`;
+            }
+
+            document.getElementById('resultEmoji').textContent = emoji;
+            document.getElementById('resultTitle').textContent = title;
+            document.getElementById('resultMessage').textContent = message;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            selectedOption = null;
+            
+            document.getElementById('score').textContent = '0';
+            document.getElementById('result').classList.add('hidden');
+            document.getElementById('quizSection').classList.remove('hidden');
+            
+            loadQuestion();
+        }
+
+        // PWA インストール機能
+        let deferredPrompt;
+        const installBtn = document.getElementById('installBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'block';
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    installBtn.style.display = 'none';
+                }
+                deferredPrompt = null;
+            }
+        });
+
+        // Service Worker 登録
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then((registration) => {
-                        console.log('Service Worker 登録成功:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.log('Service Worker 登録失敗:', error);
-                    });
+                navigator.serviceWorker.register('data:text/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgZXZlbnQgPT4gewogIGNvbnNvbGUubG9nKCdTZXJ2aWNlIFdvcmtlciBpbnN0YWxsZWQnKTsKfSk7CgpzZWxmLmFkZEV2ZW50TGlzdGVuZXIoJ2ZldGNoJywgZXZlbnQgPT4gewogIC8vIEJhc2ljIGZldGNoIGhhbmRsaW5nCn0pOw==')
+                .then(registration => {
+                    console.log('SW registered: ', registration);
+                })
+                .catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
             });
         }
 
-        function showInstallButton() {
-            const installButton = document.getElementById('installButton');
-            if (installButton) {
-                installButton.style.display = 'flex';
-            }
-        }
+        // 初期化
+        document.addEventListener('DOMContentLoaded', () => {
+            loadQuestion();
+        });
 
-        function hideInstallButton() {
-            const installButton = document.getElementById('installButton');
-            if (installButton) {
-                installButton.style.display = 'none';
-            }
-        }
-
-        function installPWA() {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('ユーザーがPWAインストールを承認');
-                        showInstallSuccessMessage();
-                    } else {
-                        console.log('ユーザーがPWAインストールを拒否');
-                    }
-                    deferredPrompt = null;
-                    hideInstallButton();
+        // Service Worker 登録
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('data:text/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgZXZlbnQgPT4gewogIGNvbnNvbGUubG9nKCdTZXJ2aWNlIFdvcmtlciBpbnN0YWxsZWQnKTsKfSk7CgpzZWxmLmFkZEV2ZW50TGlzdGVuZXIoJ2ZldGNoJywgZXZlbnQgPT4gewogIC8vIEJhc2ljIGZldGNoIGhhbmRsaW5nCn0pOw==')
+                .then(registration => {
+                    console.log('SW registered: ', registration);
+                })
+                .catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
                 });
-            } else {
-                // フォールバック：手動インストール手順を表示
-                showManualInstallInstructions();
-            }
+            });
         }
-
-        function showInstallSuccessMessage() {
-            // インストール成功メッセージを表示
-            const message = document.createElement('div');
-            message.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-4 rounded-lg shadow-lg z-50 fade-in';
-            message.innerHTML = `
-                <div class="flex items-center">
-                    <span class="text-2xl mr-2">🎉</span>
-                    <div>
-                        <div class="font-bold">アプリがインストールされました！</div>
-                        <div class="text-sm opacity-90">ホーム画面からアクセスできます</div>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(message);
-            
-            setTimeout(() => {
-                message.remove();
-            }, 5000);
-        }
-
-        function showManualInstallInstructions() {
-            const modal = document.createElement('div');
-            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
-            modal.innerHTML = `
-                <div class="canva-card rounded-3xl p-6 max-w-md mx-4 bounce-in">
-                    <div class="text-center">
-                        <div class="text-4xl mb-4">📱</div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">アプリをインストール</h3>
-                        <div class="text-left space-y-3 mb-6">
-                            <div class="bg-blue-50 p-3 rounded-lg">
-                                <div class="font-semibold text-blue-800 mb-1">📱 iPhone/iPad:</div>
-                                <div class="text-sm text-blue-700">Safari → 共有ボタン → ホーム画面に追加</div>
-                            </div>
-                            <div class="bg-green-50 p-3 rounded-lg">
-                                <div class="font-semibold text-green-800 mb-1">🤖 Android:</div>
-                                <div class="text-sm text-green-700">Chrome → メニュー → ホーム画面に追加</div>
-                            </div>
-                        </div>
-                        <button onclick="this.parentElement.parentElement.parentElement.remove()" 
-                                class="canva-button text-white px-6 py-3 rounded-lg font-semibold w-full">
-                            わかりました
-                        </button>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(modal);
-        }
-
-        // サンプルデータ
-        const sampleQuestions = [
-            {
-                question: "SEOとは何の略称ですか？",
-                type: "single",
-                options: ["Search Engine Optimization", "Social Engine Optimization", "System Engine Operation", "Site Engine Organization"],
-                correct: ["Search Engine Optimization"],
-                category: "SEO",
-                difficulty: "初級",
-                explanation: "SEOは「Search Engine Optimization（検索エンジン最適化）」の略称です。検索エンジンでの表示順位を向上させる施策のことを指します。"
-            },
-            {
-                question: "HTMLの正式名称は何ですか？",
-                type: "single",
-                options: ["HyperText Markup Language", "High Tech Modern Language", "Home Tool Markup Language", "Hyper Transfer Markup Language"],
-                correct: ["HyperText Markup Language"],
-                category: "HTML",
-                difficulty: "初級",
-                explanation: "HTMLは「HyperText Markup Language」の略称です。Webページの構造を記述するためのマークアップ言語です。"
-            },
-            {
-                question: "Google広告の課金方式として正しいものはどれですか？（複数選択可）",
-                type: "multiple",
-                options: ["CPC（クリック課金）", "CPM（インプレッション課金）", "CPA（成果課金）", "CPL（リード課金）"],
-                correct: ["CPC（クリック課金）", "CPM（インプレッション課金）"],
-                category: "広告",
-                difficulty: "中級",
-                explanation: "Google広告では主にCPC（クリック課金）とCPM（インプレッション課金）が使用されます。CPAやCPLは他の広告プラットフォームでよく使われる課金方式です。"
-            },
-            {
-                question: "CSSでテキストの色を赤にするプロパティは何ですか？",
-                type: "single",
-                options: ["color: red;", "text-color: red;", "font-color: red;", "background: red;"],
-                correct: ["color: red;"],
-                category: "CSS",
-                difficulty: "初級",
-                explanation: "CSSでテキストの色を指定するには「color」プロパティを使用します。「color: red;」でテキストが赤色になります。"
-            },
-            {
-                question: "フィッシング詐欺とは偽のWebサイトで個人情報を盗む手法である",
-                type: "truefalse",
-                options: ["○", "×"],
-                correct: ["○"],
-                category: "リテラシー",
-                difficulty: "初級",
-                explanation: "フィッシング詐欺は、正規のWebサイトを装った偽サイトでユーザーの個人情報（ID、パスワード、クレジットカード情報など）を盗む詐欺手法です。"
-            },
-            {
-                question: "Wor
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96ae4e6e8213b53f',t:'MTc1NDQ4MDkxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96ae8dd910b405b2',t:'MTc1NDQ4MzUxNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
