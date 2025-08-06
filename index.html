@@ -1524,20 +1524,32 @@
             </div>
 
             <!-- 操作ボタン -->
-            <div class="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
-                <div class="flex space-x-3 w-full sm:w-auto">
-                    <button onclick="showHome()" class="flex-1 sm:flex-none bg-green-500 hover:bg-green-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-semibold transition-all shadow-lg text-sm sm:text-base">
-                        🏠 ホーム
+            <div class="space-y-4">
+                <!-- 決定ボタン -->
+                <div class="text-center">
+                    <button id="confirmButton" onclick="confirmAnswer()" 
+                            class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 sm:px-12 py-3 sm:py-4 rounded-xl font-bold text-lg sm:text-xl shadow-2xl transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105">
+                        ✅ 決定
                     </button>
-                    <button id="prevButton" onclick="previousQuestion()" 
-                            class="flex-1 sm:flex-none bg-gray-400 hover:bg-gray-500 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-sm sm:text-base">
-                        ← 前の問題
+                    <p class="text-sm text-gray-600 mt-2">選択肢を選んで「決定」ボタンを押してください</p>
+                </div>
+                
+                <!-- ナビゲーションボタン -->
+                <div class="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
+                    <div class="flex space-x-3 w-full sm:w-auto">
+                        <button onclick="showHome()" class="flex-1 sm:flex-none bg-green-500 hover:bg-green-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-semibold transition-all shadow-lg text-sm sm:text-base">
+                            🏠 ホーム
+                        </button>
+                        <button id="prevButton" onclick="previousQuestion()" 
+                                class="flex-1 sm:flex-none bg-gray-400 hover:bg-gray-500 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-sm sm:text-base">
+                            ← 前の問題
+                        </button>
+                    </div>
+                    <button id="nextButton" onclick="nextQuestion()" 
+                            class="w-full sm:w-auto canva-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-sm sm:text-base">
+                        次の問題 →
                     </button>
                 </div>
-                <button id="nextButton" onclick="nextQuestion()" 
-                        class="w-full sm:w-auto canva-button text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-sm sm:text-base">
-                    次の問題 →
-                </button>
             </div>
         </div>
 
@@ -3467,16 +3479,17 @@
             // ボタンの状態更新
             document.getElementById('prevButton').disabled = currentQuestionIndex === 0;
             const nextButton = document.getElementById('nextButton');
+            const confirmButton = document.getElementById('confirmButton');
+            
             nextButton.textContent = currentQuestionIndex === questions.length - 1 ? '結果を見る' : '次の問題 →';
             
-            // 複数選択以外は次へボタンを無効化（回答後に有効化）
-            if (question.type === 'single' || question.type === 'truefalse') {
-                nextButton.disabled = true;
-                nextButton.style.opacity = '0.5';
-            } else {
-                nextButton.disabled = false;
-                nextButton.style.opacity = '1';
-            }
+            // 次へボタンを無効化（決定ボタン押下後に有効化）
+            nextButton.disabled = true;
+            nextButton.style.opacity = '0.5';
+            
+            // 決定ボタンを無効化（選択肢選択後に有効化）
+            confirmButton.disabled = true;
+            confirmButton.style.opacity = '0.5';
             
             // 広告表示制御（5問ごと、無料プランのみ）
             if (currentUser.plan === 'free' && currentQuestionIndex > 0 && currentQuestionIndex % 5 === 0) {
@@ -3499,9 +3512,6 @@
                 selectedAnswers.clear();
                 selectedAnswers.add(option);
                 
-                // 即座に正誤判定を表示
-                showAnswerFeedback(option, type);
-                
             } else if (type === 'multiple') {
                 // 複数選択：トグル
                 if (selectedAnswers.has(option)) {
@@ -3513,46 +3523,65 @@
                     createParticles(button);
                 }
             }
+            
+            // 決定ボタンの状態を更新
+            updateConfirmButtonState();
         }
 
-        function showAnswerFeedback(selectedOption, type) {
+        function updateConfirmButtonState() {
+            const confirmButton = document.getElementById('confirmButton');
+            if (selectedAnswers.size > 0) {
+                confirmButton.disabled = false;
+                confirmButton.style.opacity = '1';
+            } else {
+                confirmButton.disabled = true;
+                confirmButton.style.opacity = '0.5';
+            }
+        }
+
+        function confirmAnswer() {
+            if (selectedAnswers.size === 0) return;
+            
             const question = questions[currentQuestionIndex];
+            const userAnswer = Array.from(selectedAnswers);
             const correctAnswers = question.correct;
             
-            // 単一選択・○×問題の場合のみ即座にフィードバック
-            if (type === 'single' || type === 'truefalse') {
-                const isCorrect = correctAnswers.includes(selectedOption);
+            // 正誤判定
+            const isCorrect = arraysEqual(userAnswer.sort(), correctAnswers.sort());
+            
+            // 全ての選択肢に正誤を表示
+            document.querySelectorAll('.option-button').forEach(btn => {
+                const optionText = btn.querySelector('span:last-child').textContent;
                 
-                // 全ての選択肢に正誤を表示
-                document.querySelectorAll('.option-button').forEach(btn => {
-                    const optionText = btn.querySelector('span:last-child').textContent;
-                    
-                    if (correctAnswers.includes(optionText)) {
-                        btn.classList.add('correct');
-                        btn.classList.remove('option-button');
-                    } else if (optionText === selectedOption && !isCorrect) {
-                        btn.classList.add('incorrect');
-                        btn.classList.remove('option-button');
-                    }
-                    
-                    // ボタンを無効化
-                    btn.disabled = true;
-                    btn.style.pointerEvents = 'none';
-                });
-                
-                // 解説を表示（プレミアムプランのみ）
-                if (currentUser.plan === 'premium' && question.explanation) {
-                    setTimeout(() => {
-                        showExplanation(question.explanation, isCorrect);
-                    }, 1000);
+                if (correctAnswers.includes(optionText)) {
+                    btn.classList.add('correct');
+                } else if (userAnswer.includes(optionText) && !correctAnswers.includes(optionText)) {
+                    btn.classList.add('incorrect');
                 }
                 
-                // 次の問題ボタンを有効化
-                setTimeout(() => {
-                    document.getElementById('nextButton').disabled = false;
-                    document.getElementById('nextButton').style.opacity = '1';
-                }, 1500);
-            }
+                // ボタンを無効化
+                btn.disabled = true;
+                btn.style.pointerEvents = 'none';
+            });
+            
+            // 決定ボタンを無効化
+            document.getElementById('confirmButton').disabled = true;
+            document.getElementById('confirmButton').style.opacity = '0.5';
+            
+            // 解説を表示（解説がない場合は結果のみ表示）
+            setTimeout(() => {
+                if (question.explanation) {
+                    showExplanation(question.explanation, isCorrect);
+                } else {
+                    showResultOnly(isCorrect);
+                }
+            }, 1000);
+            
+            // 次の問題ボタンを有効化
+            setTimeout(() => {
+                document.getElementById('nextButton').disabled = false;
+                document.getElementById('nextButton').style.opacity = '1';
+            }, 1500);
         }
 
         function showExplanation(explanation, isCorrect) {
@@ -3564,22 +3593,67 @@
             
             const explanationCard = document.createElement('div');
             explanationCard.id = 'explanationCard';
-            explanationCard.className = `mt-6 p-4 rounded-lg border-l-4 ${isCorrect ? 'bg-green-50 border-green-400' : 'bg-blue-50 border-blue-400'} fade-in`;
+            explanationCard.className = `mt-6 p-4 sm:p-6 rounded-xl border-l-4 ${isCorrect ? 'bg-green-50 border-green-400' : 'bg-red-50 border-red-400'} fade-in shadow-lg`;
+            
+            // 正解・不正解のメッセージとアイコン
+            const resultIcon = isCorrect ? '🎉' : '❌';
+            const resultTitle = isCorrect ? '正解です！' : '不正解です';
+            const resultColor = isCorrect ? 'text-green-800' : 'text-red-800';
+            const explanationColor = isCorrect ? 'text-green-700' : 'text-red-700';
+            
             explanationCard.innerHTML = `
                 <div class="flex items-start">
-                    <div class="flex-shrink-0 mr-3">
-                        <span class="text-2xl">${isCorrect ? '✅' : '💡'}</span>
+                    <div class="flex-shrink-0 mr-3 sm:mr-4">
+                        <span class="text-3xl sm:text-4xl">${resultIcon}</span>
                     </div>
-                    <div>
-                        <h4 class="font-semibold ${isCorrect ? 'text-green-800' : 'text-blue-800'} mb-2">
-                            ${isCorrect ? '正解です！' : '解説'}
+                    <div class="flex-1">
+                        <h4 class="font-bold ${resultColor} mb-3 text-lg sm:text-xl">
+                            ${resultTitle}
                         </h4>
-                        <p class="${isCorrect ? 'text-green-700' : 'text-blue-700'}">${explanation}</p>
+                        <div class="bg-white p-3 sm:p-4 rounded-lg border border-gray-200">
+                            <div class="flex items-start">
+                                <span class="text-blue-500 mr-2 mt-1 text-lg">💡</span>
+                                <div>
+                                    <h5 class="font-medium text-blue-800 mb-2">解説</h5>
+                                    <p class="text-gray-700 leading-relaxed">${explanation}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
             
             document.getElementById('optionsContainer').appendChild(explanationCard);
+        }
+
+        function showResultOnly(isCorrect) {
+            // 既存の結果表示を削除
+            const existingResult = document.getElementById('resultCard');
+            if (existingResult) {
+                existingResult.remove();
+            }
+            
+            const resultCard = document.createElement('div');
+            resultCard.id = 'resultCard';
+            resultCard.className = `mt-6 p-4 sm:p-6 rounded-xl border-l-4 ${isCorrect ? 'bg-green-50 border-green-400' : 'bg-red-50 border-red-400'} fade-in shadow-lg`;
+            
+            // 正解・不正解のメッセージとアイコン
+            const resultIcon = isCorrect ? '🎉' : '❌';
+            const resultTitle = isCorrect ? '正解です！' : '不正解です';
+            const resultColor = isCorrect ? 'text-green-800' : 'text-red-800';
+            
+            resultCard.innerHTML = `
+                <div class="flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-4xl sm:text-5xl mb-3">${resultIcon}</div>
+                        <h4 class="font-bold ${resultColor} text-xl sm:text-2xl">
+                            ${resultTitle}
+                        </h4>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('optionsContainer').appendChild(resultCard);
         }
 
         function nextQuestion() {
@@ -3609,6 +3683,9 @@
                             button.classList.add('option-selected');
                         }
                     });
+                    
+                    // 決定ボタンの状態を更新
+                    updateConfirmButtonState();
                 }
             }
         }
@@ -3873,10 +3950,18 @@
                         }
                     }
                     
-                    // Enterキーで次の問題へ
-                    if (e.key === 'Enter' && !document.getElementById('nextButton').disabled) {
-                        document.getElementById('nextButton').click();
-                        e.preventDefault();
+                    // Enterキーで決定または次の問題へ
+                    if (e.key === 'Enter') {
+                        const confirmButton = document.getElementById('confirmButton');
+                        const nextButton = document.getElementById('nextButton');
+                        
+                        if (!confirmButton.disabled) {
+                            confirmButton.click();
+                            e.preventDefault();
+                        } else if (!nextButton.disabled) {
+                            nextButton.click();
+                            e.preventDefault();
+                        }
                     }
                     
                     // Backspaceで前の問題へ
@@ -4562,5 +4647,5 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'967c0032a37919e5',t:'MTc1Mzk1MzQyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96ae21f6424b8cfb',t:'MTc1NDQ3OTA5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
